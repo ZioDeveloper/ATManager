@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cac3217b4394428d9acb2f0fbc81cd9c" Name="Diagram1">
+        <EntityTypeShape EntityType="AUTOSDUModel.AT_IndiciValutazione" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AUTOSDUModel.AT_SchedaTecnica" Width="1.5" PointX="3.125" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AUTOSDUModel.AT_StatiMezzo" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AUTOSDUModel.AT_TipiScheda" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <AssociationConnector Association="AUTOSDUModel.StatiMezzo" ManuallyRouted="false" />
+        <AssociationConnector Association="AUTOSDUModel.TipiScheda" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AUTOSDUModel.AT_ListaPratiche_vw" Width="1.5" PointX="5.625" PointY="0.5" />
+        <AssociationConnector Association="AUTOSDUModel.CE110" />
+        <AssociationConnector Association="AUTOSDUModel.CE112" />
+        <AssociationConnector Association="AUTOSDUModel.CE115" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

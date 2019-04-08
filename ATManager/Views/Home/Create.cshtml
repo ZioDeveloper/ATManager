@@ -1,0 +1,95 @@
+﻿@model ATManager.Models.AT_SchedaTecnica
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Dati scheda</h4>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IDPratica, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            @Html.TextBox("IDPratica", (string)ViewBag.IDPratica)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IDTipoScheda, "IDTipoScheda", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("IDTipoScheda", null, htmlAttributes: new { @class = "form-control" })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IDStatoMezzo, "IDStatoMezzo", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("IDStatoMezzo", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="col-md-10">
+
+            @Html.LabelFor(model => model.CE110, "110", htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.RadioButtonFor(model => model.CE110, "1")
+            @Html.RadioButtonFor(model => model.CE110, "2")
+            @Html.RadioButtonFor(model => model.CE110, "3")
+            <font size="1">testo per stringa descrizione di prova del piffero davvero lungo </font>
+
+
+        </div>
+    </div>
+    <div class="form-group">
+
+        <div class="col-md-10">
+
+            @Html.LabelFor(model => model.CE112, "112", htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.RadioButtonFor(model => model.CE112, "1")
+            @Html.RadioButtonFor(model => model.CE112, "2")
+            @Html.RadioButtonFor(model => model.CE112, "3")
+            <font size="1">testo per stringa descrizione di prova del piffero davvero lungo </font>
+
+
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="col-md-10">
+
+            @Html.LabelFor(model => model.CE115, "115", htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.RadioButtonFor(model => model.CE115, "1")
+            @Html.RadioButtonFor(model => model.CE115, "2")
+            @Html.RadioButtonFor(model => model.CE115, "3")
+            <font size="1">testo per stringa descrizione di prova del piffero davvero lungo </font>
+
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+
+</div>
+
+}
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>

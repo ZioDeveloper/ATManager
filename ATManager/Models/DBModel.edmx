@@ -1,0 +1,595 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AUTOSDUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AT_IndiciValutazione">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Descr" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AT_SchedaTecnica">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDPratica" Type="int" Nullable="false" />
+          <Property Name="IDTipoScheda" Type="int" Nullable="false" />
+          <Property Name="IDStatoMezzo" Type="int" Nullable="false" />
+          <Property Name="CE110" Type="int" />
+          <Property Name="CE112" Type="int" />
+          <Property Name="CE115" Type="int" />
+          <Property Name="CE125" Type="int" />
+          <Property Name="CE135" Type="int" />
+          <Property Name="CE145" Type="int" />
+          <Property Name="CE150" Type="int" />
+          <Property Name="CE160" Type="int" />
+          <Property Name="CE170" Type="int" />
+          <Property Name="CE415" Type="int" />
+          <Property Name="CE265" Type="int" />
+          <Property Name="CE420" Type="int" />
+          <Property Name="CE816" Type="int" />
+          <Property Name="CE840" Type="int" />
+          <Property Name="CE841" Type="int" />
+          <Property Name="CE842" Type="int" />
+          <Property Name="CE843" Type="int" />
+          <Property Name="CE844" Type="int" />
+          <Property Name="CE960" Type="int" />
+          <Property Name="CI820" Type="int" />
+          <Property Name="CI825" Type="int" />
+          <Property Name="CI835" Type="int" />
+          <Property Name="CI837" Type="int" />
+          <Property Name="CI843" Type="int" />
+          <Property Name="CI910" Type="int" />
+          <Property Name="CI930" Type="int" />
+          <Property Name="CI1145" Type="int" />
+          <Property Name="CS240" Type="int" />
+          <Property Name="CS510" Type="int" />
+          <Property Name="CS511" Type="int" />
+          <Property Name="CS710" Type="int" />
+          <Property Name="CS715" Type="int" />
+          <Property Name="CS810" Type="int" />
+          <Property Name="CS815" Type="int" />
+          <Property Name="PS165" Type="int" />
+          <Property Name="PS225" Type="int" />
+          <Property Name="PS230" Type="int" />
+          <Property Name="PS235" Type="int" />
+          <Property Name="PS250" Type="int" />
+          <Property Name="PS260" Type="int" />
+          <Property Name="PS410" Type="int" />
+          <Property Name="PS512" Type="int" />
+          <Property Name="PS610" Type="int" />
+        </EntityType>
+        <EntityType Name="AT_StatiMezzo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Descr" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AT_TipiScheda">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Descr" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AT_ListaPratiche_vw">
+          <Key>
+            <PropertyRef Name="PRAT_ID" />
+            <PropertyRef Name="Targa" />
+          </Key>
+          <Property Name="TipoPerizia_ID" Type="int" />
+          <Property Name="TipoPerizia_Descr" Type="varchar" MaxLength="50" />
+          <Property Name="PRAT_ID" Type="int" Nullable="false" />
+          <Property Name="Targa" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Chassis1" Type="varchar" MaxLength="9" />
+          <Property Name="Chassis2" Type="varchar" MaxLength="15" />
+          <Property Name="ID_Produttore" Type="varchar" MaxLength="4" />
+          <Property Name="ID_LuogoIntervento" Type="varchar" MaxLength="4" />
+          <Property Name="DescrITA" Type="varchar" MaxLength="50" />
+          <Property Name="dealerPiazzale_peritoNonTabellato" Type="varchar" MaxLength="150" />
+          <Property Name="indirizzo_peritoNonTabellato" Type="varchar" MaxLength="100" />
+          <Property Name="citta_peritoNonTabellato" Type="varchar" MaxLength="50" />
+          <Property Name="Perizie_Barcode" Type="varchar" MaxLength="10" />
+          <Property Name="Perizie_IDPerito" Type="varchar" MaxLength="4" />
+          <Property Name="Perizie_ID" Type="int" />
+          <Property Name="Perizie_IsChiusa" Type="bit" />
+          <Property Name="Perizie_IsChecked" Type="bit" />
+          <Property Name="Perizie_DataIncarico" Type="datetime" />
+          <Property Name="Perizie_DataPerizia" Type="datetime" />
+          <Property Name="Perizie_Note" Type="varchar" MaxLength="2000" />
+          <Property Name="IsPdf" Type="bit" />
+          <Property Name="IsFoto" Type="bit" />
+          <Property Name="ID_UltimoStato" Type="varchar" MaxLength="3" />
+          <Property Name="UltimoStato" Type="varchar" MaxLength="3" />
+          <Property Name="DescStato" Type="varchar" MaxLength="200" />
+          <Property Name="AO_Cognome" Type="varchar" MaxLength="100" />
+          <Property Name="AO_Nome" Type="varchar" MaxLength="50" />
+          <Property Name="Mod_Descr" Type="varchar" MaxLength="50" />
+          <Property Name="Prod_ID" Type="varchar" MaxLength="4" />
+          <Property Name="Prod_Descr" Type="varchar" MaxLength="50" />
+          <Property Name="ID_SchedaTecnica" Type="int" />
+        </EntityType>
+        <Association Name="CE110">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE110" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE112">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE112" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE115">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE115" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StatiMezzo">
+          <End Role="AT_StatiMezzo" Type="Self.AT_StatiMezzo" Multiplicity="1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_StatiMezzo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="IDStatoMezzo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TipiScheda">
+          <End Role="AT_TipiScheda" Type="Self.AT_TipiScheda" Multiplicity="1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_TipiScheda">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="IDTipoScheda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AUTOSDUModelStoreContainer">
+          <EntitySet Name="AT_IndiciValutazione" EntityType="Self.AT_IndiciValutazione" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AT_SchedaTecnica" EntityType="Self.AT_SchedaTecnica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AT_StatiMezzo" EntityType="Self.AT_StatiMezzo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AT_TipiScheda" EntityType="Self.AT_TipiScheda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AT_ListaPratiche_vw" EntityType="Self.AT_ListaPratiche_vw" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AT_ListaPratiche_vw].[TipoPerizia_ID] AS [TipoPerizia_ID], 
+    [AT_ListaPratiche_vw].[TipoPerizia_Descr] AS [TipoPerizia_Descr], 
+    [AT_ListaPratiche_vw].[PRAT_ID] AS [PRAT_ID], 
+    [AT_ListaPratiche_vw].[Targa] AS [Targa], 
+    [AT_ListaPratiche_vw].[Chassis1] AS [Chassis1], 
+    [AT_ListaPratiche_vw].[Chassis2] AS [Chassis2], 
+    [AT_ListaPratiche_vw].[ID_Produttore] AS [ID_Produttore], 
+    [AT_ListaPratiche_vw].[ID_LuogoIntervento] AS [ID_LuogoIntervento], 
+    [AT_ListaPratiche_vw].[DescrITA] AS [DescrITA], 
+    [AT_ListaPratiche_vw].[dealerPiazzale_peritoNonTabellato] AS [dealerPiazzale_peritoNonTabellato], 
+    [AT_ListaPratiche_vw].[indirizzo_peritoNonTabellato] AS [indirizzo_peritoNonTabellato], 
+    [AT_ListaPratiche_vw].[citta_peritoNonTabellato] AS [citta_peritoNonTabellato], 
+    [AT_ListaPratiche_vw].[Perizie_Barcode] AS [Perizie_Barcode], 
+    [AT_ListaPratiche_vw].[Perizie_IDPerito] AS [Perizie_IDPerito], 
+    [AT_ListaPratiche_vw].[Perizie_ID] AS [Perizie_ID], 
+    [AT_ListaPratiche_vw].[Perizie_IsChiusa] AS [Perizie_IsChiusa], 
+    [AT_ListaPratiche_vw].[Perizie_IsChecked] AS [Perizie_IsChecked], 
+    [AT_ListaPratiche_vw].[Perizie_DataIncarico] AS [Perizie_DataIncarico], 
+    [AT_ListaPratiche_vw].[Perizie_DataPerizia] AS [Perizie_DataPerizia], 
+    [AT_ListaPratiche_vw].[Perizie_Note] AS [Perizie_Note], 
+    [AT_ListaPratiche_vw].[IsPdf] AS [IsPdf], 
+    [AT_ListaPratiche_vw].[IsFoto] AS [IsFoto], 
+    [AT_ListaPratiche_vw].[ID_UltimoStato] AS [ID_UltimoStato], 
+    [AT_ListaPratiche_vw].[UltimoStato] AS [UltimoStato], 
+    [AT_ListaPratiche_vw].[DescStato] AS [DescStato], 
+    [AT_ListaPratiche_vw].[AO_Cognome] AS [AO_Cognome], 
+    [AT_ListaPratiche_vw].[AO_Nome] AS [AO_Nome], 
+    [AT_ListaPratiche_vw].[Mod_Descr] AS [Mod_Descr], 
+    [AT_ListaPratiche_vw].[Prod_ID] AS [Prod_ID], 
+    [AT_ListaPratiche_vw].[Prod_Descr] AS [Prod_Descr], 
+    [AT_ListaPratiche_vw].[ID_SchedaTecnica] AS [ID_SchedaTecnica]
+    FROM [dbo].[AT_ListaPratiche_vw] AS [AT_ListaPratiche_vw]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="CE110" Association="Self.CE110">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE112" Association="Self.CE112">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE115" Association="Self.CE115">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="StatiMezzo" Association="Self.StatiMezzo">
+            <End Role="AT_StatiMezzo" EntitySet="AT_StatiMezzo" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="TipiScheda" Association="Self.TipiScheda">
+            <End Role="AT_TipiScheda" EntitySet="AT_TipiScheda" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AUTOSDUModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AT_IndiciValutazione">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AT_SchedaTecnica" Relationship="AUTOSDUModel.CE110" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica1" Relationship="AUTOSDUModel.CE112" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica2" Relationship="AUTOSDUModel.CE115" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+        </EntityType>
+        <EntityType Name="AT_SchedaTecnica">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDTipoScheda" Type="Int32" Nullable="false" />
+          <Property Name="IDStatoMezzo" Type="Int32" Nullable="false" />
+          <Property Name="CE110" Type="Int32" />
+          <Property Name="CE112" Type="Int32" />
+          <Property Name="CE115" Type="Int32" />
+          <Property Name="CE125" Type="Int32" />
+          <Property Name="CE135" Type="Int32" />
+          <Property Name="CE145" Type="Int32" />
+          <Property Name="CE150" Type="Int32" />
+          <Property Name="CE160" Type="Int32" />
+          <Property Name="CE170" Type="Int32" />
+          <Property Name="CE415" Type="Int32" />
+          <Property Name="CE265" Type="Int32" />
+          <Property Name="CE420" Type="Int32" />
+          <Property Name="CE816" Type="Int32" />
+          <Property Name="CE840" Type="Int32" />
+          <Property Name="CE841" Type="Int32" />
+          <Property Name="CE842" Type="Int32" />
+          <Property Name="CE843" Type="Int32" />
+          <Property Name="CE844" Type="Int32" />
+          <Property Name="CE960" Type="Int32" />
+          <Property Name="CI820" Type="Int32" />
+          <Property Name="CI825" Type="Int32" />
+          <Property Name="CI835" Type="Int32" />
+          <Property Name="CI837" Type="Int32" />
+          <Property Name="CI843" Type="Int32" />
+          <Property Name="CI910" Type="Int32" />
+          <Property Name="CI930" Type="Int32" />
+          <Property Name="CI1145" Type="Int32" />
+          <Property Name="CS240" Type="Int32" />
+          <Property Name="CS510" Type="Int32" />
+          <Property Name="CS511" Type="Int32" />
+          <Property Name="CS710" Type="Int32" />
+          <Property Name="CS715" Type="Int32" />
+          <Property Name="CS810" Type="Int32" />
+          <Property Name="CS815" Type="Int32" />
+          <Property Name="PS165" Type="Int32" />
+          <Property Name="PS225" Type="Int32" />
+          <Property Name="PS230" Type="Int32" />
+          <Property Name="PS235" Type="Int32" />
+          <Property Name="PS250" Type="Int32" />
+          <Property Name="PS260" Type="Int32" />
+          <Property Name="PS410" Type="Int32" />
+          <Property Name="PS512" Type="Int32" />
+          <Property Name="PS610" Type="Int32" />
+          <NavigationProperty Name="AT_StatiMezzo" Relationship="Self.StatiMezzo" FromRole="AT_SchedaTecnica" ToRole="AT_StatiMezzo" />
+          <NavigationProperty Name="AT_TipiScheda" Relationship="Self.TipiScheda" FromRole="AT_SchedaTecnica" ToRole="AT_TipiScheda" />
+          <Property Name="IDPratica" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AT_IndiciValutazione" Relationship="AUTOSDUModel.CE110" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione1" Relationship="AUTOSDUModel.CE112" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione2" Relationship="AUTOSDUModel.CE115" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+        </EntityType>
+        <EntityType Name="AT_StatiMezzo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AT_SchedaTecnica" Relationship="Self.StatiMezzo" FromRole="AT_StatiMezzo" ToRole="AT_SchedaTecnica" />
+        </EntityType>
+        <EntityType Name="AT_TipiScheda">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AT_SchedaTecnica" Relationship="Self.TipiScheda" FromRole="AT_TipiScheda" ToRole="AT_SchedaTecnica" />
+        </EntityType>
+        <Association Name="StatiMezzo">
+          <End Role="AT_StatiMezzo" Type="Self.AT_StatiMezzo" Multiplicity="1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_StatiMezzo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="IDStatoMezzo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TipiScheda">
+          <End Role="AT_TipiScheda" Type="Self.AT_TipiScheda" Multiplicity="1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_TipiScheda">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="IDTipoScheda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AUTOSDUEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AT_IndiciValutazione" EntityType="Self.AT_IndiciValutazione" />
+          <EntitySet Name="AT_SchedaTecnica" EntityType="Self.AT_SchedaTecnica" />
+          <EntitySet Name="AT_StatiMezzo" EntityType="Self.AT_StatiMezzo" />
+          <EntitySet Name="AT_TipiScheda" EntityType="Self.AT_TipiScheda" />
+          <AssociationSet Name="StatiMezzo" Association="Self.StatiMezzo">
+            <End Role="AT_StatiMezzo" EntitySet="AT_StatiMezzo" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="TipiScheda" Association="Self.TipiScheda">
+            <End Role="AT_TipiScheda" EntitySet="AT_TipiScheda" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <EntitySet Name="AT_ListaPratiche_vw" EntityType="AUTOSDUModel.AT_ListaPratiche_vw" />
+          <AssociationSet Name="CE110" Association="AUTOSDUModel.CE110">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE112" Association="AUTOSDUModel.CE112">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE115" Association="AUTOSDUModel.CE115">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AT_ListaPratiche_vw">
+          <Key>
+            <PropertyRef Name="PRAT_ID" />
+            <PropertyRef Name="Targa" />
+          </Key>
+          <Property Name="TipoPerizia_ID" Type="Int32" />
+          <Property Name="TipoPerizia_Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRAT_ID" Type="Int32" Nullable="false" />
+          <Property Name="Targa" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Chassis1" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="Chassis2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Produttore" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="ID_LuogoIntervento" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="DescrITA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dealerPiazzale_peritoNonTabellato" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="indirizzo_peritoNonTabellato" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="citta_peritoNonTabellato" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Perizie_Barcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Perizie_IDPerito" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Perizie_ID" Type="Int32" />
+          <Property Name="Perizie_IsChiusa" Type="Boolean" />
+          <Property Name="Perizie_IsChecked" Type="Boolean" />
+          <Property Name="Perizie_DataIncarico" Type="DateTime" Precision="3" />
+          <Property Name="Perizie_DataPerizia" Type="DateTime" Precision="3" />
+          <Property Name="Perizie_Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="IsPdf" Type="Boolean" />
+          <Property Name="IsFoto" Type="Boolean" />
+          <Property Name="ID_UltimoStato" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="UltimoStato" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="DescStato" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AO_Cognome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AO_Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mod_Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Prod_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Prod_Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_SchedaTecnica" Type="Int32" />
+        </EntityType>
+        <Association Name="CE110">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE110" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE112">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE112" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE115">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE115" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AUTOSDUModelStoreContainer" CdmEntityContainer="AUTOSDUEntities">
+          <EntitySetMapping Name="AT_IndiciValutazione">
+            <EntityTypeMapping TypeName="AUTOSDUModel.AT_IndiciValutazione">
+              <MappingFragment StoreEntitySet="AT_IndiciValutazione">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AT_SchedaTecnica">
+            <EntityTypeMapping TypeName="AUTOSDUModel.AT_SchedaTecnica">
+              <MappingFragment StoreEntitySet="AT_SchedaTecnica">
+                <ScalarProperty Name="IDPratica" ColumnName="IDPratica" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDTipoScheda" ColumnName="IDTipoScheda" />
+                <ScalarProperty Name="IDStatoMezzo" ColumnName="IDStatoMezzo" />
+                <ScalarProperty Name="CE110" ColumnName="CE110" />
+                <ScalarProperty Name="CE112" ColumnName="CE112" />
+                <ScalarProperty Name="CE115" ColumnName="CE115" />
+                <ScalarProperty Name="CE125" ColumnName="CE125" />
+                <ScalarProperty Name="CE135" ColumnName="CE135" />
+                <ScalarProperty Name="CE145" ColumnName="CE145" />
+                <ScalarProperty Name="CE150" ColumnName="CE150" />
+                <ScalarProperty Name="CE160" ColumnName="CE160" />
+                <ScalarProperty Name="CE170" ColumnName="CE170" />
+                <ScalarProperty Name="CE415" ColumnName="CE415" />
+                <ScalarProperty Name="CE265" ColumnName="CE265" />
+                <ScalarProperty Name="CE420" ColumnName="CE420" />
+                <ScalarProperty Name="CE816" ColumnName="CE816" />
+                <ScalarProperty Name="CE840" ColumnName="CE840" />
+                <ScalarProperty Name="CE841" ColumnName="CE841" />
+                <ScalarProperty Name="CE842" ColumnName="CE842" />
+                <ScalarProperty Name="CE843" ColumnName="CE843" />
+                <ScalarProperty Name="CE844" ColumnName="CE844" />
+                <ScalarProperty Name="CE960" ColumnName="CE960" />
+                <ScalarProperty Name="CI820" ColumnName="CI820" />
+                <ScalarProperty Name="CI825" ColumnName="CI825" />
+                <ScalarProperty Name="CI835" ColumnName="CI835" />
+                <ScalarProperty Name="CI837" ColumnName="CI837" />
+                <ScalarProperty Name="CI843" ColumnName="CI843" />
+                <ScalarProperty Name="CI910" ColumnName="CI910" />
+                <ScalarProperty Name="CI930" ColumnName="CI930" />
+                <ScalarProperty Name="CI1145" ColumnName="CI1145" />
+                <ScalarProperty Name="CS240" ColumnName="CS240" />
+                <ScalarProperty Name="CS510" ColumnName="CS510" />
+                <ScalarProperty Name="CS511" ColumnName="CS511" />
+                <ScalarProperty Name="CS710" ColumnName="CS710" />
+                <ScalarProperty Name="CS715" ColumnName="CS715" />
+                <ScalarProperty Name="CS810" ColumnName="CS810" />
+                <ScalarProperty Name="CS815" ColumnName="CS815" />
+                <ScalarProperty Name="PS165" ColumnName="PS165" />
+                <ScalarProperty Name="PS225" ColumnName="PS225" />
+                <ScalarProperty Name="PS230" ColumnName="PS230" />
+                <ScalarProperty Name="PS235" ColumnName="PS235" />
+                <ScalarProperty Name="PS250" ColumnName="PS250" />
+                <ScalarProperty Name="PS260" ColumnName="PS260" />
+                <ScalarProperty Name="PS410" ColumnName="PS410" />
+                <ScalarProperty Name="PS512" ColumnName="PS512" />
+                <ScalarProperty Name="PS610" ColumnName="PS610" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AT_StatiMezzo">
+            <EntityTypeMapping TypeName="AUTOSDUModel.AT_StatiMezzo">
+              <MappingFragment StoreEntitySet="AT_StatiMezzo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AT_TipiScheda">
+            <EntityTypeMapping TypeName="AUTOSDUModel.AT_TipiScheda">
+              <MappingFragment StoreEntitySet="AT_TipiScheda">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AT_ListaPratiche_vw">
+            <EntityTypeMapping TypeName="AUTOSDUModel.AT_ListaPratiche_vw">
+              <MappingFragment StoreEntitySet="AT_ListaPratiche_vw">
+                <ScalarProperty Name="ID_SchedaTecnica" ColumnName="ID_SchedaTecnica" />
+                <ScalarProperty Name="Prod_Descr" ColumnName="Prod_Descr" />
+                <ScalarProperty Name="Prod_ID" ColumnName="Prod_ID" />
+                <ScalarProperty Name="Mod_Descr" ColumnName="Mod_Descr" />
+                <ScalarProperty Name="AO_Nome" ColumnName="AO_Nome" />
+                <ScalarProperty Name="AO_Cognome" ColumnName="AO_Cognome" />
+                <ScalarProperty Name="DescStato" ColumnName="DescStato" />
+                <ScalarProperty Name="UltimoStato" ColumnName="UltimoStato" />
+                <ScalarProperty Name="ID_UltimoStato" ColumnName="ID_UltimoStato" />
+                <ScalarProperty Name="IsFoto" ColumnName="IsFoto" />
+                <ScalarProperty Name="IsPdf" ColumnName="IsPdf" />
+                <ScalarProperty Name="Perizie_Note" ColumnName="Perizie_Note" />
+                <ScalarProperty Name="Perizie_DataPerizia" ColumnName="Perizie_DataPerizia" />
+                <ScalarProperty Name="Perizie_DataIncarico" ColumnName="Perizie_DataIncarico" />
+                <ScalarProperty Name="Perizie_IsChecked" ColumnName="Perizie_IsChecked" />
+                <ScalarProperty Name="Perizie_IsChiusa" ColumnName="Perizie_IsChiusa" />
+                <ScalarProperty Name="Perizie_ID" ColumnName="Perizie_ID" />
+                <ScalarProperty Name="Perizie_IDPerito" ColumnName="Perizie_IDPerito" />
+                <ScalarProperty Name="Perizie_Barcode" ColumnName="Perizie_Barcode" />
+                <ScalarProperty Name="citta_peritoNonTabellato" ColumnName="citta_peritoNonTabellato" />
+                <ScalarProperty Name="indirizzo_peritoNonTabellato" ColumnName="indirizzo_peritoNonTabellato" />
+                <ScalarProperty Name="dealerPiazzale_peritoNonTabellato" ColumnName="dealerPiazzale_peritoNonTabellato" />
+                <ScalarProperty Name="DescrITA" ColumnName="DescrITA" />
+                <ScalarProperty Name="ID_LuogoIntervento" ColumnName="ID_LuogoIntervento" />
+                <ScalarProperty Name="ID_Produttore" ColumnName="ID_Produttore" />
+                <ScalarProperty Name="Chassis2" ColumnName="Chassis2" />
+                <ScalarProperty Name="Chassis1" ColumnName="Chassis1" />
+                <ScalarProperty Name="Targa" ColumnName="Targa" />
+                <ScalarProperty Name="PRAT_ID" ColumnName="PRAT_ID" />
+                <ScalarProperty Name="TipoPerizia_Descr" ColumnName="TipoPerizia_Descr" />
+                <ScalarProperty Name="TipoPerizia_ID" ColumnName="TipoPerizia_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

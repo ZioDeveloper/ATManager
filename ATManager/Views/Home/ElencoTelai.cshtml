@@ -1,0 +1,38 @@
+﻿@model ATManager.Models.HomeModel
+
+@{
+    ViewBag.Title = "ElencoTelai";
+}
+
+<h2>ElencoTelai</h2>
+
+<table class="table">
+
+    <tr>
+        @*<td>Finito</td>*@
+        <td>Targa</td>
+        <td>Produttore</td>
+
+
+    </tr>
+    @foreach (var item in Model.AT_ListaPratiche_vw)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Targa)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Prod_Descr)
+        </td>
+        <td>
+            @*@Html.ActionLink("Create New", "Insert")*@
+            @Html.ActionLink("Create", "Create", new { id = item.PRAT_ID }, new { @class = "searchImg" })
+
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.ID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })*@
+        </td>
+    </tr>
+    }
+
+</table>
