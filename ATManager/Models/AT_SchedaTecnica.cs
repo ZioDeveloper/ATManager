@@ -43,7 +43,6 @@ namespace ATManager.Models
         public Nullable<int> CI843 { get; set; }
         public Nullable<int> CI910 { get; set; }
         public Nullable<int> CI930 { get; set; }
-        public Nullable<int> CI1145 { get; set; }
         public Nullable<int> CS240 { get; set; }
         public Nullable<int> CS510 { get; set; }
         public Nullable<int> CS511 { get; set; }
@@ -61,11 +60,52 @@ namespace ATManager.Models
         public Nullable<int> PS512 { get; set; }
         public Nullable<int> PS610 { get; set; }
         public int IDPratica { get; set; }
+        public Nullable<int> CI1135 { get; set; }
     
         public virtual AT_StatiMezzo AT_StatiMezzo { get; set; }
         public virtual AT_TipiScheda AT_TipiScheda { get; set; }
         public virtual AT_IndiciValutazione AT_IndiciValutazione { get; set; }
         public virtual AT_IndiciValutazione AT_IndiciValutazione1 { get; set; }
         public virtual AT_IndiciValutazione AT_IndiciValutazione2 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione3 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione4 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione5 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione6 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione7 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione8 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione9 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione10 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione11 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione12 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione13 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione14 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione15 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione16 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione17 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione19 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione20 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione21 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione22 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione23 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione24 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione25 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione26 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione27 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione28 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione29 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione30 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione31 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione32 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione33 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione34 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione35 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione36 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione37 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione38 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione39 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione40 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione111 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione401 { get; set; }
+        public virtual AT_IndiciValutazione AT_IndiciValutazione181 { get; set; }
     }
 }

@@ -4,17 +4,57 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cac3217b4394428d9acb2f0fbc81cd9c" Name="Diagram1">
+      <Diagram DiagramId="cac3217b4394428d9acb2f0fbc81cd9c" Name="Diagram1" ZoomLevel="100">
         <EntityTypeShape EntityType="AUTOSDUModel.AT_IndiciValutazione" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AUTOSDUModel.AT_SchedaTecnica" Width="1.5" PointX="3.125" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AUTOSDUModel.AT_SchedaTecnica" Width="1.5" PointX="5.125" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="AUTOSDUModel.AT_StatiMezzo" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="AUTOSDUModel.AT_TipiScheda" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
         <AssociationConnector Association="AUTOSDUModel.StatiMezzo" ManuallyRouted="false" />
         <AssociationConnector Association="AUTOSDUModel.TipiScheda" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="AUTOSDUModel.AT_ListaPratiche_vw" Width="1.5" PointX="5.625" PointY="0.5" />
+        <EntityTypeShape EntityType="AUTOSDUModel.AT_ListaPratiche_vw" Width="2.25" PointX="8.25" PointY="0.75" />
         <AssociationConnector Association="AUTOSDUModel.CE110" />
         <AssociationConnector Association="AUTOSDUModel.CE112" />
         <AssociationConnector Association="AUTOSDUModel.CE115" />
+        <AssociationConnector Association="AUTOSDUModel.CE125" />
+        <AssociationConnector Association="AUTOSDUModel.CE135" />
+        <AssociationConnector Association="AUTOSDUModel.CE145" />
+        <AssociationConnector Association="AUTOSDUModel.CE150" />
+        <AssociationConnector Association="AUTOSDUModel.CE160" />
+        <AssociationConnector Association="AUTOSDUModel.CE170" />
+        <AssociationConnector Association="AUTOSDUModel.CE265" />
+        <AssociationConnector Association="AUTOSDUModel.CE415" />
+        <AssociationConnector Association="AUTOSDUModel.CE816" />
+        <AssociationConnector Association="AUTOSDUModel.CE840" />
+        <AssociationConnector Association="AUTOSDUModel.CE841" />
+        <AssociationConnector Association="AUTOSDUModel.CE842" />
+        <AssociationConnector Association="AUTOSDUModel.CE843" />
+        <AssociationConnector Association="AUTOSDUModel.CE844" />
+        <AssociationConnector Association="AUTOSDUModel.CE960" />
+        <AssociationConnector Association="AUTOSDUModel.CI820" />
+        <AssociationConnector Association="AUTOSDUModel.CI825" />
+        <AssociationConnector Association="AUTOSDUModel.CI835" />
+        <AssociationConnector Association="AUTOSDUModel.CI837" />
+        <AssociationConnector Association="AUTOSDUModel.CI843" />
+        <AssociationConnector Association="AUTOSDUModel.CI910" />
+        <AssociationConnector Association="AUTOSDUModel.CI930" />
+        <AssociationConnector Association="AUTOSDUModel.CS240" />
+        <AssociationConnector Association="AUTOSDUModel.CS510" />
+        <AssociationConnector Association="AUTOSDUModel.CS511" />
+        <AssociationConnector Association="AUTOSDUModel.CS710" />
+        <AssociationConnector Association="AUTOSDUModel.CS715" />
+        <AssociationConnector Association="AUTOSDUModel.CS810" />
+        <AssociationConnector Association="AUTOSDUModel.CS815" />
+        <AssociationConnector Association="AUTOSDUModel.PS165" />
+        <AssociationConnector Association="AUTOSDUModel.PS225" />
+        <AssociationConnector Association="AUTOSDUModel.PS230" />
+        <AssociationConnector Association="AUTOSDUModel.PS235" />
+        <AssociationConnector Association="AUTOSDUModel.PS250" />
+        <AssociationConnector Association="AUTOSDUModel.PS260" />
+        <AssociationConnector Association="AUTOSDUModel.PS512" />
+        <AssociationConnector Association="AUTOSDUModel.PS610" />
+        <AssociationConnector Association="AUTOSDUModel.CE420" />
+        <AssociationConnector Association="AUTOSDUModel.PS410" />
+        <AssociationConnector Association="AUTOSDUModel.CI1135" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

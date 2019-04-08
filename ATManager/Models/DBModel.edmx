@@ -46,7 +46,7 @@
           <Property Name="CI843" Type="int" />
           <Property Name="CI910" Type="int" />
           <Property Name="CI930" Type="int" />
-          <Property Name="CI1145" Type="int" />
+          <Property Name="CI1135" Type="int" />
           <Property Name="CS240" Type="int" />
           <Property Name="CS510" Type="int" />
           <Property Name="CS511" Type="int" />
@@ -83,7 +83,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
         <EntityType Name="AT_ListaPratiche_vw">
           <Key>
             <PropertyRef Name="PRAT_ID" />
-            <PropertyRef Name="Targa" />
+            
           </Key>
           <Property Name="TipoPerizia_ID" Type="int" />
           <Property Name="TipoPerizia_Descr" Type="varchar" MaxLength="50" />
@@ -150,6 +150,462 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
             </Principal>
             <Dependent Role="AT_SchedaTecnica">
               <PropertyRef Name="CE115" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE125">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE125" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE135">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE135" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE145">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE145" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE150">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE150" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE160">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE160" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE170">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE170" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE265">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE265" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE415">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE415" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE816">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE816" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE840">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE840" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE841">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE841" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE842">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE842" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE843">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE843" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE844">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE844" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE960">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE960" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CI1135">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CI1135" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CI820">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CI820" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CI825">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CI825" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CI835">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CI835" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CI837">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CI837" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CI843">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CI843" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CI910">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CI910" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CI930">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CI930" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CS240">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CS240" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CS510">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CS510" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CS511">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CS511" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CS710">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CS710" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CS715">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CS715" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CS810">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CS810" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CS815">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CS815" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PS165">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="PS165" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PS225">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="PS225" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PS230">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="PS230" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PS235">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="PS235" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PS250">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="PS250" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PS260">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="PS260" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PS512">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="PS512" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PS610">
+          <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="PS610" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -229,6 +685,158 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
             <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
             <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
           </AssociationSet>
+          <AssociationSet Name="CE125" Association="Self.CE125">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE135" Association="Self.CE135">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE145" Association="Self.CE145">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE150" Association="Self.CE150">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE160" Association="Self.CE160">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE170" Association="Self.CE170">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE265" Association="Self.CE265">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE415" Association="Self.CE415">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE816" Association="Self.CE816">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE840" Association="Self.CE840">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE841" Association="Self.CE841">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE842" Association="Self.CE842">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE843" Association="Self.CE843">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE844" Association="Self.CE844">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE960" Association="Self.CE960">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CI1135" Association="Self.CI1135">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CI820" Association="Self.CI820">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CI825" Association="Self.CI825">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CI835" Association="Self.CI835">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CI837" Association="Self.CI837">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CI843" Association="Self.CI843">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CI910" Association="Self.CI910">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CI930" Association="Self.CI930">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CS240" Association="Self.CS240">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CS510" Association="Self.CS510">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CS511" Association="Self.CS511">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CS710" Association="Self.CS710">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CS715" Association="Self.CS715">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CS810" Association="Self.CS810">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CS815" Association="Self.CS815">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="PS165" Association="Self.PS165">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="PS225" Association="Self.PS225">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="PS230" Association="Self.PS230">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="PS235" Association="Self.PS235">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="PS250" Association="Self.PS250">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="PS260" Association="Self.PS260">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="PS512" Association="Self.PS512">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="PS610" Association="Self.PS610">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
           <AssociationSet Name="StatiMezzo" Association="Self.StatiMezzo">
             <End Role="AT_StatiMezzo" EntitySet="AT_StatiMezzo" />
             <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
@@ -251,6 +859,46 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
           <NavigationProperty Name="AT_SchedaTecnica" Relationship="AUTOSDUModel.CE110" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
           <NavigationProperty Name="AT_SchedaTecnica1" Relationship="AUTOSDUModel.CE112" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
           <NavigationProperty Name="AT_SchedaTecnica2" Relationship="AUTOSDUModel.CE115" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica3" Relationship="AUTOSDUModel.CE125" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica4" Relationship="AUTOSDUModel.CE135" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica5" Relationship="AUTOSDUModel.CE145" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica6" Relationship="AUTOSDUModel.CE150" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica7" Relationship="AUTOSDUModel.CE160" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica8" Relationship="AUTOSDUModel.CE170" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica9" Relationship="AUTOSDUModel.CE265" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica10" Relationship="AUTOSDUModel.CE415" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica11" Relationship="AUTOSDUModel.CE816" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica12" Relationship="AUTOSDUModel.CE840" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica13" Relationship="AUTOSDUModel.CE841" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica14" Relationship="AUTOSDUModel.CE842" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica15" Relationship="AUTOSDUModel.CE843" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica16" Relationship="AUTOSDUModel.CE844" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica17" Relationship="AUTOSDUModel.CE960" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica19" Relationship="AUTOSDUModel.CI820" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica20" Relationship="AUTOSDUModel.CI825" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica21" Relationship="AUTOSDUModel.CI835" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica22" Relationship="AUTOSDUModel.CI837" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica23" Relationship="AUTOSDUModel.CI843" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica24" Relationship="AUTOSDUModel.CI910" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica25" Relationship="AUTOSDUModel.CI930" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica26" Relationship="AUTOSDUModel.CS240" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica27" Relationship="AUTOSDUModel.CS510" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica28" Relationship="AUTOSDUModel.CS511" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica29" Relationship="AUTOSDUModel.CS710" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica30" Relationship="AUTOSDUModel.CS715" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica31" Relationship="AUTOSDUModel.CS810" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica32" Relationship="AUTOSDUModel.CS815" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica33" Relationship="AUTOSDUModel.PS165" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica34" Relationship="AUTOSDUModel.PS225" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica35" Relationship="AUTOSDUModel.PS230" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica36" Relationship="AUTOSDUModel.PS235" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica37" Relationship="AUTOSDUModel.PS250" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica38" Relationship="AUTOSDUModel.PS260" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica39" Relationship="AUTOSDUModel.PS512" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica40" Relationship="AUTOSDUModel.PS610" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica111" Relationship="AUTOSDUModel.CE420" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica401" Relationship="AUTOSDUModel.PS410" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
+          <NavigationProperty Name="AT_SchedaTecnica181" Relationship="AUTOSDUModel.CI1135" FromRole="AT_IndiciValutazione" ToRole="AT_SchedaTecnica" />
         </EntityType>
         <EntityType Name="AT_SchedaTecnica">
           <Key>
@@ -285,7 +933,6 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
           <Property Name="CI843" Type="Int32" />
           <Property Name="CI910" Type="Int32" />
           <Property Name="CI930" Type="Int32" />
-          <Property Name="CI1145" Type="Int32" />
           <Property Name="CS240" Type="Int32" />
           <Property Name="CS510" Type="Int32" />
           <Property Name="CS511" Type="Int32" />
@@ -308,6 +955,47 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
           <NavigationProperty Name="AT_IndiciValutazione" Relationship="AUTOSDUModel.CE110" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
           <NavigationProperty Name="AT_IndiciValutazione1" Relationship="AUTOSDUModel.CE112" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
           <NavigationProperty Name="AT_IndiciValutazione2" Relationship="AUTOSDUModel.CE115" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione3" Relationship="AUTOSDUModel.CE125" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione4" Relationship="AUTOSDUModel.CE135" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione5" Relationship="AUTOSDUModel.CE145" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione6" Relationship="AUTOSDUModel.CE150" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione7" Relationship="AUTOSDUModel.CE160" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione8" Relationship="AUTOSDUModel.CE170" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione9" Relationship="AUTOSDUModel.CE265" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione10" Relationship="AUTOSDUModel.CE415" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione11" Relationship="AUTOSDUModel.CE816" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione12" Relationship="AUTOSDUModel.CE840" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione13" Relationship="AUTOSDUModel.CE841" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione14" Relationship="AUTOSDUModel.CE842" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione15" Relationship="AUTOSDUModel.CE843" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione16" Relationship="AUTOSDUModel.CE844" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione17" Relationship="AUTOSDUModel.CE960" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione19" Relationship="AUTOSDUModel.CI820" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione20" Relationship="AUTOSDUModel.CI825" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione21" Relationship="AUTOSDUModel.CI835" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione22" Relationship="AUTOSDUModel.CI837" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione23" Relationship="AUTOSDUModel.CI843" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione24" Relationship="AUTOSDUModel.CI910" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione25" Relationship="AUTOSDUModel.CI930" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione26" Relationship="AUTOSDUModel.CS240" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione27" Relationship="AUTOSDUModel.CS510" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione28" Relationship="AUTOSDUModel.CS511" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione29" Relationship="AUTOSDUModel.CS710" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione30" Relationship="AUTOSDUModel.CS715" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione31" Relationship="AUTOSDUModel.CS810" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione32" Relationship="AUTOSDUModel.CS815" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione33" Relationship="AUTOSDUModel.PS165" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione34" Relationship="AUTOSDUModel.PS225" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione35" Relationship="AUTOSDUModel.PS230" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione36" Relationship="AUTOSDUModel.PS235" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione37" Relationship="AUTOSDUModel.PS250" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione38" Relationship="AUTOSDUModel.PS260" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione39" Relationship="AUTOSDUModel.PS512" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione40" Relationship="AUTOSDUModel.PS610" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione111" Relationship="AUTOSDUModel.CE420" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <NavigationProperty Name="AT_IndiciValutazione401" Relationship="AUTOSDUModel.PS410" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <Property Name="CI1135" Type="Int32" />
+          <NavigationProperty Name="AT_IndiciValutazione181" Relationship="AUTOSDUModel.CI1135" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
         </EntityType>
         <EntityType Name="AT_StatiMezzo">
           <Key>
@@ -375,11 +1063,170 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
             <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
             <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
           </AssociationSet>
+          <AssociationSet Name="CE125" Association="AUTOSDUModel.CE125">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE135" Association="AUTOSDUModel.CE135">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE145" Association="AUTOSDUModel.CE145">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE150" Association="AUTOSDUModel.CE150">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE160" Association="AUTOSDUModel.CE160">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE170" Association="AUTOSDUModel.CE170">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE265" Association="AUTOSDUModel.CE265">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE415" Association="AUTOSDUModel.CE415">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE816" Association="AUTOSDUModel.CE816">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE840" Association="AUTOSDUModel.CE840">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE841" Association="AUTOSDUModel.CE841">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE842" Association="AUTOSDUModel.CE842">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE843" Association="AUTOSDUModel.CE843">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE844" Association="AUTOSDUModel.CE844">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE960" Association="AUTOSDUModel.CE960">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CI820" Association="AUTOSDUModel.CI820">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CI825" Association="AUTOSDUModel.CI825">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CI835" Association="AUTOSDUModel.CI835">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CI837" Association="AUTOSDUModel.CI837">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CI843" Association="AUTOSDUModel.CI843">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CI910" Association="AUTOSDUModel.CI910">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CI930" Association="AUTOSDUModel.CI930">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CS240" Association="AUTOSDUModel.CS240">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CS510" Association="AUTOSDUModel.CS510">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CS511" Association="AUTOSDUModel.CS511">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CS710" Association="AUTOSDUModel.CS710">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CS715" Association="AUTOSDUModel.CS715">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CS810" Association="AUTOSDUModel.CS810">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CS815" Association="AUTOSDUModel.CS815">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="PS165" Association="AUTOSDUModel.PS165">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="PS225" Association="AUTOSDUModel.PS225">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="PS230" Association="AUTOSDUModel.PS230">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="PS235" Association="AUTOSDUModel.PS235">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="PS250" Association="AUTOSDUModel.PS250">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="PS260" Association="AUTOSDUModel.PS260">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="PS512" Association="AUTOSDUModel.PS512">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="PS610" Association="AUTOSDUModel.PS610">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CE420" Association="AUTOSDUModel.CE420">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="PS410" Association="AUTOSDUModel.PS410">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="CI1135" Association="AUTOSDUModel.CI1135">
+            <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AT_ListaPratiche_vw">
           <Key>
             <PropertyRef Name="PRAT_ID" />
-            <PropertyRef Name="Targa" />
           </Key>
           <Property Name="TipoPerizia_ID" Type="Int32" />
           <Property Name="TipoPerizia_Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -449,6 +1296,486 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="CE125">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE125" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE135">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE135" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE145">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE145" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE150">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE150" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE160">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE160" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE170">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE170" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE265">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE265" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE415">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE415" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE816">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE816" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE840">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE840" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE841">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE841" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE842">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE842" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE843">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE843" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE844">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE844" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE960">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE960" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CI820">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CI820" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CI825">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CI825" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CI835">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CI835" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CI837">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CI837" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CI843">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CI843" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CI910">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CI910" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CI930">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CI930" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CS240">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CS240" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CS510">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CS510" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CS511">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CS511" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CS710">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CS710" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CS715">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CS715" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CS810">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CS810" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CS815">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CS815" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PS165">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="PS165" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PS225">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="PS225" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PS230">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="PS230" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PS235">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="PS235" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PS250">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="PS250" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PS260">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="PS260" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PS512">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="PS512" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PS610">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="PS610" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CE420">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CE420" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PS410">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="PS410" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CI1135">
+          <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_IndiciValutazione">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="CI1135" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -466,6 +1793,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
           <EntitySetMapping Name="AT_SchedaTecnica">
             <EntityTypeMapping TypeName="AUTOSDUModel.AT_SchedaTecnica">
               <MappingFragment StoreEntitySet="AT_SchedaTecnica">
+                <ScalarProperty Name="CI1135" ColumnName="CI1135" />
                 <ScalarProperty Name="IDPratica" ColumnName="IDPratica" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="IDTipoScheda" ColumnName="IDTipoScheda" />
@@ -496,7 +1824,6 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
                 <ScalarProperty Name="CI843" ColumnName="CI843" />
                 <ScalarProperty Name="CI910" ColumnName="CI910" />
                 <ScalarProperty Name="CI930" ColumnName="CI930" />
-                <ScalarProperty Name="CI1145" ColumnName="CI1145" />
                 <ScalarProperty Name="CS240" ColumnName="CS240" />
                 <ScalarProperty Name="CS510" ColumnName="CS510" />
                 <ScalarProperty Name="CS511" ColumnName="CS511" />

@@ -14,59 +14,61 @@ namespace ATManager.Controllers
     {
 
         private AUTOSDUEntities db = new AUTOSDUEntities();
-        //public ActionResult Index(string usr)
-        //{
-        //    bool isAuth = false;
-
-        //    if (usr != String.Empty)
-        //    {
-        //        string UserName = "";
-
-        //        string cookieName = FormsAuthentication.FormsCookieName; //Find cookie name
-        //        HttpCookie cookie = HttpContext.Request.Cookies[cookieName]; //Get the cookie by it's name
-        //        FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value); //Decrypt it
-        //        UserName = ticket.Name; //You have the UserName!
-
-
-        //        if (usr == UserName)
-        //        {
-        //            ViewBag.Messaggio = "BENE il cookie corrisponde!";
-        //            //ViewBag.Messaggio = personaggio;
-        //            isAuth = true;
-        //        }
-        //        else
-        //        {
-        //            ViewBag.Messaggio = "il cookie contenente lo 'username' non corrisponde allo User della queryString!";
-        //            isAuth = false;
-        //            return View("IncorrectLogin");
-        //        }
-
-        //    }
-        //    return View();
-        //}
-
-        public ActionResult Index(string Opt1, string CercaTarga)
+        public ActionResult Index(string usr, string Opt1, string CercaTarga)
         {
-            //if (String.IsNullOrEmpty(CercaTarga))
-            //{
-            //    return View();
-            //}
-            //else if (!String.IsNullOrEmpty(CercaTarga))
-            //{
-            //    var model = new Models.HomeModel();
-            //    var telai = from s in db.AT_ListaPratiche_vw
-            //                where s.Targa.ToString() == CercaTarga
-            //                select s;
-            //    model.AT_ListaPratiche_vw = telai.ToList();
-            //    return View("ElencoTelai",model);
-            //}
-            //else
-            //{
-            //    return View();
-            //}
+            bool isAuth = false;
 
-            return RedirectToAction("DoRefresh", "Home");
+            if (usr != String.Empty)
+            {
+                string UserName = "";
+
+                string cookieName = FormsAuthentication.FormsCookieName; //Find cookie name
+                HttpCookie cookie = HttpContext.Request.Cookies[cookieName]; //Get the cookie by it's name
+                FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value); //Decrypt it
+                UserName = ticket.Name; //You have the UserName!
+
+
+                if (usr == UserName)
+                {
+                    ViewBag.Messaggio = "BENE il cookie corrisponde!";
+                    //ViewBag.Messaggio = personaggio;
+                    isAuth = true;
+                    return RedirectToAction("DoRefresh", "Home");
+                }
+                else
+                {
+                    ViewBag.Messaggio = "il cookie contenente lo 'username' non corrisponde allo User della queryString!";
+                    isAuth = false;
+                    return View("IncorrectLogin");
+                }
+
+            }
+            return View();
+
         }
+
+        //public ActionResult Index(string Opt1, string CercaTarga)
+        //{
+        //    //if (String.IsNullOrEmpty(CercaTarga))
+        //    //{
+        //    //    return View();
+        //    //}
+        //    //else if (!String.IsNullOrEmpty(CercaTarga))
+        //    //{
+        //    //    var model = new Models.HomeModel();
+        //    //    var telai = from s in db.AT_ListaPratiche_vw
+        //    //                where s.Targa.ToString() == CercaTarga
+        //    //                select s;
+        //    //    model.AT_ListaPratiche_vw = telai.ToList();
+        //    //    return View("ElencoTelai",model);
+        //    //}
+        //    //else
+        //    //{
+        //    //    return View();
+        //    //}
+
+        //    //return RedirectToAction("DoRefresh", "Home");
+        //}
 
         public ActionResult DoRefresh(string Opt1, string CercaTarga)
         {
@@ -161,7 +163,8 @@ namespace ATManager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,IDPratica,IDTipoScheda,IDStatoMezzo,CE110,CE112,CE115")] AT_SchedaTecnica aT_SchedaTecnica)
+        public ActionResult Create([Bind(Include = "ID,IDPratica,IDTipoScheda,IDStatoMezzo,CE110,//,CE115,CE840,CE841,CE842,CE843,CE816," +
+                                                   "CE265,CE135,CE160,CE145,CE150,CI820,CI825,CI835,CI837,CI1135")] AT_SchedaTecnica aT_SchedaTecnica)
         {
             if (ModelState.IsValid)
             {
