@@ -83,7 +83,6 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
         <EntityType Name="AT_ListaPratiche_vw">
           <Key>
             <PropertyRef Name="PRAT_ID" />
-            <PropertyRef Name="Targa" />
           </Key>
           <Property Name="TipoPerizia_ID" Type="int" />
           <Property Name="TipoPerizia_Descr" Type="varchar" MaxLength="50" />
@@ -379,7 +378,6 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
         <EntityType Name="AT_ListaPratiche_vw">
           <Key>
             <PropertyRef Name="PRAT_ID" />
-            <PropertyRef Name="Targa" />
           </Key>
           <Property Name="TipoPerizia_ID" Type="Int32" />
           <Property Name="TipoPerizia_Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
