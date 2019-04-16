@@ -15,5 +15,6 @@ namespace ATManager.Models
         public IEnumerable<AT_TipiScheda> AT_TipiScheda { get; set; }
 
         public IEnumerable<Luoghi> Luoghi { get; set; }
+        public IEnumerable<Luoghi_vw> Luoghi_vw { get; set; }
     }
 }
