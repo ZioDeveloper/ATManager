@@ -13,5 +13,7 @@ namespace ATManager.Models
         public IEnumerable<AT_SchedaTecnica> AT_SchedaTecnica { get; set; }
         public IEnumerable<AT_StatiMezzo> AT_StatiMezzo { get; set; }
         public IEnumerable<AT_TipiScheda> AT_TipiScheda { get; set; }
+
+        public IEnumerable<Luoghi> Luoghi { get; set; }
     }
 }

@@ -17,7 +17,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IDPratica" Type="int" Nullable="false" />
+          <Property Name="IDPerizia" Type="int" Nullable="false" />
           <Property Name="IDTipoScheda" Type="int" Nullable="false" />
           <Property Name="IDStatoMezzo" Type="int" Nullable="false" />
           <Property Name="CE110" Type="int" />
@@ -78,6 +78,24 @@
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Descr" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Luoghi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="IDTipoLuogo" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="IDNazione" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="DescrITA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="Trilettera" Type="varchar" MaxLength="3" />
+          <Property Name="Provincia" Type="varchar" MaxLength="4" />
+          <Property Name="DescrITAestesa" Type="varchar" MaxLength="200" />
+          <Property Name="Latitudine" Type="float" />
+          <Property Name="Longitudine" Type="float" />
+          <Property Name="ID_Localita" Type="int" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AT_ListaPratiche_vw">
@@ -116,6 +134,16 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
           <Property Name="Prod_ID" Type="varchar" MaxLength="4" />
           <Property Name="Prod_Descr" Type="varchar" MaxLength="50" />
           <Property Name="ID_SchedaTecnica" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Luoghi_vw">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="DescrITA" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="DescrITA" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="CE110">
           <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
@@ -638,6 +666,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
           <EntitySet Name="AT_SchedaTecnica" EntityType="Self.AT_SchedaTecnica" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AT_StatiMezzo" EntityType="Self.AT_StatiMezzo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AT_TipiScheda" EntityType="Self.AT_TipiScheda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Luoghi" EntityType="Self.Luoghi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AT_ListaPratiche_vw" EntityType="Self.AT_ListaPratiche_vw" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [AT_ListaPratiche_vw].[TipoPerizia_ID] AS [TipoPerizia_ID], 
@@ -672,6 +701,12 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
     [AT_ListaPratiche_vw].[Prod_Descr] AS [Prod_Descr], 
     [AT_ListaPratiche_vw].[ID_SchedaTecnica] AS [ID_SchedaTecnica]
     FROM [dbo].[AT_ListaPratiche_vw] AS [AT_ListaPratiche_vw]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Luoghi_vw" EntityType="Self.Luoghi_vw" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Luoghi_vw].[ID] AS [ID], 
+    [Luoghi_vw].[DescrITA] AS [DescrITA]
+    FROM [dbo].[Luoghi_vw] AS [Luoghi_vw]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="CE110" Association="Self.CE110">
             <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
@@ -951,7 +986,6 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
           <Property Name="PS610" Type="Int32" />
           <NavigationProperty Name="AT_StatiMezzo" Relationship="Self.StatiMezzo" FromRole="AT_SchedaTecnica" ToRole="AT_StatiMezzo" />
           <NavigationProperty Name="AT_TipiScheda" Relationship="Self.TipiScheda" FromRole="AT_SchedaTecnica" ToRole="AT_TipiScheda" />
-          <Property Name="IDPratica" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AT_IndiciValutazione" Relationship="AUTOSDUModel.CE110" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
           <NavigationProperty Name="AT_IndiciValutazione1" Relationship="AUTOSDUModel.CE112" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
           <NavigationProperty Name="AT_IndiciValutazione2" Relationship="AUTOSDUModel.CE115" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
@@ -996,6 +1030,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
           <NavigationProperty Name="AT_IndiciValutazione401" Relationship="AUTOSDUModel.PS410" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
           <Property Name="CI1135" Type="Int32" />
           <NavigationProperty Name="AT_IndiciValutazione181" Relationship="AUTOSDUModel.CI1135" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
+          <Property Name="IDPerizia" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="AT_StatiMezzo">
           <Key>
@@ -1223,6 +1258,8 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
             <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
             <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
           </AssociationSet>
+          <EntitySet Name="Luoghi" EntityType="AUTOSDUModel.Luoghi" />
+          <EntitySet Name="Luoghi_vw" EntityType="AUTOSDUModel.Luoghi_vw" />
         </EntityContainer>
         <EntityType Name="AT_ListaPratiche_vw">
           <Key>
@@ -1776,6 +1813,32 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Luoghi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="IDTipoLuogo" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="IDNazione" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="DescrITA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="Trilettera" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Provincia" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="DescrITAestesa" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Latitudine" Type="Double" />
+          <Property Name="Longitudine" Type="Double" />
+          <Property Name="ID_Localita" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Luoghi_vw">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="DescrITA" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="DescrITA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1793,8 +1856,8 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
           <EntitySetMapping Name="AT_SchedaTecnica">
             <EntityTypeMapping TypeName="AUTOSDUModel.AT_SchedaTecnica">
               <MappingFragment StoreEntitySet="AT_SchedaTecnica">
+                <ScalarProperty Name="IDPerizia" ColumnName="IDPerizia" />
                 <ScalarProperty Name="CI1135" ColumnName="CI1135" />
-                <ScalarProperty Name="IDPratica" ColumnName="IDPratica" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="IDTipoScheda" ColumnName="IDTipoScheda" />
                 <ScalarProperty Name="IDStatoMezzo" ColumnName="IDStatoMezzo" />
@@ -1893,6 +1956,33 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
                 <ScalarProperty Name="PRAT_ID" ColumnName="PRAT_ID" />
                 <ScalarProperty Name="TipoPerizia_Descr" ColumnName="TipoPerizia_Descr" />
                 <ScalarProperty Name="TipoPerizia_ID" ColumnName="TipoPerizia_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Luoghi">
+            <EntityTypeMapping TypeName="AUTOSDUModel.Luoghi">
+              <MappingFragment StoreEntitySet="Luoghi">
+                <ScalarProperty Name="ID_Localita" ColumnName="ID_Localita" />
+                <ScalarProperty Name="Longitudine" ColumnName="Longitudine" />
+                <ScalarProperty Name="Latitudine" ColumnName="Latitudine" />
+                <ScalarProperty Name="DescrITAestesa" ColumnName="DescrITAestesa" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Trilettera" ColumnName="Trilettera" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="DescrITA" ColumnName="DescrITA" />
+                <ScalarProperty Name="IDNazione" ColumnName="IDNazione" />
+                <ScalarProperty Name="IDTipoLuogo" ColumnName="IDTipoLuogo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Luoghi_vw">
+            <EntityTypeMapping TypeName="AUTOSDUModel.Luoghi_vw">
+              <MappingFragment StoreEntitySet="Luoghi_vw">
+                <ScalarProperty Name="DescrITA" ColumnName="DescrITA" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

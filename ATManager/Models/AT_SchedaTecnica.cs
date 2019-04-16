@@ -59,8 +59,8 @@ namespace ATManager.Models
         public Nullable<int> PS410 { get; set; }
         public Nullable<int> PS512 { get; set; }
         public Nullable<int> PS610 { get; set; }
-        public int IDPratica { get; set; }
         public Nullable<int> CI1135 { get; set; }
+        public int IDPerizia { get; set; }
     
         public virtual AT_StatiMezzo AT_StatiMezzo { get; set; }
         public virtual AT_TipiScheda AT_TipiScheda { get; set; }

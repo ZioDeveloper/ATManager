@@ -38,6 +38,12 @@
                     <input type="submit" value="Cerca targa" />
                 </td>
             </tr>
+            <tr>
+                <td>Location :</td>
+            </tr>
+            <tr>
+                <td>    @Html.DropDownList("SearchLocation", (IEnumerable<SelectListItem>)ViewData["Luoghi"])</td>
+            </tr>
         </table>
 
     </div>
