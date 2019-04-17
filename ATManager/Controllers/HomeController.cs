@@ -7,6 +7,8 @@ using System.Web.Security;
 using System.Data;
 using System.Data.SqlClient;
 using ATManager.Models;
+using System.Net;
+
 
 namespace ATManager.Controllers
 {
@@ -52,7 +54,7 @@ namespace ATManager.Controllers
 
             using (AUTOSDUEntities val = new AUTOSDUEntities())
             {
-                //Session["Scelta1"] = "";
+                Session["Status"] = "";
 
                 var fromDatabaseEF = new SelectList(val.Luoghi_vw.ToList(), "ID", "DescrITA");
                 ViewData["Luoghi"] = fromDatabaseEF;
@@ -78,11 +80,26 @@ namespace ATManager.Controllers
                 return View();
             }
 
-            return RedirectToAction("DoRefresh", "Home");
+            //return RedirectToAction("DoRefresh", "Home");
         }
 
         public ActionResult DoRefresh(string Opt1, string CercaTarga, string SearchLocation)
         {
+            if (Opt1 != null)
+                Session["Status"] = Opt1;
+            else
+                Opt1 = Session["Status"].ToString();
+
+            using (AUTOSDUEntities val = new AUTOSDUEntities())
+            {
+                //Session["Scelta1"] = "";
+
+                var fromDatabaseEF = new SelectList(val.Luoghi_vw.ToList(), "ID", "DescrITA");
+                ViewData["Luoghi"] = fromDatabaseEF;
+
+
+            }
+
             if (CercaTarga != null && CercaTarga != "")
             {
                 var model = new Models.HomeModel();
@@ -96,7 +113,7 @@ namespace ATManager.Controllers
             {
                 var model = new Models.HomeModel();
                 var telai = from s in db.AT_ListaPratiche_vw
-                            where s.ID_LuogoIntervento == SearchLocation
+                            //where s.ID_LuogoIntervento == SearchLocation
                             select s;
                 model.AT_ListaPratiche_vw = telai.ToList();
                 return View("ElencoTelai", model);
@@ -107,7 +124,7 @@ namespace ATManager.Controllers
                 var model = new Models.HomeModel();
                 var telai = from s in db.AT_ListaPratiche_vw
                             where s.ID_SchedaTecnica == null
-                            where s.ID_LuogoIntervento == SearchLocation
+                            //where s.ID_LuogoIntervento == SearchLocation
                             select s;
                 model.AT_ListaPratiche_vw = telai.ToList();
                 return View("ElencoTelai", model);
@@ -117,7 +134,7 @@ namespace ATManager.Controllers
                 var model = new Models.HomeModel();
                 var telai = from s in db.AT_ListaPratiche_vw
                             where s.ID_SchedaTecnica != null
-                            where s.ID_LuogoIntervento == SearchLocation
+                            //where s.ID_LuogoIntervento == SearchLocation
                             select s;
                 model.AT_ListaPratiche_vw = telai.ToList();
                 return View("ElencoTelai", model);
@@ -166,12 +183,16 @@ namespace ATManager.Controllers
             return View(telai);
         }
 
-        public ActionResult Create(string ID)
+        public ActionResult Create(string ID, string marca, string dataperizia, string targa)
         {
             ViewBag.IDPerizia = ID;
+            ViewBag.dataperizia = dataperizia;
+            ViewBag.marca = marca;
+            ViewBag.targa = targa;
+
             ViewBag.IDTipoScheda = new SelectList(db.AT_TipiScheda, "ID", "Descr");
             ViewBag.IDStatoMezzo = new SelectList(db.AT_StatiMezzo, "ID", "Descr");
-
+            
             return View();
         }
 
@@ -190,6 +211,45 @@ namespace ATManager.Controllers
             ViewBag.IDTipoScheda = new SelectList(db.AT_TipiScheda, "ID", "Descr",aT_SchedaTecnica.AT_TipiScheda);
             ViewBag.IDTipoScheda = new SelectList(db.AT_StatiMezzo, "ID", "Descr", aT_SchedaTecnica.AT_StatiMezzo);
             return View(aT_SchedaTecnica);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var model = new Models.AT_ListaPratiche_vw();
+            var myScheda = from s in db.AT_ListaPratiche_vw
+                        where s.Perizie_ID == id
+                        select s.Targa;
+            model.Targa = myScheda.ToList().First();
+            return View(model);
+        }
+
+        // POST: AT_SchedaTecnica/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            var sql = @"DELETE FROM  AT_SchedaTecnica WHERE IDPerizia = @IDPErizia";
+            int myDeleted = db.Database.ExecuteSqlCommand(sql,  new SqlParameter("@IDPErizia", id));
+
+            
+            //AT_SchedaTecnica aT_SchedaTecnica = db.AT_SchedaTecnica.Find(id);
+            //db.AT_SchedaTecnica.Remove(aT_SchedaTecnica);
+            //db.SaveChanges();
+            return RedirectToAction("DoRefresh");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

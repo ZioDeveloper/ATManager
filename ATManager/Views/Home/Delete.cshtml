@@ -1,0 +1,23 @@
+﻿@model ATManager.Models.AT_ListaPratiche_vw
+
+@{
+   ViewBag.Title = "Delete";
+}
+
+@*<h2>Delete</h2>*@
+
+<h4>Richiesta conferma </h4>
+<div>
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            Vuoi davvero cancellare la scheda del mezzo ? <p></p> @Html.TextBoxFor(model => model.Targa, new { style = "width:80px" }) <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "DoRefresh")
+        </div>
+    }
+</div>

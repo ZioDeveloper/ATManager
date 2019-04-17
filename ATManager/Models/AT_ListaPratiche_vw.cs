@@ -28,7 +28,7 @@ namespace ATManager.Models
         public string citta_peritoNonTabellato { get; set; }
         public string Perizie_Barcode { get; set; }
         public string Perizie_IDPerito { get; set; }
-        public Nullable<int> Perizie_ID { get; set; }
+        public int Perizie_ID { get; set; }
         public Nullable<bool> Perizie_IsChiusa { get; set; }
         public Nullable<bool> Perizie_IsChecked { get; set; }
         public Nullable<System.DateTime> Perizie_DataIncarico { get; set; }

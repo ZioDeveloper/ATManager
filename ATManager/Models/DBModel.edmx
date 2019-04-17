@@ -100,8 +100,7 @@
 warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AT_ListaPratiche_vw">
           <Key>
-            <PropertyRef Name="PRAT_ID" />
-            
+            <PropertyRef Name="Perizie_ID" />
           </Key>
           <Property Name="TipoPerizia_ID" Type="int" />
           <Property Name="TipoPerizia_Descr" Type="varchar" MaxLength="50" />
@@ -117,7 +116,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
           <Property Name="citta_peritoNonTabellato" Type="varchar" MaxLength="50" />
           <Property Name="Perizie_Barcode" Type="varchar" MaxLength="10" />
           <Property Name="Perizie_IDPerito" Type="varchar" MaxLength="4" />
-          <Property Name="Perizie_ID" Type="int" />
+          <Property Name="Perizie_ID" Type="int" Nullable="false" />
           <Property Name="Perizie_IsChiusa" Type="bit" />
           <Property Name="Perizie_IsChecked" Type="bit" />
           <Property Name="Perizie_DataIncarico" Type="datetime" />
@@ -1263,7 +1262,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
         </EntityContainer>
         <EntityType Name="AT_ListaPratiche_vw">
           <Key>
-            <PropertyRef Name="PRAT_ID" />
+            <PropertyRef Name="Perizie_ID" />
           </Key>
           <Property Name="TipoPerizia_ID" Type="Int32" />
           <Property Name="TipoPerizia_Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1279,7 +1278,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <Property Name="citta_peritoNonTabellato" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Perizie_Barcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Perizie_IDPerito" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="Perizie_ID" Type="Int32" />
+          <Property Name="Perizie_ID" Type="Int32" Nullable="false" />
           <Property Name="Perizie_IsChiusa" Type="Boolean" />
           <Property Name="Perizie_IsChecked" Type="Boolean" />
           <Property Name="Perizie_DataIncarico" Type="DateTime" Precision="3" />

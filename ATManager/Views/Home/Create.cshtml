@@ -9,24 +9,20 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="~/Scripts/JQuery/JavaScript.js"></script>
 
+<style>
+    table, th, td {
+        border: 1px solid green;
+        background-color: lightcyan;
+    }
+</style>
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    
+
 <div class="form-horizontal">
     <h4>Dati scheda</h4>
-
-
-    @*<br />
-        <div id="flip">A JQuery script to collapse/expand the query text. CLICK ME !</div>
-        <br />
-        <div id="querypanel" class="code">
-            <pre style="font-family:Consolas;font-size:13px;color:black;background:white;">
-            <span style="color:green;">test</span>
-            </pre>
-        </div>*@
-
 
     <div class="form-group">
         @Html.LabelFor(model => model.IDPerizia, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -36,22 +32,102 @@
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.IDTipoScheda, "IDTipoScheda", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("IDTipoScheda", null, htmlAttributes: new { @class = "form-control" })
+    <table>
+        <tr>
+            <td>
+                <b>Data Perizia</b>
+            </td>
 
-        </div>
-    </div>
+            <td>
+                @ViewBag.dataperizia
+            </td>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.IDStatoMezzo, "IDStatoMezzo", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("IDStatoMezzo", null, htmlAttributes: new { @class = "form-control" })
-        </div>
-    </div>
+        </tr>
+        <tr>
+            <td>
+                <b>Marca</b>
+            </td>
 
-    <div class="form-group" style="background-color: burlywood" >
+            <td>
+                @ViewBag.marca
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Targa</b>
+            </td>
+
+            <td>
+                @ViewBag.targa
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Data imm.</b>
+            </td>
+
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>
+                <b>Carta circolazione</b>
+            </td>
+
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <b>Luogo perizia</b>
+            </td>
+
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <b>Modello</b>
+            </td>
+
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <b>Matricola</b>
+            </td>
+
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <b>Telaio</b>
+            </td>
+
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <b>Azienda utilizz.</b>
+            </td>
+
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <b>Data ultima rev.</b>
+            </td>
+
+            <td></td>
+        </tr>
+    </table>
+
+    <p></p>
+
+
+
+
+
+
+    <div class="form-group" style="background-color: burlywood">
         <div class="col-md-10">
             <font size="1">
                 <b>Codice</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -75,7 +151,7 @@
 
         </div>
     </div>
-    
+
     <div class="form-group">
 
         <div class="col-md-10">
@@ -249,11 +325,30 @@
         </div>
     </div>
 
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IDTipoScheda, "IDTipoScheda", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("IDTipoScheda", null, htmlAttributes: new { @class = "form-control" })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IDStatoMezzo, "IDStatoMezzo", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("IDStatoMezzo", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+    </div>
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Create" class="btn btn-default" />
         </div>
     </div>
+
+
 
 </div>
 

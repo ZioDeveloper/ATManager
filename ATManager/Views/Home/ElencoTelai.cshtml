@@ -12,7 +12,7 @@
         @*<td>Finito</td>*@
         <td>Targa</td>
         <td>Produttore</td>
-
+        @{var myScelta = @Session["Status"].ToString();}
 
     </tr>
     @foreach (var item in Model.AT_ListaPratiche_vw)
@@ -25,14 +25,44 @@
         <td>
             @Html.DisplayFor(modelItem => item.Prod_Descr)
         </td>
-        <td>
-            @*@Html.ActionLink("Create New", "Insert")*@
-            @Html.ActionLink("Create", "Create", new { id = item.Perizie_ID }, new { @class = "searchImg" })
 
-            @*@Html.ActionLink("Edit", "Edit", new { id = item.ID })
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID })*@
-        </td>
-    </tr>
+
+        @*@Html.ActionLink("Create", "Create", new { id = item.Perizie_ID }, new { @class = "searchImg" })*@
+
+        @if (myScelta == "TUTTE")
+        {
+            <td>
+                @Html.ActionLink("Create", "Create", new { id = item.Perizie_ID , marca = item.Prod_Descr})
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Perizie_ID })
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.Perizie_ID })
+            </td>
+        }
+        else if (myScelta == "DA FARE")
+        {
+            <td>
+                @Html.ActionLink("Create", "Create", new { id = item.Perizie_ID,
+                   dataperizia = item.Perizie_DataPerizia,
+                   marca = item.Prod_Descr,
+                   targa = item.Targa
+           })
+            </td>
+        }
+
+        else if (myScelta == "FATTE")
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Perizie_ID })
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.Perizie_ID })
+            </td>
+        }
+
+        </tr>
     }
 
 </table>
