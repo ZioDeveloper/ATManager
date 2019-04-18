@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="cac3217b4394428d9acb2f0fbc81cd9c" Name="Diagram1" ZoomLevel="89">
         <EntityTypeShape EntityType="AUTOSDUModel.AT_IndiciValutazione" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AUTOSDUModel.AT_SchedaTecnica" Width="1.5" PointX="5.125" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AUTOSDUModel.AT_SchedaTecnica" Width="2.25" PointX="5.875" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="AUTOSDUModel.AT_StatiMezzo" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="AUTOSDUModel.AT_TipiScheda" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
         <AssociationConnector Association="AUTOSDUModel.StatiMezzo" ManuallyRouted="false" />
@@ -57,6 +57,8 @@
         <AssociationConnector Association="AUTOSDUModel.CI1135" />
         <EntityTypeShape EntityType="AUTOSDUModel.Luoghi" Width="1.5" PointX="7.375" PointY="8.75" />
         <EntityTypeShape EntityType="AUTOSDUModel.Luoghi_vw" Width="1.5" PointX="9.375" PointY="8.75" />
+        <EntityTypeShape EntityType="AUTOSDUModel.AT_PreventiviDanno" Width="1.5" PointX="11.375" PointY="0.875" />
+        <AssociationConnector Association="AUTOSDUModel.FK_AT_SchedaTecnica_AT_PreventiviDanno" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

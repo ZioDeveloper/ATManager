@@ -1,20 +1,10 @@
 ﻿@model ATManager.Models.AT_SchedaTecnica
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 
-<h2>Create</h2>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="~/Scripts/JQuery/JavaScript.js"></script>
-
-<style>
-    table, th, td {
-        border: 1px solid green;
-        background-color: lightcyan;
-    }
-</style>
+<h2>Edit</h2>
 
 @using (Html.BeginForm())
 {
@@ -22,132 +12,35 @@
 
 
 <div class="form-horizontal">
-    <h4>Dati scheda</h4>
+    <h4>AT_SchedaTecnica</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
 
     <div class="form-group">
-        @Html.LabelFor(model => model.IDPerizia, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ID, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
 
-            @Html.TextBox("IDPErizia", (string)ViewBag.IDPErizia)
+            @Html.TextBox("ID", @Html.HiddenFor(model => model.ID))
         </div>
     </div>
 
-    <table>
-        <tr>
-            <td>
-                <b>Data Perizia</b>
-            </td>
-
-            <td>
-                @ViewBag.dataperizia
-            </td>
-
-        </tr>
-        <tr>
-            <td>
-                <b>Marca</b>
-            </td>
-
-            <td>
-                @ViewBag.marca
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <b>Targa</b>
-            </td>
-
-            <td>
-                @ViewBag.targa
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <b>Data imm.</b>
-            </td>
-            @ViewBag.dataimmatricolazione
-            <td></td>
-        </tr>
-        <tr>
-            <td>
-                <b>Km.</b>
-            </td>
-
-            <td>
-                @ViewBag.km
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <b>Carta circolazione</b>
-            </td>
-
-            <td></td>
-        </tr>
-        <tr>
-            <td>
-                <b>Luogo perizia</b>
-            </td>
-            <td>
-                @ViewBag.luogoperizia
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <b>Modello</b>
-            </td>
-            <td>
-                @ViewBag.modello
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <b>Matricola</b>
-            </td>
-
-            <td></td>
-        </tr>
-        <tr>
-            <td>
-                <b>Telaio</b>
-            </td>
-
-            <td></td>
-        </tr>
-        <tr>
-            <td>
-                <b>Azienda utilizz.</b>
-            </td>
-
-            <td></td>
-        </tr>
-        <tr>
-            <td>
-                <b>Data ultima rev.</b>
-            </td>
-
-            <td></td>
-        </tr>
-    </table>
-
-    <p></p>
-
-
-
-
-
-
-    <div class="form-group" style="background-color: burlywood">
+    <div class="form-group">
+        @Html.LabelFor(model => model.IDTipoScheda, "IDTipoScheda", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <font size="1">
-                <b>Codice</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <font color="green"><b>1</b></font>  &nbsp;&nbsp;&nbsp;
-                <font color="#ffcc00"><b>2</b></font> &nbsp;&nbsp;
-                <font color="red"><b>3</b></font>  &nbsp;&nbsp; <b>Descrizione</b>
-            </font>
+            @Html.DropDownList("IDTipoScheda", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IDTipoScheda, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IDStatoMezzo, "IDStatoMezzo", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("IDStatoMezzo", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IDStatoMezzo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
 
     <div class="form-group">
         <div class="col-md-10">
@@ -158,7 +51,6 @@
             @Html.RadioButtonFor(model => model.CE110, "2")
             @Html.RadioButtonFor(model => model.CE110, "3")
             <font size="1">CONDIZIONI GENERALI DI PULIZIA</font>
-
 
         </div>
     </div>
@@ -341,47 +233,46 @@
         <div class="col-md-10">
             <div class="checkbox">
                 <font color="red">Scheda Chiusa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
-                    @Html.EditorFor(model => model.IsCompleted)
-                    @Html.ValidationMessageFor(model => model.IsCompleted, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.IsCompleted)
+                @Html.ValidationMessageFor(model => model.IsCompleted, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IDPerizia, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.IDPerizia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.IDPerizia, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IDPreventivoDanno, "IDPreventivoDanno", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("IDPreventivoDanno", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IDPreventivoDanno, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IsCompleted, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.IsCompleted)
+                        @Html.ValidationMessageFor(model => model.IsCompleted, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        }
+    </div>
 </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.IDTipoScheda, "Tipo scheda", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("IDTipoScheda", null, htmlAttributes: new { @class = "form-control" })
-
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.IDStatoMezzo, "Stato del mezzo", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("IDStatoMezzo", null, htmlAttributes: new { @class = "form-control" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.IDPreventivoDanno, "Preventivo Danno", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("IDPreventivoDanno", null, htmlAttributes: new { @class = "form-control" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-           
-        </div>
-    </div>
-
-
-
-</div>
-
 }
-
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>

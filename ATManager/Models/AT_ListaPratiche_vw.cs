@@ -45,5 +45,7 @@ namespace ATManager.Models
         public string Prod_ID { get; set; }
         public string Prod_Descr { get; set; }
         public Nullable<int> ID_SchedaTecnica { get; set; }
+        public Nullable<System.DateTime> DataImmatricolazione { get; set; }
+        public Nullable<int> Km { get; set; }
     }
 }
