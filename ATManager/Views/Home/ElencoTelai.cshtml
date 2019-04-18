@@ -10,8 +10,10 @@
 
     <tr>
         @*<td>Finito</td>*@
-        <td>Targa</td>
-        <td>Produttore</td>
+        <td><b>Targa<b></b></td>
+        <td><b>Produttore</b></td>
+        <td><b>Azioni</b></td>
+        
         @{var myScelta = @Session["Status"].ToString();}
 
     </tr>
@@ -25,6 +27,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Prod_Descr)
         </td>
+        
 
 
         @*@Html.ActionLink("Create", "Create", new { id = item.Perizie_ID }, new { @class = "searchImg" })*@
@@ -32,7 +35,7 @@
         @if (myScelta == "TUTTE")
         {
             <td>
-                @Html.ActionLink("Create", "Create", new { id = item.Perizie_ID , marca = item.Prod_Descr})
+                @Html.ActionLink("Create", "Create", new { id = item.Perizie_ID, marca = item.Prod_Descr })
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Perizie_ID })
@@ -44,10 +47,15 @@
         else if (myScelta == "DA FARE")
         {
             <td>
-                @Html.ActionLink("Create", "Create", new { id = item.Perizie_ID,
-                   dataperizia = item.Perizie_DataPerizia,
-                   marca = item.Prod_Descr,
-                   targa = item.Targa
+                @Html.ActionLink("Create", "Create", new {
+               id = item.Perizie_ID,
+               dataperizia = item.Perizie_DataPerizia,
+               marca = item.Prod_Descr,
+               targa = item.Targa,
+               dataimmatricolazione = item.DataImmatricolazione,
+               km = item.Km,
+               luogoperizia = item.DescrITA,
+               modello = item.Mod_Descr
            })
             </td>
         }
@@ -55,14 +63,23 @@
         else if (myScelta == "FATTE")
         {
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Perizie_ID })
+                @Html.ActionLink("Modifica scheda", "Edit", new {
+               id = item.Perizie_ID,
+               dataperizia = item.Perizie_DataPerizia,
+               marca = item.Prod_Descr,
+               targa = item.Targa,
+               dataimmatricolazione = item.DataImmatricolazione,
+               km = item.Km,
+               luogoperizia = item.DescrITA,
+               modello = item.Mod_Descr
+           })
             </td>
             <td>
-                @Html.ActionLink("Delete", "Delete", new { id = item.Perizie_ID })
+                @Html.ActionLink("Elimina scheda", "Delete", new { id = item.Perizie_ID })
             </td>
         }
 
-        </tr>
+    </tr>
     }
 
 </table>

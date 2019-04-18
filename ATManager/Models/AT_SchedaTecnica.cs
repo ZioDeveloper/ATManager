@@ -61,6 +61,8 @@ namespace ATManager.Models
         public Nullable<int> PS610 { get; set; }
         public Nullable<int> CI1135 { get; set; }
         public int IDPerizia { get; set; }
+        public int IDPreventivoDanno { get; set; }
+        public bool IsCompleted { get; set; }
     
         public virtual AT_StatiMezzo AT_StatiMezzo { get; set; }
         public virtual AT_TipiScheda AT_TipiScheda { get; set; }
@@ -107,5 +109,6 @@ namespace ATManager.Models
         public virtual AT_IndiciValutazione AT_IndiciValutazione111 { get; set; }
         public virtual AT_IndiciValutazione AT_IndiciValutazione401 { get; set; }
         public virtual AT_IndiciValutazione AT_IndiciValutazione181 { get; set; }
+        public virtual AT_PreventiviDanno AT_PreventiviDanno { get; set; }
     }
 }

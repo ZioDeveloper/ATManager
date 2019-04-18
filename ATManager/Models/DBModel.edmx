@@ -12,6 +12,13 @@
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Descr" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="AT_PreventiviDanno">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Descr" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="AT_SchedaTecnica">
           <Key>
             <PropertyRef Name="ID" />
@@ -20,6 +27,8 @@
           <Property Name="IDPerizia" Type="int" Nullable="false" />
           <Property Name="IDTipoScheda" Type="int" Nullable="false" />
           <Property Name="IDStatoMezzo" Type="int" Nullable="false" />
+          <Property Name="IDPreventivoDanno" Type="int" Nullable="false" />
+          <Property Name="IsCompleted" Type="bit" Nullable="false" />
           <Property Name="CE110" Type="int" />
           <Property Name="CE112" Type="int" />
           <Property Name="CE115" Type="int" />
@@ -99,6 +108,7 @@
         <!--Errors Found During Generation:
 warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AT_ListaPratiche_vw">
+          
           <Key>
             <PropertyRef Name="Perizie_ID" />
           </Key>
@@ -133,6 +143,8 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
           <Property Name="Prod_ID" Type="varchar" MaxLength="4" />
           <Property Name="Prod_Descr" Type="varchar" MaxLength="50" />
           <Property Name="ID_SchedaTecnica" Type="int" />
+          <Property Name="DataImmatricolazione" Type="datetime" />
+          <Property Name="Km" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -540,6 +552,18 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_AT_SchedaTecnica_AT_PreventiviDanno">
+          <End Role="AT_PreventiviDanno" Type="Self.AT_PreventiviDanno" Multiplicity="1" />
+          <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_PreventiviDanno">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="IDPreventivoDanno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="PS165">
           <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
           <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
@@ -662,6 +686,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
         </Association>
         <EntityContainer Name="AUTOSDUModelStoreContainer">
           <EntitySet Name="AT_IndiciValutazione" EntityType="Self.AT_IndiciValutazione" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AT_PreventiviDanno" EntityType="Self.AT_PreventiviDanno" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AT_SchedaTecnica" EntityType="Self.AT_SchedaTecnica" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AT_StatiMezzo" EntityType="Self.AT_StatiMezzo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AT_TipiScheda" EntityType="Self.AT_TipiScheda" Schema="dbo" store:Type="Tables" />
@@ -698,7 +723,9 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
     [AT_ListaPratiche_vw].[Mod_Descr] AS [Mod_Descr], 
     [AT_ListaPratiche_vw].[Prod_ID] AS [Prod_ID], 
     [AT_ListaPratiche_vw].[Prod_Descr] AS [Prod_Descr], 
-    [AT_ListaPratiche_vw].[ID_SchedaTecnica] AS [ID_SchedaTecnica]
+    [AT_ListaPratiche_vw].[ID_SchedaTecnica] AS [ID_SchedaTecnica], 
+    [AT_ListaPratiche_vw].[DataImmatricolazione] AS [DataImmatricolazione], 
+    [AT_ListaPratiche_vw].[Km] AS [Km]
     FROM [dbo].[AT_ListaPratiche_vw] AS [AT_ListaPratiche_vw]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Luoghi_vw" EntityType="Self.Luoghi_vw" store:Type="Views" store:Schema="dbo">
@@ -837,6 +864,10 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           </AssociationSet>
           <AssociationSet Name="CS815" Association="Self.CS815">
             <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AT_SchedaTecnica_AT_PreventiviDanno" Association="Self.FK_AT_SchedaTecnica_AT_PreventiviDanno">
+            <End Role="AT_PreventiviDanno" EntitySet="AT_PreventiviDanno" />
             <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
           </AssociationSet>
           <AssociationSet Name="PS165" Association="Self.PS165">
@@ -1030,6 +1061,9 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <Property Name="CI1135" Type="Int32" />
           <NavigationProperty Name="AT_IndiciValutazione181" Relationship="AUTOSDUModel.CI1135" FromRole="AT_SchedaTecnica" ToRole="AT_IndiciValutazione" />
           <Property Name="IDPerizia" Type="Int32" Nullable="false" />
+          <Property Name="IDPreventivoDanno" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AT_PreventiviDanno" Relationship="AUTOSDUModel.FK_AT_SchedaTecnica_AT_PreventiviDanno" FromRole="AT_SchedaTecnica" ToRole="AT_PreventiviDanno" />
+          <Property Name="IsCompleted" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="AT_StatiMezzo">
           <Key>
@@ -1259,6 +1293,11 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           </AssociationSet>
           <EntitySet Name="Luoghi" EntityType="AUTOSDUModel.Luoghi" />
           <EntitySet Name="Luoghi_vw" EntityType="AUTOSDUModel.Luoghi_vw" />
+          <EntitySet Name="AT_PreventiviDanno" EntityType="AUTOSDUModel.AT_PreventiviDanno" />
+          <AssociationSet Name="FK_AT_SchedaTecnica_AT_PreventiviDanno" Association="AUTOSDUModel.FK_AT_SchedaTecnica_AT_PreventiviDanno">
+            <End Role="AT_PreventiviDanno" EntitySet="AT_PreventiviDanno" />
+            <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AT_ListaPratiche_vw">
           <Key>
@@ -1295,6 +1334,8 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <Property Name="Prod_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
           <Property Name="Prod_Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ID_SchedaTecnica" Type="Int32" />
+          <Property Name="DataImmatricolazione" Type="DateTime" Precision="3" />
+          <Property Name="Km" Type="Int32" />
         </EntityType>
         <Association Name="CE110">
           <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
@@ -1838,6 +1879,26 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
           <Property Name="DescrITA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="AT_PreventiviDanno">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AT_SchedaTecnica" Relationship="AUTOSDUModel.FK_AT_SchedaTecnica_AT_PreventiviDanno" FromRole="AT_PreventiviDanno" ToRole="AT_SchedaTecnica" />
+        </EntityType>
+        <Association Name="FK_AT_SchedaTecnica_AT_PreventiviDanno">
+          <End Type="AUTOSDUModel.AT_PreventiviDanno" Role="AT_PreventiviDanno" Multiplicity="1" />
+          <End Type="AUTOSDUModel.AT_SchedaTecnica" Role="AT_SchedaTecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AT_PreventiviDanno">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AT_SchedaTecnica">
+              <PropertyRef Name="IDPreventivoDanno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1855,6 +1916,8 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <EntitySetMapping Name="AT_SchedaTecnica">
             <EntityTypeMapping TypeName="AUTOSDUModel.AT_SchedaTecnica">
               <MappingFragment StoreEntitySet="AT_SchedaTecnica">
+                <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+                <ScalarProperty Name="IDPreventivoDanno" ColumnName="IDPreventivoDanno" />
                 <ScalarProperty Name="IDPerizia" ColumnName="IDPerizia" />
                 <ScalarProperty Name="CI1135" ColumnName="CI1135" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1924,6 +1987,8 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <EntitySetMapping Name="AT_ListaPratiche_vw">
             <EntityTypeMapping TypeName="AUTOSDUModel.AT_ListaPratiche_vw">
               <MappingFragment StoreEntitySet="AT_ListaPratiche_vw">
+                <ScalarProperty Name="Km" ColumnName="Km" />
+                <ScalarProperty Name="DataImmatricolazione" ColumnName="DataImmatricolazione" />
                 <ScalarProperty Name="ID_SchedaTecnica" ColumnName="ID_SchedaTecnica" />
                 <ScalarProperty Name="Prod_Descr" ColumnName="Prod_Descr" />
                 <ScalarProperty Name="Prod_ID" ColumnName="Prod_ID" />
@@ -1981,6 +2046,14 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
             <EntityTypeMapping TypeName="AUTOSDUModel.Luoghi_vw">
               <MappingFragment StoreEntitySet="Luoghi_vw">
                 <ScalarProperty Name="DescrITA" ColumnName="DescrITA" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AT_PreventiviDanno">
+            <EntityTypeMapping TypeName="AUTOSDUModel.AT_PreventiviDanno">
+              <MappingFragment StoreEntitySet="AT_PreventiviDanno">
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

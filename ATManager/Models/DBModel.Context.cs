@@ -32,5 +32,6 @@ namespace ATManager.Models
         public virtual DbSet<AT_ListaPratiche_vw> AT_ListaPratiche_vw { get; set; }
         public virtual DbSet<Luoghi> Luoghi { get; set; }
         public virtual DbSet<Luoghi_vw> Luoghi_vw { get; set; }
+        public virtual DbSet<AT_PreventiviDanno> AT_PreventiviDanno { get; set; }
     }
 }
