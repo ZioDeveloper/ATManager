@@ -5,12 +5,16 @@
 }
 
 <h2>ElencoTelai</h2>
+<div>
+    @Html.ActionLink("Torna a selezione telai", "Index")
+    <p></p>
+</div>
 
 <table class="table">
 
     <tr>
         @*<td>Finito</td>*@
-        <td><b>Targa<b></b></td>
+        <td><b>Targa</b></td>
         <td><b>Produttore</b></td>
         <td><b>Azioni</b></td>
         
@@ -27,14 +31,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.Prod_Descr)
         </td>
-        
+
 
 
         @*@Html.ActionLink("Create", "Create", new { id = item.Perizie_ID }, new { @class = "searchImg" })*@
 
         @if (myScelta == "TUTTE")
         {
-            <td>
+            @*<td>
                 @Html.ActionLink("Create", "Create", new { id = item.Perizie_ID, marca = item.Prod_Descr })
             </td>
             <td>
@@ -42,7 +46,8 @@
             </td>
             <td>
                 @Html.ActionLink("Delete", "Delete", new { id = item.Perizie_ID })
-            </td>
+            </td>*@
+
         }
         else if (myScelta == "DA FARE")
         {
@@ -55,7 +60,7 @@
                dataimmatricolazione = item.DataImmatricolazione,
                km = item.Km,
                luogoperizia = item.DescrITA,
-               modello = item.Mod_Descr
+               
            })
             </td>
         }
@@ -71,15 +76,38 @@
                dataimmatricolazione = item.DataImmatricolazione,
                km = item.Km,
                luogoperizia = item.DescrITA,
-               modello = item.Mod_Descr
+               modello = item.Mod_Descr,
+               blocked = "NO"
            })
             </td>
             <td>
                 @Html.ActionLink("Elimina scheda", "Delete", new { id = item.Perizie_ID })
             </td>
         }
+        else if (myScelta == "FATTECHIUSE")
+        {
+            <td>
+               @Html.ActionLink("Visualizza scheda", "Edit", new {
+              id = item.Perizie_ID,
+              dataperizia = item.Perizie_DataPerizia,
+              marca = item.Prod_Descr,
+              targa = item.Targa,
+              dataimmatricolazione = item.DataImmatricolazione,
+              km = item.Km,
+              luogoperizia = item.DescrITA,
+              modello = item.Mod_Descr,
+              blocked = "SI"
+          })
+            </td>
+            @*<td>
+                @Html.ActionLink("Elimina scheda", "Delete", new { id = item.Perizie_ID })
+            </td>*@
+        }
 
     </tr>
     }
 
 </table>
+<div>
+    @Html.ActionLink("Torna a selezione telai", "Index")
+</div>

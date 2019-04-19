@@ -8,44 +8,58 @@
 
 @using (Html.BeginForm("DoRefresh", "Home", FormMethod.Get))
 {
-    <div class="form-horizontal">
-        @{var Scelta01 = "Tutti    :";}
-        @{var Scelta02 = "Da fare  :";}
-        @{var Scelta03 = "Fatti    :";}
+<div class="form-horizontal">
+    @{var Scelta01 = "Tutti    :";}
+    @{var Scelta02 = "Da fare  :";}
+    @{var Scelta03 = "Schede aperte :";}
+    @{var Scelta04 = "Schde chiuse    :";}
 
 
 
-        <table border="1">
-            <tr>
-                <td>@Scelta01 &nbsp;</td>
+    <table border="0">
+        <tr>
+            <td>@Scelta01 &nbsp;</td>
 
-                <td>@Html.RadioButton("Opt1", "TUTTE", new { @onclick = "this.form.submit();" })</td>
+            <td>@Html.RadioButton("Opt1", "TUTTE", new { @onclick = "this.form.submit();" })</td>
 
-                <td>&nbsp;@Scelta02&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;@Scelta02&nbsp;</td>
 
-                <td> @Html.RadioButton("Opt1", "DA FARE", new { @onclick = "this.form.submit();" })</td>
+            <td> @Html.RadioButton("Opt1", "DA FARE", new { @onclick = "this.form.submit();" })</td>
+        </tr>
+        <tr>
+            <td>&nbsp;@Scelta03&nbsp;</td>
 
-                <td>&nbsp;@Scelta03&nbsp;</td>
+            <td> @Html.RadioButton("Opt1", "FATTE", new { @onclick = "this.form.submit();" })</td>
+        </tr>
+        <tr>
+            <td>&nbsp;@Scelta04&nbsp;</td>
 
-                <td> @Html.RadioButton("Opt1", "FATTE", new { @onclick = "this.form.submit();" })</td>
+            <td> @Html.RadioButton("Opt1", "FATTECHIUSE", new { @onclick = "this.form.submit();" })</td>
+        </tr>
 
-        </table>
-        <table>
-            <tr>
-                <td>
-                    Targa : @Html.TextBox("CercaTarga", null, new { style = "width:80px" })
-                    @Html.ValidationMessage("CercaTarga")
-                    <input type="submit" value="Cerca targa" />
-                </td>
-            </tr>
-            <tr>
-                <td>Location :</td>
-            </tr>
-            <tr>
-                <td>    @Html.DropDownList("SearchLocation", (IEnumerable<SelectListItem>)ViewData["Luoghi"])</td>
-            </tr>
-        </table>
+    </table>
+    <p></p><p></p>
+    <table border="0">
+        <tr>
+            <td>
+                Targa : @Html.TextBox("CercaTarga", null, new { style = "width:80px" })
+                @Html.ValidationMessage("CercaTarga")
+                <input type="submit" value="Cerca targa" />
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Location :</td>
+        </tr>
+        <tr>
+            <td>    @Html.DropDownList("SearchLocation", (IEnumerable<SelectListItem>)ViewData["Luoghi"])</td>
+        </tr>
+    </table>
 
-    </div>
+</div>
 }
 

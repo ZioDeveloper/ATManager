@@ -145,13 +145,14 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
           <Property Name="ID_SchedaTecnica" Type="int" />
           <Property Name="DataImmatricolazione" Type="datetime" />
           <Property Name="Km" Type="int" />
+          <Property Name="IsCompleted" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Luoghi_vw">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="DescrITA" />
+            
           </Key>
           <Property Name="ID" Type="varchar" MaxLength="4" Nullable="false" />
           <Property Name="DescrITA" Type="varchar" MaxLength="50" Nullable="false" />
@@ -725,7 +726,8 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
     [AT_ListaPratiche_vw].[Prod_Descr] AS [Prod_Descr], 
     [AT_ListaPratiche_vw].[ID_SchedaTecnica] AS [ID_SchedaTecnica], 
     [AT_ListaPratiche_vw].[DataImmatricolazione] AS [DataImmatricolazione], 
-    [AT_ListaPratiche_vw].[Km] AS [Km]
+    [AT_ListaPratiche_vw].[Km] AS [Km], 
+    [AT_ListaPratiche_vw].[IsCompleted] AS [IsCompleted]
     FROM [dbo].[AT_ListaPratiche_vw] AS [AT_ListaPratiche_vw]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Luoghi_vw" EntityType="Self.Luoghi_vw" store:Type="Views" store:Schema="dbo">
@@ -1317,7 +1319,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <Property Name="citta_peritoNonTabellato" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Perizie_Barcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Perizie_IDPerito" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="Perizie_ID" Type="Int32" Nullable="false" />
+          <Property Name="Perizie_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="Perizie_IsChiusa" Type="Boolean" />
           <Property Name="Perizie_IsChecked" Type="Boolean" />
           <Property Name="Perizie_DataIncarico" Type="DateTime" Precision="3" />
@@ -1336,6 +1338,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <Property Name="ID_SchedaTecnica" Type="Int32" />
           <Property Name="DataImmatricolazione" Type="DateTime" Precision="3" />
           <Property Name="Km" Type="Int32" />
+          <Property Name="IsCompleted" Type="Boolean" />
         </EntityType>
         <Association Name="CE110">
           <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
@@ -1874,9 +1877,8 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
         <EntityType Name="Luoghi_vw">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="DescrITA" />
           </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="DescrITA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AT_PreventiviDanno">
@@ -1987,6 +1989,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <EntitySetMapping Name="AT_ListaPratiche_vw">
             <EntityTypeMapping TypeName="AUTOSDUModel.AT_ListaPratiche_vw">
               <MappingFragment StoreEntitySet="AT_ListaPratiche_vw">
+                <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
                 <ScalarProperty Name="Km" ColumnName="Km" />
                 <ScalarProperty Name="DataImmatricolazione" ColumnName="DataImmatricolazione" />
                 <ScalarProperty Name="ID_SchedaTecnica" ColumnName="ID_SchedaTecnica" />

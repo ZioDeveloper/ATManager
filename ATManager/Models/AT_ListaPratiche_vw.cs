@@ -47,5 +47,6 @@ namespace ATManager.Models
         public Nullable<int> ID_SchedaTecnica { get; set; }
         public Nullable<System.DateTime> DataImmatricolazione { get; set; }
         public Nullable<int> Km { get; set; }
+        public Nullable<bool> IsCompleted { get; set; }
     }
 }

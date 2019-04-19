@@ -273,6 +273,7 @@
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\Delete2.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Home\FotoPerizia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

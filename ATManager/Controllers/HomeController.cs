@@ -35,7 +35,33 @@ namespace ATManager.Controllers
         //            ViewBag.Messaggio = "BENE il cookie corrisponde!";
         //            //ViewBag.Messaggio = personaggio;
         //            isAuth = true;
-        //            return RedirectToAction("DoRefresh", "Home");
+        //            using (AUTOSDUEntities val = new AUTOSDUEntities())
+        //            {
+        //                Session["Status"] = "";
+
+        //                var fromDatabaseEF = new SelectList(val.Luoghi_vw.ToList(), "ID", "DescrITA");
+        //                ViewData["Luoghi"] = fromDatabaseEF;
+
+
+        //            }
+
+        //            if (String.IsNullOrEmpty(CercaTarga))
+        //            {
+        //                return View();
+        //            }
+        //            else if (!String.IsNullOrEmpty(CercaTarga))
+        //            {
+        //                var model = new Models.HomeModel();
+        //                var telai = from s in db.AT_ListaPratiche_vw
+        //                            where s.Targa.ToString() == CercaTarga
+        //                            select s;
+        //                model.AT_ListaPratiche_vw = telai.ToList();
+        //                return View("ElencoTelai", model);
+        //            }
+        //            else
+        //            {
+        //                return View();
+        //            }
         //        }
         //        else
         //        {
@@ -46,6 +72,7 @@ namespace ATManager.Controllers
 
         //    }
         //    return View();
+
 
         //}
 
@@ -134,6 +161,18 @@ namespace ATManager.Controllers
                 var model = new Models.HomeModel();
                 var telai = from s in db.AT_ListaPratiche_vw
                             where s.ID_SchedaTecnica != null
+                            where s.IsCompleted == false
+                            //where s.ID_LuogoIntervento == SearchLocation
+                            select s;
+                model.AT_ListaPratiche_vw = telai.ToList();
+                return View("ElencoTelai", model);
+            }
+            else if (Opt1 == "FATTECHIUSE")
+            {
+                var model = new Models.HomeModel();
+                var telai = from s in db.AT_ListaPratiche_vw
+                            where s.ID_SchedaTecnica != null
+                            where s.IsCompleted == true
                             //where s.ID_LuogoIntervento == SearchLocation
                             select s;
                 model.AT_ListaPratiche_vw = telai.ToList();
@@ -254,7 +293,7 @@ namespace ATManager.Controllers
 
         public ActionResult Edit(int? id, string marca, string dataperizia,
                                     string targa, string dataimmatricolazione, string km,
-                                    string luogoperizia, string modello)
+                                    string luogoperizia, string modello,string blocked)
         {
             if (id == null)
             {
@@ -266,6 +305,16 @@ namespace ATManager.Controllers
                            where s.IDPerizia == id
                            select s;
             model = myScheda.ToList().First();
+
+            
+            ViewBag.dataperizia = dataperizia;
+            ViewBag.marca = marca;
+            ViewBag.targa = targa;
+            ViewBag.dataimmatricolazione = dataimmatricolazione;
+            ViewBag.km = km;
+            ViewBag.luogoperizia = luogoperizia;
+            ViewBag.modello = modello;
+            ViewBag.blocked = blocked;
             //return View(model);
 
 
@@ -401,6 +450,49 @@ namespace ATManager.Controllers
             return View(aT_SchedaTecnica);
         }
 
+        public ActionResult FotoPerizia(int ID)
+        {
+            
+
+            return View();
+        }
+
+        public ActionResult UploadFotoPErizia(IEnumerable<HttpPostedFileBase> files, int? ID)
+        {
+            string pic = "";
+            string path = "";
+            //int myIDTelaio = 0;
+
+            //string mySearch = TempData["mySearch"] as string;
+            //string myLotto = TempData["myLotto"] as string;
+            //myIDTelaio = (int)TempData["myIDTelaio"];
+
+            foreach (var file in files)
+            {
+                pic = System.IO.Path.GetFileName(file.FileName);
+                //pic = "Test.jpg";
+                path = System.IO.Path.Combine(Server.MapPath("~/FotoPerizia"),  pic);
+                path = System.IO.Path.Combine(@"\\gefilesrv01\Release\@", pic);
+                //path = System.IO.Path.Combine(Server.MapPath(@"E:\AutOK"), pic);
+                if (file != null)
+                {
+                    file.SaveAs(path);
+                }
+
+                //var sql = @"Insert Into RPC_FotoXTelaio (IDTelaio, NomeFile) Values (@IDTelaio, @NomeFile)";
+                //int noOfRowInserted = db.Database.ExecuteSqlCommand(sql,
+                //    new SqlParameter("@IDTelaio", myIDTelaio),
+                //    new SqlParameter("@NomeFile", myIDTelaio.ToString() + "_" + pic));
+
+            }
+
+
+            //TempData["mySearch"] = mySearch;
+            //TempData["myLotto"] = myLotto;
+            //TempData["myIDTelaio"] = myIDTelaio;
+
+            return RedirectToAction("DoRefresh", "Home");
+        }
 
         protected override void Dispose(bool disposing)
         {
