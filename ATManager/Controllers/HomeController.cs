@@ -15,6 +15,7 @@ namespace ATManager.Controllers
     public class HomeController : Controller
     {
 
+
         private AUTOSDUEntities db = new AUTOSDUEntities();
         //public ActionResult Index(string usr, string Opt1, string CercaTarga, string SearchLocation)
         //{
