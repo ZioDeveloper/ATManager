@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using ATManager.Models;
 using System.Net;
 using System.Data.Entity;
+using System.IO;
 
 namespace ATManager.Controllers
 {
@@ -307,7 +308,7 @@ namespace ATManager.Controllers
                            select s;
             model = myScheda.ToList().First();
 
-            
+            ViewBag.IDPerizia = id;
             ViewBag.dataperizia = dataperizia;
             ViewBag.marca = marca;
             ViewBag.targa = targa;
@@ -451,46 +452,118 @@ namespace ATManager.Controllers
             return View(aT_SchedaTecnica);
         }
 
-        public ActionResult FotoPerizia(int ID)
+        public ActionResult FotoPerizia(int? ID)
         {
             
 
             return View();
         }
 
-        public ActionResult UploadFotoPErizia(IEnumerable<HttpPostedFileBase> files, int? ID)
+        public ActionResult FotoPratica(int? ID)
         {
-            string pic = "";
-            string path = "";
-            //int myIDTelaio = 0;
 
-            //string mySearch = TempData["mySearch"] as string;
-            //string myLotto = TempData["myLotto"] as string;
-            //myIDTelaio = (int)TempData["myIDTelaio"];
+            ViewBag.SDU_DocTipi = new SelectList(db.SDU_documentiTipi, "ID", "descrizioneDocumento");
+            ViewBag.IDPerizia = ID;
+            return View();
+        }
+
+
+
+        public ActionResult UploadFotoPerizia(IEnumerable<HttpPostedFileBase> files, int? ID)
+        {
+            
+            string path = "";
+            //var model = new Models.AT_ListaPratiche_vw();
+            var myScheda = from s in db.AT_ListaPratiche_vw
+                           where s.Perizie_ID == ID
+                           select s.Perizie_Barcode; 
+            string myBarcode = myScheda.ToList().First();
+            
+            var myScheda2 = from s in db.AT_ListaPratiche_vw
+                           where s.Perizie_ID == ID
+                           select s.Targa;
+            string myTarga = myScheda2.ToList().First();
+
+
+            string myDate = DateTime.Now.Year.ToString("0000") + 
+                            DateTime.Now.Month.ToString("00") + 
+                            DateTime.Now.Day.ToString("00") + 
+                            DateTime.Now.Hour.ToString("00") + 
+                            DateTime.Now.Minute.ToString("00") + 
+                            DateTime.Now.Second.ToString("00");
+
 
             foreach (var file in files)
             {
-                pic = System.IO.Path.GetFileName(file.FileName);
-                //pic = "Test.jpg";
-                path = System.IO.Path.Combine(Server.MapPath("~/FotoPerizia"),  pic);
-                path = System.IO.Path.Combine(@"\\gefilesrv01\Release\@", pic);
-                //path = System.IO.Path.Combine(Server.MapPath(@"E:\AutOK"), pic);
+                int fileCount = (from filecnt in Directory.EnumerateFiles(@"\\gewisfsrv\SDU\0036", myBarcode + "*.*", SearchOption.AllDirectories)
+                                 select file).Count();
+
+                path = System.IO.Path.Combine(@"\\gewisfsrv\SDU\0036\", myBarcode + "_" +
+                                                                        myTarga + "_" +
+                                                                        fileCount.ToString("000") + "_" +
+                                                                        System.IO.Path.GetExtension(file.FileName));
                 if (file != null)
                 {
                     file.SaveAs(path);
                 }
 
-                //var sql = @"Insert Into RPC_FotoXTelaio (IDTelaio, NomeFile) Values (@IDTelaio, @NomeFile)";
-                //int noOfRowInserted = db.Database.ExecuteSqlCommand(sql,
-                //    new SqlParameter("@IDTelaio", myIDTelaio),
-                //    new SqlParameter("@NomeFile", myIDTelaio.ToString() + "_" + pic));
+                
 
             }
 
 
-            //TempData["mySearch"] = mySearch;
-            //TempData["myLotto"] = myLotto;
-            //TempData["myIDTelaio"] = myIDTelaio;
+            return RedirectToAction("DoRefresh", "Home");
+        }
+
+        public ActionResult UploadFotoPratica(IEnumerable<HttpPostedFileBase> files, int? ID , FormCollection form)
+        {
+
+            string path = "";
+            string myIDTipoDoc = form["SDU_DocTipi"].ToString();
+
+            var model = new Models.AT_ListaPratiche_vw();
+            var myScheda = from s in db.AT_ListaPratiche_vw
+                           where s.Perizie_ID == ID
+                           select s.PRAT_ID; 
+            int IDPratica = myScheda.ToList().First();
+            string myDate = DateTime.Now.Year.ToString("0000") + 
+                            DateTime.Now.Month.ToString("00") + 
+                            DateTime.Now.Day.ToString("00") + 
+                            DateTime.Now.Hour.ToString("00") + 
+                            DateTime.Now.Minute.ToString("00") + 
+                            DateTime.Now.Second.ToString("00");
+
+            foreach (var file in files)
+            {
+
+                int fileCount = (from filecnt in Directory.EnumerateFiles(@"\\gewisfsrv\SDU\0036", IDPratica + "*.*", SearchOption.AllDirectories)
+                                 select file).Count();
+                fileCount++;
+
+                path = System.IO.Path.Combine(@"\\gewisfsrv\SDU\0036\", IDPratica + "_" + 
+                                                                        myDate + "_" + 
+                                                                        fileCount.ToString("000") + "_" + 
+                                                                        myIDTipoDoc + 
+                                                                        System.IO.Path.GetExtension(file.FileName));
+                
+
+
+                if (file != null)
+                {
+                    file.SaveAs(path);
+                }
+
+                var sql = @"INSERT INTO SDU_documentiPratica (ID_pratica, ID_tipoDocumento,percorsoFile) Values (@ID_pratica, 
+                                                                                                                 @ID_tipoDocumento, 
+                                                                                                                 @percorsoFile)";
+                int noOfRowInserted = db.Database.ExecuteSqlCommand(sql,
+                    new SqlParameter("@ID_pratica", IDPratica),
+                    new SqlParameter("@ID_tipoDocumento", myIDTipoDoc),
+                    new SqlParameter("@percorsoFile",path));
+
+            }
+
+
 
             return RedirectToAction("DoRefresh", "Home");
         }

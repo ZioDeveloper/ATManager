@@ -60,8 +60,11 @@
                dataimmatricolazione = item.DataImmatricolazione,
                km = item.Km,
                luogoperizia = item.DescrITA,
-               
+
            })
+            </td>
+            <td>
+                @Html.ActionLink("Foto", "Images", new { id = item.Perizie_ID }, new { @class = "uplImg" })
             </td>
         }
 
@@ -83,21 +86,27 @@
             <td>
                 @Html.ActionLink("Elimina scheda", "Delete", new { id = item.Perizie_ID })
             </td>
+            <td>
+                @Html.ActionLink("Foto", "Images", new { id = item.Perizie_ID }, new { @class = "uplImg" })
+            </td>
         }
         else if (myScelta == "FATTECHIUSE")
         {
             <td>
-               @Html.ActionLink("Visualizza scheda", "Edit", new {
-              id = item.Perizie_ID,
-              dataperizia = item.Perizie_DataPerizia,
-              marca = item.Prod_Descr,
-              targa = item.Targa,
-              dataimmatricolazione = item.DataImmatricolazione,
-              km = item.Km,
-              luogoperizia = item.DescrITA,
-              modello = item.Mod_Descr,
-              blocked = "SI"
-          })
+                @Html.ActionLink("Visualizza scheda", "Edit", new {
+               id = item.Perizie_ID,
+               dataperizia = item.Perizie_DataPerizia,
+               marca = item.Prod_Descr,
+               targa = item.Targa,
+               dataimmatricolazione = item.DataImmatricolazione,
+               km = item.Km,
+               luogoperizia = item.DescrITA,
+               modello = item.Mod_Descr,
+               blocked = "SI"
+           })
+            </td>
+            <td>
+                @Html.ActionLink("Foto", "Images", new { id = item.Perizie_ID }, new { @class = "uplImg" })
             </td>
             @*<td>
                 @Html.ActionLink("Elimina scheda", "Delete", new { id = item.Perizie_ID })

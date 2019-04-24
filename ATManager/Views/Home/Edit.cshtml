@@ -21,6 +21,9 @@
 <div class="form-horizontal">
 
     <h4>Editing</h4>
+
+    Foto perizia : @Html.ActionLink("Foto perizia", "FotoPerizia", new { id = ViewBag.IDPerizia }, new { @class = "photoImg" })
+    Foto pratica : @Html.ActionLink("Foto pratica", "FotoPratica", new { id = ViewBag.IDPerizia }, new { @class = "photoImg" })
     <div>
         @Html.ActionLink("Torna a lista telai...", "DoRefresh")
     </div>
@@ -407,8 +410,8 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    
-                    @if (ViewBag.blocked=="NO")
+
+                    @if (ViewBag.blocked == "NO")
                     {
                         <input type="submit" value="Save" class="btn btn-default" />
                     }

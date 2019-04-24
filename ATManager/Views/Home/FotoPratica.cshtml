@@ -1,0 +1,33 @@
+﻿
+@{
+    /**/
+
+    ViewBag.Title = "FotoPratica";
+}
+
+<h2>Foto legate alla pratica</h2>
+
+<br />
+<br />
+@using (Html.BeginForm("UploadFotoPratica", "Home", new { ID = ViewBag.IDPerizia, IDTipo= "SDU_DocTipi" }, FormMethod.Post,
+                                    new { enctype = "multipart/form-data" }))
+{
+
+    <div class="form-group">
+
+        <div class="col-md-10">
+            Tipo documento :
+            @Html.DropDownList("SDU_DocTipi", null, htmlAttributes: new { @class = "form-control" })
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="file">Upload Image:</label>
+        <input type="file" name="files[0]" id="files_0" />
+
+        <br />
+        <input type="submit" value="UploadFotoPratica" class="submit" />
+        </div>
+}
+
+

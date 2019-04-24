@@ -42,8 +42,10 @@
 
         </table>*@
 
-    Foto perizia : @Html.ActionLink("Foto perizia", "FotoPerizia", new { id = ViewBag.IDPerizia }, new { @class = "photoImg" }) 
-    Foto pratica : @Html.ActionLink("Foto", "Image", new { id = ViewBag.IDPerizia }, new { @class = "photoImg" })
+    Foto perizia : @Html.ActionLink("Foto perizia", "FotoPerizia", new { id = ViewBag.IDPerizia }, new { @class = "photoImg" })
+    Foto pratica : @Html.ActionLink("Foto pratica", "FotoPratica", new { id = ViewBag.IDPerizia }, new { @class = "photoImg" })
+    Visualizza documenti : @Html.ActionLink("Foto", "Images", new { ViewBag.IDPerizia }, new { @class = "uplImg" })
+
 
     <table>
         <tr>
@@ -350,15 +352,15 @@
     </div>
 
     @*<div class="form-group">
-        @Html.LabelFor(model => model.IsCompleted, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                <font color="red">Scheda Chiusa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
-                @Html.EditorFor(model => model.IsCompleted)
-                @Html.ValidationMessageFor(model => model.IsCompleted, "", new { @class = "text-danger" })
+            @Html.LabelFor(model => model.IsCompleted, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    <font color="red">Scheda Chiusa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+                    @Html.EditorFor(model => model.IsCompleted)
+                    @Html.ValidationMessageFor(model => model.IsCompleted, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
-    </div>*@
+        </div>*@
 
     <div class="form-group">
         @Html.LabelFor(model => model.IDTipoScheda, "Tipo scheda", htmlAttributes: new { @class = "control-label col-md-2" })

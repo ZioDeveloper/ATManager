@@ -59,6 +59,9 @@
         <EntityTypeShape EntityType="AUTOSDUModel.Luoghi_vw" Width="1.5" PointX="9.375" PointY="8.75" />
         <EntityTypeShape EntityType="AUTOSDUModel.AT_PreventiviDanno" Width="1.5" PointX="11.375" PointY="0.875" />
         <AssociationConnector Association="AUTOSDUModel.FK_AT_SchedaTecnica_AT_PreventiviDanno" />
+        <EntityTypeShape EntityType="AUTOSDUModel.SDU_documentiPratica" Width="1.5" PointX="13.625" PointY="4" />
+        <EntityTypeShape EntityType="AUTOSDUModel.SDU_documentiTipi" Width="1.5" PointX="11.375" PointY="4.375" />
+        <AssociationConnector Association="AUTOSDUModel.FK_SDU_documentiPratica_SDU_documentiTipi" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

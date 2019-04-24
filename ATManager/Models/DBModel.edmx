@@ -105,6 +105,25 @@
           <Property Name="Longitudine" Type="float" />
           <Property Name="ID_Localita" Type="int" />
         </EntityType>
+        <EntityType Name="SDU_documentiPratica">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_pratica" Type="int" Nullable="false" />
+          <Property Name="ID_tipoDocumento" Type="int" />
+          <Property Name="noteDocumento" Type="varchar" MaxLength="250" />
+          <Property Name="percorsoFile" Type="varchar" MaxLength="80" />
+          <Property Name="insertUser" Type="varchar" MaxLength="50" />
+          <Property Name="insertTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SDU_documentiTipi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descrizioneDocumento" Type="varchar" MaxLength="100" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AT_ListaPratiche_vw">
@@ -565,6 +584,18 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_SDU_documentiPratica_SDU_documentiTipi">
+          <End Role="SDU_documentiTipi" Type="Self.SDU_documentiTipi" Multiplicity="0..1" />
+          <End Role="SDU_documentiPratica" Type="Self.SDU_documentiPratica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SDU_documentiTipi">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SDU_documentiPratica">
+              <PropertyRef Name="ID_tipoDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="PS165">
           <End Role="AT_IndiciValutazione" Type="Self.AT_IndiciValutazione" Multiplicity="0..1" />
           <End Role="AT_SchedaTecnica" Type="Self.AT_SchedaTecnica" Multiplicity="*" />
@@ -692,6 +723,8 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <EntitySet Name="AT_StatiMezzo" EntityType="Self.AT_StatiMezzo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AT_TipiScheda" EntityType="Self.AT_TipiScheda" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Luoghi" EntityType="Self.Luoghi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SDU_documentiPratica" EntityType="Self.SDU_documentiPratica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SDU_documentiTipi" EntityType="Self.SDU_documentiTipi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AT_ListaPratiche_vw" EntityType="Self.AT_ListaPratiche_vw" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [AT_ListaPratiche_vw].[TipoPerizia_ID] AS [TipoPerizia_ID], 
@@ -871,6 +904,10 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <AssociationSet Name="FK_AT_SchedaTecnica_AT_PreventiviDanno" Association="Self.FK_AT_SchedaTecnica_AT_PreventiviDanno">
             <End Role="AT_PreventiviDanno" EntitySet="AT_PreventiviDanno" />
             <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SDU_documentiPratica_SDU_documentiTipi" Association="Self.FK_SDU_documentiPratica_SDU_documentiTipi">
+            <End Role="SDU_documentiTipi" EntitySet="SDU_documentiTipi" />
+            <End Role="SDU_documentiPratica" EntitySet="SDU_documentiPratica" />
           </AssociationSet>
           <AssociationSet Name="PS165" Association="Self.PS165">
             <End Role="AT_IndiciValutazione" EntitySet="AT_IndiciValutazione" />
@@ -1299,6 +1336,12 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <AssociationSet Name="FK_AT_SchedaTecnica_AT_PreventiviDanno" Association="AUTOSDUModel.FK_AT_SchedaTecnica_AT_PreventiviDanno">
             <End Role="AT_PreventiviDanno" EntitySet="AT_PreventiviDanno" />
             <End Role="AT_SchedaTecnica" EntitySet="AT_SchedaTecnica" />
+          </AssociationSet>
+          <EntitySet Name="SDU_documentiPratica" EntityType="AUTOSDUModel.SDU_documentiPratica" />
+          <EntitySet Name="SDU_documentiTipi" EntityType="AUTOSDUModel.SDU_documentiTipi" />
+          <AssociationSet Name="FK_SDU_documentiPratica_SDU_documentiTipi" Association="AUTOSDUModel.FK_SDU_documentiPratica_SDU_documentiTipi">
+            <End Role="SDU_documentiTipi" EntitySet="SDU_documentiTipi" />
+            <End Role="SDU_documentiPratica" EntitySet="SDU_documentiPratica" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="AT_ListaPratiche_vw">
@@ -1901,6 +1944,39 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SDU_documentiPratica">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_pratica" Type="Int32" Nullable="false" />
+          <Property Name="ID_tipoDocumento" Type="Int32" />
+          <Property Name="noteDocumento" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="percorsoFile" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="insertUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="insertTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="SDU_documentiTipi" Relationship="AUTOSDUModel.FK_SDU_documentiPratica_SDU_documentiTipi" FromRole="SDU_documentiPratica" ToRole="SDU_documentiTipi" />
+        </EntityType>
+        <EntityType Name="SDU_documentiTipi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descrizioneDocumento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SDU_documentiPratica" Relationship="AUTOSDUModel.FK_SDU_documentiPratica_SDU_documentiTipi" FromRole="SDU_documentiTipi" ToRole="SDU_documentiPratica" />
+        </EntityType>
+        <Association Name="FK_SDU_documentiPratica_SDU_documentiTipi">
+          <End Type="AUTOSDUModel.SDU_documentiTipi" Role="SDU_documentiTipi" Multiplicity="0..1" />
+          <End Type="AUTOSDUModel.SDU_documentiPratica" Role="SDU_documentiPratica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SDU_documentiTipi">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SDU_documentiPratica">
+              <PropertyRef Name="ID_tipoDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2057,6 +2133,27 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
             <EntityTypeMapping TypeName="AUTOSDUModel.AT_PreventiviDanno">
               <MappingFragment StoreEntitySet="AT_PreventiviDanno">
                 <ScalarProperty Name="Descr" ColumnName="Descr" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SDU_documentiPratica">
+            <EntityTypeMapping TypeName="AUTOSDUModel.SDU_documentiPratica">
+              <MappingFragment StoreEntitySet="SDU_documentiPratica">
+                <ScalarProperty Name="insertTime" ColumnName="insertTime" />
+                <ScalarProperty Name="insertUser" ColumnName="insertUser" />
+                <ScalarProperty Name="percorsoFile" ColumnName="percorsoFile" />
+                <ScalarProperty Name="noteDocumento" ColumnName="noteDocumento" />
+                <ScalarProperty Name="ID_tipoDocumento" ColumnName="ID_tipoDocumento" />
+                <ScalarProperty Name="ID_pratica" ColumnName="ID_pratica" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SDU_documentiTipi">
+            <EntityTypeMapping TypeName="AUTOSDUModel.SDU_documentiTipi">
+              <MappingFragment StoreEntitySet="SDU_documentiTipi">
+                <ScalarProperty Name="descrizioneDocumento" ColumnName="descrizioneDocumento" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
