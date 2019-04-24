@@ -58,3 +58,10 @@ textarea {
     height: 32px;
     text-indent: -9999px; /*hides the link text*/
 }
+.documentImg {
+    display: block;
+    background: url( document_24x24.png ) no-repeat;
+    width: 32px;
+    height: 32px;
+    text-indent: -9999px; /*hides the link text*/
+}

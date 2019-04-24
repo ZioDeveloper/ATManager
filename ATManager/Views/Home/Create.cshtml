@@ -13,6 +13,7 @@
      th, td {
         border: 1px solid green;
         background-color: lightcyan;
+
     }
 </style>
 
@@ -41,357 +42,376 @@
             </tr>
 
         </table>*@
-
-    Foto perizia : @Html.ActionLink("Foto perizia", "FotoPerizia", new { id = ViewBag.IDPerizia }, new { @class = "photoImg" })
-    Foto pratica : @Html.ActionLink("Foto pratica", "FotoPratica", new { id = ViewBag.IDPerizia }, new { @class = "photoImg" })
-    Visualizza documenti : @Html.ActionLink("Foto", "Images", new { ViewBag.IDPerizia }, new { @class = "uplImg" })
-
-
-    <table>
+    <table border="0">
         <tr>
+            <td>Foto perizia : </td>
             <td>
-                <b>Data Perizia</b>
+                @Html.ActionLink("Foto perizia", "FotoPerizia", new { id = ViewBag.IDPerizia }, new { @class = "photoImg" })
             </td>
-
+            <td>Foto pratica : </td>
             <td>
-                @ViewBag.dataperizia
+                @Html.ActionLink("Foto pratica", "FotoPratica", new { id = ViewBag.IDPerizia }, new { @class = "photoImg" })
             </td>
-
-        </tr>
-        <tr>
-            <td>
-                <b>Marca</b>
-            </td>
-
-            <td>
-                @ViewBag.marca
+            <td>Visualizza documenti :</td>
+            <td>@Html.ActionLink("Foto", "Images", new { ViewBag.IDPerizia }, new { @class = "uplImg" })
             </td>
         </tr>
-        <tr>
-            <td>
-                <b>Targa</b>
-            </td>
-
-            <td>
-                @ViewBag.targa
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <b>Data imm.</b>
-            </td>
-            @ViewBag.dataimmatricolazione
-            <td></td>
-        </tr>
-        <tr>
-            <td>
-                <b>Km.</b>
-            </td>
-
-            <td>
-                @ViewBag.km
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <b>Carta circolazione</b>
-            </td>
-
-            <td></td>
-        </tr>
-        <tr>
-            <td>
-                <b>Luogo perizia</b>
-            </td>
-            <td>
-                @ViewBag.luogoperizia
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <b>Modello</b>
-            </td>
-            <td>
-                @ViewBag.modello
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <b>Matricola</b>
-            </td>
-
-            <td></td>
-        </tr>
-        <tr>
-            <td>
-                <b>Telaio</b>
-            </td>
-
-            <td></td>
-        </tr>
-        <tr>
-            <td>
-                <b>Azienda utilizz.</b>
-            </td>
-
-            <td></td>
-        </tr>
-        <tr>
-            <td>
-                <b>Data ultima rev.</b>
-            </td>
-
-            <td></td>
-        </tr>
+        
     </table>
 
-    <p></p>
+        <table>
+            <tr>
+                <td>
+                    <b>Data Perizia</b>
+                </td>
+
+                <td>
+                    @ViewBag.dataperizia
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <b>Marca</b>
+                </td>
+
+                <td>
+                    @ViewBag.marca
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Targa</b>
+                </td>
+
+                <td>
+                    @ViewBag.targa
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Data imm.</b>
+                </td>
+                @ViewBag.dataimmatricolazione
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Km.</b>
+                </td>
+
+                <td>
+                    @ViewBag.km
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b>Carta circolazione</b>
+                </td>
+
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Luogo perizia</b>
+                </td>
+                <td>
+                    @ViewBag.luogoperizia
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Modello</b>
+                </td>
+                <td>
+                    @ViewBag.modello
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Matricola</b>
+                </td>
+
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Telaio</b>
+                </td>
+
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Azienda utilizz.</b>
+                </td>
+
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Data ultima rev.</b>
+                </td>
+
+                <td></td>
+            </tr>
+        </table>
+
+        <p></p>
 
 
 
 
 
 
-    <div class="form-group" style="background-color: burlywood">
-        <div class="col-md-10">
-            <font size="1">
-                <b>Codice</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <font color="green"><b>1</b></font>  &nbsp;&nbsp;&nbsp;
-                <font color="#ffcc00"><b>2</b></font> &nbsp;&nbsp;
-                <font color="red"><b>3</b></font>  &nbsp;&nbsp; <b>Descrizione</b>
-            </font>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-10">
-
-            @Html.LabelFor(model => model.CE110, "110", htmlAttributes: new { @class = "control-label col-md-2" })
-
-            @Html.RadioButtonFor(model => model.CE110, "1")
-            @Html.RadioButtonFor(model => model.CE110, "2")
-            @Html.RadioButtonFor(model => model.CE110, "3")
-            <font size="1">CONDIZIONI GENERALI DI PULIZIA</font>
-
-
-        </div>
-    </div>
-
-    <div class="form-group">
-
-        <div class="col-md-10">
-
-            @Html.LabelFor(model => model.CE112, "112", htmlAttributes: new { @class = "control-label col-md-2" })
-
-            @Html.RadioButtonFor(model => model.CE112, "1")
-            @Html.RadioButtonFor(model => model.CE112, "2")
-            @Html.RadioButtonFor(model => model.CE112, "3")
-            <font size="1">RISCHIO INCENDIO</font>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.LabelFor(model => model.CE115, "115", htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.RadioButtonFor(model => model.CE115, "1")
-            @Html.RadioButtonFor(model => model.CE115, "2")
-            @Html.RadioButtonFor(model => model.CE115, "3")
-            <font size="1">TRAFILAMENTO DI OLIO E GASOLIO</font>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.LabelFor(model => model.CE840, "840", htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.RadioButtonFor(model => model.CE840, "1")
-            @Html.RadioButtonFor(model => model.CE840, "2")
-            @Html.RadioButtonFor(model => model.CE840, "3")
-            <font size="1">STATO PASSARUOTE E BAULIERE</font>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.LabelFor(model => model.CE841, "841", htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.RadioButtonFor(model => model.CE841, "1")
-            @Html.RadioButtonFor(model => model.CE841, "2")
-            @Html.RadioButtonFor(model => model.CE841, "3")
-            <font size="1">CONTROLLO FUNZ. APERTURE CHIUSURE/PORTE</font>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.LabelFor(model => model.CE842, "842", htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.RadioButtonFor(model => model.CE842, "1")
-            @Html.RadioButtonFor(model => model.CE842, "2")
-            @Html.RadioButtonFor(model => model.CE842, "3")
-            <font size="1">VERIFICA DEI SISTEMI DI SICUREZZA DELLE PORTE ...</font>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.LabelFor(model => model.CE843, "843", htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.RadioButtonFor(model => model.CE843, "1")
-            @Html.RadioButtonFor(model => model.CE843, "2")
-            @Html.RadioButtonFor(model => model.CE843, "3")
-            <font size="1">CONTROLLO FUNZ. APERTURA DI EMERGENZA PORTE</font>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.LabelFor(model => model.CE816, "816", htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.RadioButtonFor(model => model.CE816, "1")
-            @Html.RadioButtonFor(model => model.CE816, "2")
-            @Html.RadioButtonFor(model => model.CE816, "3")
-            <font size="1">DANNI ALLA CARROZZERIA</font>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.LabelFor(model => model.CE265, "265", htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.RadioButtonFor(model => model.CE265, "1")
-            @Html.RadioButtonFor(model => model.CE265, "2")
-            @Html.RadioButtonFor(model => model.CE265, "3")
-            <font size="1">PNEUMATICI</font>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.LabelFor(model => model.CE135, "135", htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.RadioButtonFor(model => model.CE135, "1")
-            @Html.RadioButtonFor(model => model.CE135, "2")
-            @Html.RadioButtonFor(model => model.CE135, "3")
-            <font size="1">VERIFICA AVVIAMENTO CORRETTO</font>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.LabelFor(model => model.CE160, "160", htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.RadioButtonFor(model => model.CE160, "1")
-            @Html.RadioButtonFor(model => model.CE160, "2")
-            @Html.RadioButtonFor(model => model.CE160, "3")
-            <font size="1">ESAME VISIVO SFIATO MOTORE (FREDDO E CALDO)</font>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.LabelFor(model => model.CE145, "145", htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.RadioButtonFor(model => model.CE145, "1")
-            @Html.RadioButtonFor(model => model.CE145, "2")
-            @Html.RadioButtonFor(model => model.CE145, "3")
-            <font size="1">GIOCO DELLE PULEGGE / STATO CINGHIE</font>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.LabelFor(model => model.CE150, "150", htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.RadioButtonFor(model => model.CE150, "1")
-            @Html.RadioButtonFor(model => model.CE150, "2")
-            @Html.RadioButtonFor(model => model.CE150, "3")
-            <font size="1">RUMORI ANOMALI</font>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.LabelFor(model => model.CI820, "820", htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.RadioButtonFor(model => model.CI820, "1")
-            @Html.RadioButtonFor(model => model.CI820, "2")
-            @Html.RadioButtonFor(model => model.CI820, "3")
-            <font size="1">STATO DEL PAVIMENTO CON ATTENZIONE AL POSTO GUIDA</font>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.LabelFor(model => model.CI825, "825", htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.RadioButtonFor(model => model.CI825, "1")
-            @Html.RadioButtonFor(model => model.CI825, "2")
-            @Html.RadioButtonFor(model => model.CI825, "3")
-            <font size="1">STATO DEI VETRI (CONTROLLO INFILTRAZIONI IN VETRI DOPPI)</font>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.LabelFor(model => model.CI835, "835", htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.RadioButtonFor(model => model.CI835, "1")
-            @Html.RadioButtonFor(model => model.CI835, "2")
-            @Html.RadioButtonFor(model => model.CI835, "3")
-            <font size="1">STATO DELLA SELLERIA</font>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.LabelFor(model => model.CI837, "837", htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.RadioButtonFor(model => model.CI837, "1")
-            @Html.RadioButtonFor(model => model.CI837, "2")
-            @Html.RadioButtonFor(model => model.CI837, "3")
-            <font size="1">STATO CINTURE DI SICUREZZA</font>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.LabelFor(model => model.CI1135, "1135", htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.RadioButtonFor(model => model.CI1135, "1")
-            @Html.RadioButtonFor(model => model.CI1135, "2")
-            @Html.RadioButtonFor(model => model.CI1135, "3")
-            <font size="1">STATO CINTURE DI SICUREZZA</font>
-        </div>
-    </div>
-
-    @*<div class="form-group">
-            @Html.LabelFor(model => model.IsCompleted, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group" style="background-color: burlywood">
             <div class="col-md-10">
-                <div class="checkbox">
-                    <font color="red">Scheda Chiusa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
-                    @Html.EditorFor(model => model.IsCompleted)
-                    @Html.ValidationMessageFor(model => model.IsCompleted, "", new { @class = "text-danger" })
-                </div>
+                <font size="1">
+                    <b>Codice</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <font color="green"><b>1</b></font>  &nbsp;&nbsp;&nbsp;
+                    <font color="#ffcc00"><b>2</b></font> &nbsp;&nbsp;
+                    <font color="red"><b>3</b></font>  &nbsp;&nbsp; <b>Descrizione</b>
+                </font>
             </div>
-        </div>*@
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.IDTipoScheda, "Tipo scheda", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("IDTipoScheda", null, htmlAttributes: new { @class = "form-control" })
-
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.IDStatoMezzo, "Stato del mezzo", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("IDStatoMezzo", null, htmlAttributes: new { @class = "form-control" })
-        </div>
-    </div>
+        <div class="form-group">
+            <div class="col-md-10">
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.IDPreventivoDanno, "Preventivo Danno", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("IDPreventivoDanno", null, htmlAttributes: new { @class = "form-control" })
-        </div>
-    </div>
+                @Html.LabelFor(model => model.CE110, "110", htmlAttributes: new { @class = "control-label col-md-2" })
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-            <font color="red">Scheda Chiusa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
-            @Html.EditorFor(model => model.IsCompleted)
-            @Html.ValidationMessageFor(model => model.IsCompleted, "", new { @class = "text-danger" })
+                @Html.RadioButtonFor(model => model.CE110, "1", new { style = "display: inline-block" })
+                @Html.RadioButtonFor(model => model.CE110, "2", new { style = "display: inline-block" })
+
+                @Html.RadioButtonFor(model => model.CE110, "3", new { style = "display: inline-block" })
+
+                
+                @*<p style="display:inline" ;>*@
+                <font size="1">CONDIZIONI GENERALI DI PULIZIA &nbsp;&nbsp;</font>
+                    <details style="display:inline;">
+                        <summary></summary>
+                        Note: @Html.TextAreaFor(model => model.NoteCE110, new { style = "width: 170px; height:100px;" })
+                    </details>
+                @*</p>*@
+                
+            </div>
         </div>
-    </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+
+                @Html.LabelFor(model => model.CE112, "112", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.RadioButtonFor(model => model.CE112, "1")
+                @Html.RadioButtonFor(model => model.CE112, "2")
+                @Html.RadioButtonFor(model => model.CE112, "3")
+                <font size="1">RISCHIO INCENDIO</font>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CE115, "115", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.CE115, "1")
+                @Html.RadioButtonFor(model => model.CE115, "2")
+                @Html.RadioButtonFor(model => model.CE115, "3")
+                <font size="1">TRAFILAMENTO DI OLIO E GASOLIO</font>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CE840, "840", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.CE840, "1")
+                @Html.RadioButtonFor(model => model.CE840, "2")
+                @Html.RadioButtonFor(model => model.CE840, "3")
+                <font size="1">STATO PASSARUOTE E BAULIERE</font>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CE841, "841", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.CE841, "1")
+                @Html.RadioButtonFor(model => model.CE841, "2")
+                @Html.RadioButtonFor(model => model.CE841, "3")
+                <font size="1">CONTROLLO FUNZ. APERTURE CHIUSURE/PORTE</font>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CE842, "842", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.CE842, "1")
+                @Html.RadioButtonFor(model => model.CE842, "2")
+                @Html.RadioButtonFor(model => model.CE842, "3")
+                <font size="1">VERIFICA DEI SISTEMI DI SICUREZZA DELLE PORTE ...</font>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CE843, "843", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.CE843, "1")
+                @Html.RadioButtonFor(model => model.CE843, "2")
+                @Html.RadioButtonFor(model => model.CE843, "3")
+                <font size="1">CONTROLLO FUNZ. APERTURA DI EMERGENZA PORTE</font>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CE816, "816", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.CE816, "1")
+                @Html.RadioButtonFor(model => model.CE816, "2")
+                @Html.RadioButtonFor(model => model.CE816, "3")
+                <font size="1">DANNI ALLA CARROZZERIA</font>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CE265, "265", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.CE265, "1")
+                @Html.RadioButtonFor(model => model.CE265, "2")
+                @Html.RadioButtonFor(model => model.CE265, "3")
+                <font size="1">PNEUMATICI</font>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CE135, "135", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.CE135, "1")
+                @Html.RadioButtonFor(model => model.CE135, "2")
+                @Html.RadioButtonFor(model => model.CE135, "3")
+                <font size="1">VERIFICA AVVIAMENTO CORRETTO</font>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CE160, "160", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.CE160, "1")
+                @Html.RadioButtonFor(model => model.CE160, "2")
+                @Html.RadioButtonFor(model => model.CE160, "3")
+                <font size="1">ESAME VISIVO SFIATO MOTORE (FREDDO E CALDO)</font>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CE145, "145", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.CE145, "1")
+                @Html.RadioButtonFor(model => model.CE145, "2")
+                @Html.RadioButtonFor(model => model.CE145, "3")
+                <font size="1">GIOCO DELLE PULEGGE / STATO CINGHIE</font>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CE150, "150", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.CE150, "1")
+                @Html.RadioButtonFor(model => model.CE150, "2")
+                @Html.RadioButtonFor(model => model.CE150, "3")
+                <font size="1">RUMORI ANOMALI</font>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CI820, "820", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.CI820, "1")
+                @Html.RadioButtonFor(model => model.CI820, "2")
+                @Html.RadioButtonFor(model => model.CI820, "3")
+                <font size="1">STATO DEL PAVIMENTO CON ATTENZIONE AL POSTO GUIDA</font>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CI825, "825", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.CI825, "1")
+                @Html.RadioButtonFor(model => model.CI825, "2")
+                @Html.RadioButtonFor(model => model.CI825, "3")
+                <font size="1">STATO DEI VETRI (CONTROLLO INFILTRAZIONI IN VETRI DOPPI)</font>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CI835, "835", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.CI835, "1")
+                @Html.RadioButtonFor(model => model.CI835, "2")
+                @Html.RadioButtonFor(model => model.CI835, "3")
+                <font size="1">STATO DELLA SELLERIA</font>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CI837, "837", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.CI837, "1")
+                @Html.RadioButtonFor(model => model.CI837, "2")
+                @Html.RadioButtonFor(model => model.CI837, "3")
+                <font size="1">STATO CINTURE DI SICUREZZA</font>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CI1135, "1135", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.CI1135, "1")
+                @Html.RadioButtonFor(model => model.CI1135, "2")
+                @Html.RadioButtonFor(model => model.CI1135, "3")
+                <font size="1">STATO CINTURE DI SICUREZZA</font>
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.IsCompleted, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        <font color="red">Scheda Chiusa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+                        @Html.EditorFor(model => model.IsCompleted)
+                        @Html.ValidationMessageFor(model => model.IsCompleted, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDTipoScheda, "Tipo scheda", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IDTipoScheda", null, htmlAttributes: new { @class = "form-control" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDStatoMezzo, "Stato del mezzo", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IDStatoMezzo", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDPreventivoDanno, "Preventivo Danno", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IDPreventivoDanno", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+                <font color="red">Scheda Chiusa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+                @Html.EditorFor(model => model.IsCompleted)
+                @Html.ValidationMessageFor(model => model.IsCompleted, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
 
 
@@ -402,3 +422,27 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+<style>
+    .collapsible {
+        background-color: #777;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+    }
+
+        .active, .collapsible:hover {
+            background-color: #555;
+        }
+
+    .content {
+        padding: 0 18px;
+        display: none;
+        overflow: hidden;
+        background-color: #f1f1f1;
+    }
+</style>

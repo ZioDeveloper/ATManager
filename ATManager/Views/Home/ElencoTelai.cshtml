@@ -60,11 +60,12 @@
                dataimmatricolazione = item.DataImmatricolazione,
                km = item.Km,
                luogoperizia = item.DescrITA,
+               modello = item.Mod_Descr
 
            })
             </td>
             <td>
-                @Html.ActionLink("Foto", "Images", new { id = item.Perizie_ID }, new { @class = "uplImg" })
+                @Html.ActionLink("Foto", "Image", new { id = item.Perizie_ID }, new { @class = "photoImg" })
             </td>
         }
 
@@ -87,7 +88,7 @@
                 @Html.ActionLink("Elimina scheda", "Delete", new { id = item.Perizie_ID })
             </td>
             <td>
-                @Html.ActionLink("Foto", "Images", new { id = item.Perizie_ID }, new { @class = "uplImg" })
+                @Html.ActionLink("Foto", "Image", new { id = item.Perizie_ID }, new { @class = "photoImg" })
             </td>
         }
         else if (myScelta == "FATTECHIUSE")
@@ -106,11 +107,8 @@
            })
             </td>
             <td>
-                @Html.ActionLink("Foto", "Images", new { id = item.Perizie_ID }, new { @class = "uplImg" })
+                @Html.ActionLink("Foto", "Image", new { id = item.Perizie_ID }, new { @class = "photoImg" })
             </td>
-            @*<td>
-                @Html.ActionLink("Elimina scheda", "Delete", new { id = item.Perizie_ID })
-            </td>*@
         }
 
     </tr>

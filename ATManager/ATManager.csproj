@@ -216,10 +216,13 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\cercaCap.png" />
     <Content Include="Content\deleteFile.png" />
+    <Content Include="Content\doc.png" />
+    <Content Include="Content\document_24x24.png" />
     <Content Include="Content\image.png" />
     <Content Include="Content\paperclip.png" />
     <Content Include="Content\prism.css" />
     <Content Include="Content\prism.js" />
+    <Content Include="Content\txt.36.png" />
     <Content Include="Content\up_plus.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

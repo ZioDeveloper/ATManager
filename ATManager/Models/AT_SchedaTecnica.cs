@@ -63,6 +63,7 @@ namespace ATManager.Models
         public int IDPerizia { get; set; }
         public int IDPreventivoDanno { get; set; }
         public bool IsCompleted { get; set; }
+        public string NoteCE110 { get; set; }
     
         public virtual AT_StatiMezzo AT_StatiMezzo { get; set; }
         public virtual AT_TipiScheda AT_TipiScheda { get; set; }

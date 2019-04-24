@@ -185,6 +185,8 @@
             @Html.RadioButtonFor(model => model.CE110, "2")
             @Html.RadioButtonFor(model => model.CE110, "3")
             <font size="1">CONDIZIONI GENERALI DI PULIZIA</font>
+            <br />
+            Note: @Html.TextAreaFor(model => model.NoteCE110, new { style = "width: 350px; height:20px;" })
 
         </div>
     </div>
