@@ -18,99 +18,99 @@ namespace ATManager.Controllers
 
 
         private AUTOSDUEntities db = new AUTOSDUEntities();
-        public ActionResult Index(string usr, string Opt1, string CercaTarga, string SearchLocation)
+        //public ActionResult Index(string usr, string Opt1, string CercaTarga, string SearchLocation)
+        //{
+        //    bool isAuth = false;
+
+        //    if (usr != String.Empty)
+        //    {
+        //        string UserName = "";
+
+        //        string cookieName = FormsAuthentication.FormsCookieName; //Find cookie name
+        //        HttpCookie cookie = HttpContext.Request.Cookies[cookieName]; //Get the cookie by it's name
+        //        FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value); //Decrypt it
+        //        UserName = ticket.Name; //You have the UserName!
+
+
+        //        if (usr == UserName)
+        //        {
+        //            ViewBag.Messaggio = "BENE il cookie corrisponde!";
+        //            //ViewBag.Messaggio = personaggio;
+        //            isAuth = true;
+        //            using (AUTOSDUEntities val = new AUTOSDUEntities())
+        //            {
+        //                Session["Status"] = "";
+
+        //                var fromDatabaseEF = new SelectList(val.Luoghi_vw.ToList(), "ID", "DescrITA");
+        //                ViewData["Luoghi"] = fromDatabaseEF;
+
+
+        //            }
+
+        //            if (String.IsNullOrEmpty(CercaTarga))
+        //            {
+        //                return View();
+        //            }
+        //            else if (!String.IsNullOrEmpty(CercaTarga))
+        //            {
+        //                var model = new Models.HomeModel();
+        //                var telai = from s in db.AT_ListaPratiche_vw
+        //                            where s.Targa.ToString() == CercaTarga
+        //                            select s;
+        //                model.AT_ListaPratiche_vw = telai.ToList();
+        //                return View("ElencoTelai", model);
+        //            }
+        //            else
+        //            {
+        //                return View();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            ViewBag.Messaggio = "il cookie contenente lo 'username' non corrisponde allo User della queryString!";
+        //            isAuth = false;
+        //            return View("IncorrectLogin");
+        //        }
+
+        //    }
+        //    return View();
+
+
+        //}
+
+        public ActionResult Index(string Opt1, string CercaTarga, string SearchLocation)
         {
-            bool isAuth = false;
 
-            if (usr != String.Empty)
+            using (AUTOSDUEntities val = new AUTOSDUEntities())
             {
-                string UserName = "";
+                Session["Status"] = "";
 
-                string cookieName = FormsAuthentication.FormsCookieName; //Find cookie name
-                HttpCookie cookie = HttpContext.Request.Cookies[cookieName]; //Get the cookie by it's name
-                FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value); //Decrypt it
-                UserName = ticket.Name; //You have the UserName!
+                var fromDatabaseEF = new SelectList(val.Luoghi_vw.ToList(), "ID", "DescrITA");
+                ViewData["Luoghi"] = fromDatabaseEF;
 
-
-                if (usr == UserName)
-                {
-                    ViewBag.Messaggio = "BENE il cookie corrisponde!";
-                    //ViewBag.Messaggio = personaggio;
-                    isAuth = true;
-                    using (AUTOSDUEntities val = new AUTOSDUEntities())
-                    {
-                        Session["Status"] = "";
-
-                        var fromDatabaseEF = new SelectList(val.Luoghi_vw.ToList(), "ID", "DescrITA");
-                        ViewData["Luoghi"] = fromDatabaseEF;
-
-
-                    }
-
-                    if (String.IsNullOrEmpty(CercaTarga))
-                    {
-                        return View();
-                    }
-                    else if (!String.IsNullOrEmpty(CercaTarga))
-                    {
-                        var model = new Models.HomeModel();
-                        var telai = from s in db.AT_ListaPratiche_vw
-                                    where s.Targa.ToString() == CercaTarga
-                                    select s;
-                        model.AT_ListaPratiche_vw = telai.ToList();
-                        return View("ElencoTelai", model);
-                    }
-                    else
-                    {
-                        return View();
-                    }
-                }
-                else
-                {
-                    ViewBag.Messaggio = "il cookie contenente lo 'username' non corrisponde allo User della queryString!";
-                    isAuth = false;
-                    return View("IncorrectLogin");
-                }
 
             }
-            return View();
 
+            if (String.IsNullOrEmpty(CercaTarga))
+            {
+                return View();
+            }
+            else if (!String.IsNullOrEmpty(CercaTarga))
+            {
+                var model = new Models.HomeModel();
+                var telai = from s in db.AT_ListaPratiche_vw
+                            where s.Targa.ToString() == CercaTarga
+                            select s;
+                model.AT_ListaPratiche_vw = telai.ToList();
+                return View("ElencoTelai", model);
+            }
+            else
+            {
+                return View();
+            }
 
+            //return RedirectToAction("DoRefresh", "Home");
         }
-
-        //public ActionResult Index(string Opt1, string CercaTarga, string SearchLocation)
-        //{
-
-        //    using (AUTOSDUEntities val = new AUTOSDUEntities())
-        //    {
-        //        Session["Status"] = "";
-
-        //        var fromDatabaseEF = new SelectList(val.Luoghi_vw.ToList(), "ID", "DescrITA");
-        //        ViewData["Luoghi"] = fromDatabaseEF;
-
-
-        //    }
-
-        //    if (String.IsNullOrEmpty(CercaTarga))
-        //    {
-        //        return View();
-        //    }
-        //    else if (!String.IsNullOrEmpty(CercaTarga))
-        //    {
-        //        var model = new Models.HomeModel();
-        //        var telai = from s in db.AT_ListaPratiche_vw
-        //                    where s.Targa.ToString() == CercaTarga
-        //                    select s;
-        //        model.AT_ListaPratiche_vw = telai.ToList();
-        //        return View("ElencoTelai", model);
-        //    }
-        //    else
-        //    {
-        //        return View();
-        //    }
-
-        //    //return RedirectToAction("DoRefresh", "Home");
-        //}
 
         public ActionResult DoRefresh(string Opt1, string CercaTarga, string SearchLocation)
         {
@@ -247,7 +247,9 @@ namespace ATManager.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,IDPerizia,IDTipoScheda,IDStatoMezzo,IDPreventivoDanno,IsCompleted,CE110,CE112,CE115,CE840,CE841,CE842,CE843,CE816," +
-                                                   "CE265,CE135,CE160,CE145,CE150,CI820,CI825,CI835,CI837,CI1135,NoteCE110")] AT_SchedaTecnica aT_SchedaTecnica)
+                                                   "CE265,CE135,CE160,CE145,CE150,CI820,CI825,CI835,CI837,CI1135, " +
+                                                   "NoteCE110,NoteCE112,NoteCE115,NoteCE840,NoteCE841,NoteCE842,NoteCE843,NoteCE816," +
+                                                   "NoteCE265,NoteCE135,NoteCE160,NoteCE145,NoteCE150,NoteCI820,NoteCI825,NoteCI835,NoteCI837,NoteCI1135")] AT_SchedaTecnica aT_SchedaTecnica)
         {
             if (ModelState.IsValid)
             {
@@ -383,7 +385,9 @@ namespace ATManager.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,IDPerizia,IDTipoScheda,IDStatoMezzo,IDPreventivoDanno,IsCompleted,CE110,CE112,CE115,CE840,CE841,CE842,CE843,CE816," +
-                                                   "CE265,CE135,CE160,CE145,CE150,CI820,CI825,CI835,CI837,CI1135,NoteCE110")] AT_SchedaTecnica aT_SchedaTecnica)
+                                                   "CE265,CE135,CE160,CE145,CE150,CI820,CI825,CI835,CI837,CI1135, " +
+                                                   "NoteCE110,NoteCE112,NoteCE115,NoteCE840,NoteCE841,NoteCE842,NoteCE843,NoteCE816," +
+                                                   "NoteCE265,NoteCE135,NoteCE160,NoteCE145,NoteCE150,NoteCI820,NoteCI825,NoteCI835,NoteCI837,NoteCI1135")] AT_SchedaTecnica aT_SchedaTecnica)
         {
 
             //var model = new Models.AT_SchedaTecnica();

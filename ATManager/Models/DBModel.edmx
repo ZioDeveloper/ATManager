@@ -73,6 +73,48 @@
           <Property Name="PS512" Type="int" />
           <Property Name="PS610" Type="int" />
           <Property Name="NoteCE110" Type="nvarchar(max)" />
+          <Property Name="NoteCE112" Type="nvarchar(max)" />
+          <Property Name="NoteCE115" Type="nvarchar(max)" />
+          <Property Name="NoteCE125" Type="nvarchar(max)" />
+          <Property Name="NoteCE135" Type="nvarchar(max)" />
+          <Property Name="NoteCE145" Type="nvarchar(max)" />
+          <Property Name="NoteCE150" Type="nvarchar(max)" />
+          <Property Name="NoteCE160" Type="nvarchar(max)" />
+          <Property Name="NoteCE170" Type="nvarchar(max)" />
+          <Property Name="NoteCE415" Type="nvarchar(max)" />
+          <Property Name="NoteCE265" Type="nvarchar(max)" />
+          <Property Name="NoteCE420" Type="nvarchar(max)" />
+          <Property Name="NoteCE816" Type="nvarchar(max)" />
+          <Property Name="NoteCE840" Type="nvarchar(max)" />
+          <Property Name="NoteCE841" Type="nvarchar(max)" />
+          <Property Name="NoteCE842" Type="nvarchar(max)" />
+          <Property Name="NoteCE843" Type="nvarchar(max)" />
+          <Property Name="NoteCE844" Type="nvarchar(max)" />
+          <Property Name="NoteCE960" Type="nvarchar(max)" />
+          <Property Name="NoteCI820" Type="nvarchar(max)" />
+          <Property Name="NoteCI825" Type="nvarchar(max)" />
+          <Property Name="NoteCI835" Type="nvarchar(max)" />
+          <Property Name="NoteCI837" Type="nvarchar(max)" />
+          <Property Name="NoteCI843" Type="nvarchar(max)" />
+          <Property Name="NoteCI910" Type="nvarchar(max)" />
+          <Property Name="NoteCI930" Type="nvarchar(max)" />
+          <Property Name="NoteCI1135" Type="nvarchar(max)" />
+          <Property Name="NoteCS240" Type="nvarchar(max)" />
+          <Property Name="NoteCS510" Type="nvarchar(max)" />
+          <Property Name="NoteCS511" Type="nvarchar(max)" />
+          <Property Name="NoteCS710" Type="nvarchar(max)" />
+          <Property Name="NoteCS715" Type="nvarchar(max)" />
+          <Property Name="NoteCS810" Type="nvarchar(max)" />
+          <Property Name="NoteCS815" Type="nvarchar(max)" />
+          <Property Name="NotePS165" Type="nvarchar(max)" />
+          <Property Name="NotePS225" Type="nvarchar(max)" />
+          <Property Name="NotePS230" Type="nvarchar(max)" />
+          <Property Name="NotePS235" Type="nvarchar(max)" />
+          <Property Name="NotePS250" Type="nvarchar(max)" />
+          <Property Name="NotePS260" Type="nvarchar(max)" />
+          <Property Name="NotePS410" Type="nvarchar(max)" />
+          <Property Name="NotePS512" Type="nvarchar(max)" />
+          <Property Name="NotePS610" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="AT_StatiMezzo">
           <Key>
@@ -113,6 +155,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_pratica" Type="int" Nullable="false" />
           <Property Name="ID_tipoDocumento" Type="int" />
+          <Property Name="KM" Type="int" />
           <Property Name="noteDocumento" Type="varchar" MaxLength="250" />
           <Property Name="percorsoFile" Type="varchar" MaxLength="80" />
           <Property Name="insertUser" Type="varchar" MaxLength="50" />
@@ -1107,6 +1150,48 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <NavigationProperty Name="AT_PreventiviDanno" Relationship="AUTOSDUModel.FK_AT_SchedaTecnica_AT_PreventiviDanno" FromRole="AT_SchedaTecnica" ToRole="AT_PreventiviDanno" />
           <Property Name="IsCompleted" Type="Boolean" Nullable="false" />
           <Property Name="NoteCE110" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE112" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE115" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE125" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE135" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE145" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE150" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE160" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE170" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE415" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE265" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE420" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE816" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE840" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE841" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE842" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE843" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE844" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCE960" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCI820" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCI825" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCI835" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCI837" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCI843" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCI910" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCI930" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCI1135" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCS240" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCS510" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCS511" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCS710" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCS715" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCS810" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoteCS815" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NotePS165" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NotePS225" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NotePS230" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NotePS235" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NotePS250" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NotePS260" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NotePS410" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NotePS512" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NotePS610" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="AT_StatiMezzo">
           <Key>
@@ -1961,6 +2046,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <Property Name="insertUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="insertTime" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="SDU_documentiTipi" Relationship="AUTOSDUModel.FK_SDU_documentiPratica_SDU_documentiTipi" FromRole="SDU_documentiPratica" ToRole="SDU_documentiTipi" />
+          <Property Name="KM" Type="Int32" />
         </EntityType>
         <EntityType Name="SDU_documentiTipi">
           <Key>
@@ -1999,6 +2085,48 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <EntitySetMapping Name="AT_SchedaTecnica">
             <EntityTypeMapping TypeName="AUTOSDUModel.AT_SchedaTecnica">
               <MappingFragment StoreEntitySet="AT_SchedaTecnica">
+                <ScalarProperty Name="NotePS610" ColumnName="NotePS610" />
+                <ScalarProperty Name="NotePS512" ColumnName="NotePS512" />
+                <ScalarProperty Name="NotePS410" ColumnName="NotePS410" />
+                <ScalarProperty Name="NotePS260" ColumnName="NotePS260" />
+                <ScalarProperty Name="NotePS250" ColumnName="NotePS250" />
+                <ScalarProperty Name="NotePS235" ColumnName="NotePS235" />
+                <ScalarProperty Name="NotePS230" ColumnName="NotePS230" />
+                <ScalarProperty Name="NotePS225" ColumnName="NotePS225" />
+                <ScalarProperty Name="NotePS165" ColumnName="NotePS165" />
+                <ScalarProperty Name="NoteCS815" ColumnName="NoteCS815" />
+                <ScalarProperty Name="NoteCS810" ColumnName="NoteCS810" />
+                <ScalarProperty Name="NoteCS715" ColumnName="NoteCS715" />
+                <ScalarProperty Name="NoteCS710" ColumnName="NoteCS710" />
+                <ScalarProperty Name="NoteCS511" ColumnName="NoteCS511" />
+                <ScalarProperty Name="NoteCS510" ColumnName="NoteCS510" />
+                <ScalarProperty Name="NoteCS240" ColumnName="NoteCS240" />
+                <ScalarProperty Name="NoteCI1135" ColumnName="NoteCI1135" />
+                <ScalarProperty Name="NoteCI930" ColumnName="NoteCI930" />
+                <ScalarProperty Name="NoteCI910" ColumnName="NoteCI910" />
+                <ScalarProperty Name="NoteCI843" ColumnName="NoteCI843" />
+                <ScalarProperty Name="NoteCI837" ColumnName="NoteCI837" />
+                <ScalarProperty Name="NoteCI835" ColumnName="NoteCI835" />
+                <ScalarProperty Name="NoteCI825" ColumnName="NoteCI825" />
+                <ScalarProperty Name="NoteCI820" ColumnName="NoteCI820" />
+                <ScalarProperty Name="NoteCE960" ColumnName="NoteCE960" />
+                <ScalarProperty Name="NoteCE844" ColumnName="NoteCE844" />
+                <ScalarProperty Name="NoteCE843" ColumnName="NoteCE843" />
+                <ScalarProperty Name="NoteCE842" ColumnName="NoteCE842" />
+                <ScalarProperty Name="NoteCE841" ColumnName="NoteCE841" />
+                <ScalarProperty Name="NoteCE840" ColumnName="NoteCE840" />
+                <ScalarProperty Name="NoteCE816" ColumnName="NoteCE816" />
+                <ScalarProperty Name="NoteCE420" ColumnName="NoteCE420" />
+                <ScalarProperty Name="NoteCE265" ColumnName="NoteCE265" />
+                <ScalarProperty Name="NoteCE415" ColumnName="NoteCE415" />
+                <ScalarProperty Name="NoteCE170" ColumnName="NoteCE170" />
+                <ScalarProperty Name="NoteCE160" ColumnName="NoteCE160" />
+                <ScalarProperty Name="NoteCE150" ColumnName="NoteCE150" />
+                <ScalarProperty Name="NoteCE145" ColumnName="NoteCE145" />
+                <ScalarProperty Name="NoteCE135" ColumnName="NoteCE135" />
+                <ScalarProperty Name="NoteCE125" ColumnName="NoteCE125" />
+                <ScalarProperty Name="NoteCE115" ColumnName="NoteCE115" />
+                <ScalarProperty Name="NoteCE112" ColumnName="NoteCE112" />
                 <ScalarProperty Name="NoteCE110" ColumnName="NoteCE110" />
                 <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
                 <ScalarProperty Name="IDPreventivoDanno" ColumnName="IDPreventivoDanno" />
@@ -2147,6 +2275,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <EntitySetMapping Name="SDU_documentiPratica">
             <EntityTypeMapping TypeName="AUTOSDUModel.SDU_documentiPratica">
               <MappingFragment StoreEntitySet="SDU_documentiPratica">
+                <ScalarProperty Name="KM" ColumnName="KM" />
                 <ScalarProperty Name="insertTime" ColumnName="insertTime" />
                 <ScalarProperty Name="insertUser" ColumnName="insertUser" />
                 <ScalarProperty Name="percorsoFile" ColumnName="percorsoFile" />

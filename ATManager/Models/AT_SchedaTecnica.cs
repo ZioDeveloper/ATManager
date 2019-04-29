@@ -64,6 +64,48 @@ namespace ATManager.Models
         public int IDPreventivoDanno { get; set; }
         public bool IsCompleted { get; set; }
         public string NoteCE110 { get; set; }
+        public string NoteCE112 { get; set; }
+        public string NoteCE115 { get; set; }
+        public string NoteCE125 { get; set; }
+        public string NoteCE135 { get; set; }
+        public string NoteCE145 { get; set; }
+        public string NoteCE150 { get; set; }
+        public string NoteCE160 { get; set; }
+        public string NoteCE170 { get; set; }
+        public string NoteCE415 { get; set; }
+        public string NoteCE265 { get; set; }
+        public string NoteCE420 { get; set; }
+        public string NoteCE816 { get; set; }
+        public string NoteCE840 { get; set; }
+        public string NoteCE841 { get; set; }
+        public string NoteCE842 { get; set; }
+        public string NoteCE843 { get; set; }
+        public string NoteCE844 { get; set; }
+        public string NoteCE960 { get; set; }
+        public string NoteCI820 { get; set; }
+        public string NoteCI825 { get; set; }
+        public string NoteCI835 { get; set; }
+        public string NoteCI837 { get; set; }
+        public string NoteCI843 { get; set; }
+        public string NoteCI910 { get; set; }
+        public string NoteCI930 { get; set; }
+        public string NoteCI1135 { get; set; }
+        public string NoteCS240 { get; set; }
+        public string NoteCS510 { get; set; }
+        public string NoteCS511 { get; set; }
+        public string NoteCS710 { get; set; }
+        public string NoteCS715 { get; set; }
+        public string NoteCS810 { get; set; }
+        public string NoteCS815 { get; set; }
+        public string NotePS165 { get; set; }
+        public string NotePS225 { get; set; }
+        public string NotePS230 { get; set; }
+        public string NotePS235 { get; set; }
+        public string NotePS250 { get; set; }
+        public string NotePS260 { get; set; }
+        public string NotePS410 { get; set; }
+        public string NotePS512 { get; set; }
+        public string NotePS610 { get; set; }
     
         public virtual AT_StatiMezzo AT_StatiMezzo { get; set; }
         public virtual AT_TipiScheda AT_TipiScheda { get; set; }

@@ -12,51 +12,51 @@
     @{var Scelta01 = "Tutti    :";}
     @{var Scelta02 = "Da fare  :";}
     @{var Scelta03 = "Schede aperte :";}
-    @{var Scelta04 = "Schde chiuse    :";}
+    @{var Scelta04 = "Schede chiuse    :";}
 
 
 
     <table border="0">
         <tr>
-            <td>@Scelta01 &nbsp;</td>
+            <td >@Scelta01 &nbsp;</td>
 
-            <td>@Html.RadioButton("Opt1", "TUTTE", new { @onclick = "this.form.submit();" })</td>
+            <td >@Html.RadioButton("Opt1", "TUTTE", new { @onclick = "this.form.submit();" })</td>
 
         </tr>
         <tr>
-            <td>&nbsp;@Scelta02&nbsp;</td>
+            <td >&nbsp;@Scelta02&nbsp;</td>
 
-            <td> @Html.RadioButton("Opt1", "DA FARE", new { @onclick = "this.form.submit();" })</td>
+            <td > @Html.RadioButton("Opt1", "DA FARE", new { @onclick = "this.form.submit();" })</td>
         </tr>
         <tr>
-            <td>&nbsp;@Scelta03&nbsp;</td>
+            <td >&nbsp;@Scelta03&nbsp;</td>
 
-            <td> @Html.RadioButton("Opt1", "FATTE", new { @onclick = "this.form.submit();" })</td>
+            <td > @Html.RadioButton("Opt1", "FATTE", new { @onclick = "this.form.submit();" })</td>
         </tr>
         <tr>
-            <td>&nbsp;@Scelta04&nbsp;</td>
+            <td >&nbsp;@Scelta04&nbsp;</td>
 
-            <td> @Html.RadioButton("Opt1", "FATTECHIUSE", new { @onclick = "this.form.submit();" })</td>
+            <td > @Html.RadioButton("Opt1", "FATTECHIUSE", new { @onclick = "this.form.submit();" })</td>
         </tr>
 
     </table>
     <p></p><p></p>
     <table border="0">
         <tr>
-            <td>
+            <td >
                 Targa : @Html.TextBox("CercaTarga", null, new { style = "width:80px" })
                 @Html.ValidationMessage("CercaTarga")
                 <input type="submit" value="Cerca targa" />
             </td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
+            <td >&nbsp;</td>
         </tr>
         <tr>
-            <td>Location :</td>
+            <td >Location :</td>
         </tr>
         <tr>
-            <td>    @Html.DropDownList("SearchLocation", (IEnumerable<SelectListItem>)ViewData["Luoghi"])</td>
+            <td >    @Html.DropDownList("SearchLocation", (IEnumerable<SelectListItem>)ViewData["Luoghi"])</td>
         </tr>
     </table>
 

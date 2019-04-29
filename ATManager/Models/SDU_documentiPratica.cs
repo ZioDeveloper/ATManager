@@ -21,6 +21,7 @@ namespace ATManager.Models
         public string percorsoFile { get; set; }
         public string insertUser { get; set; }
         public System.DateTime insertTime { get; set; }
+        public Nullable<int> KM { get; set; }
     
         public virtual SDU_documentiTipi SDU_documentiTipi { get; set; }
     }

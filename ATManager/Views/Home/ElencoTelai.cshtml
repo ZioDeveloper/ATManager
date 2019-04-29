@@ -13,10 +13,10 @@
 <table class="table">
 
     <tr>
-        @*<td>Finito</td>*@
-        <td><b>Targa</b></td>
-        <td><b>Produttore</b></td>
-        <td><b>Azioni</b></td>
+        @*<td  >Finito</td>*@
+        <td  ><b>Targa</b></td>
+        <td  ><b>Produttore</b></td>
+        <td  ><b>Azioni</b></td>
         
         @{var myScelta = @Session["Status"].ToString();}
 
@@ -24,11 +24,11 @@
     @foreach (var item in Model.AT_ListaPratiche_vw)
     {
     <tr>
-        <td>
+        <td  >
             @Html.DisplayFor(modelItem => item.Targa)
         </td>
 
-        <td>
+        <td  >
             @Html.DisplayFor(modelItem => item.Prod_Descr)
         </td>
 
@@ -38,20 +38,20 @@
 
         @if (myScelta == "TUTTE")
         {
-            @*<td>
+            @*<td  >
                 @Html.ActionLink("Create", "Create", new { id = item.Perizie_ID, marca = item.Prod_Descr })
             </td>
-            <td>
+            <td  >
                 @Html.ActionLink("Edit", "Edit", new { id = item.Perizie_ID })
             </td>
-            <td>
+            <td  >
                 @Html.ActionLink("Delete", "Delete", new { id = item.Perizie_ID })
             </td>*@
 
         }
         else if (myScelta == "DA FARE")
         {
-            <td>
+            <td  >
                 @Html.ActionLink("Create", "Create", new {
                id = item.Perizie_ID,
                dataperizia = item.Perizie_DataPerizia,
@@ -64,14 +64,14 @@
 
            })
             </td>
-            <td>
+            <td  >
                 @Html.ActionLink("Foto", "Image", new { id = item.Perizie_ID }, new { @class = "photoImg" })
             </td>
         }
 
         else if (myScelta == "FATTE")
         {
-            <td>
+            <td  >
                 @Html.ActionLink("Modifica scheda", "Edit", new {
                id = item.Perizie_ID,
                dataperizia = item.Perizie_DataPerizia,
@@ -84,16 +84,16 @@
                blocked = "NO"
            })
             </td>
-            <td>
+            <td  >
                 @Html.ActionLink("Elimina scheda", "Delete", new { id = item.Perizie_ID })
             </td>
-            <td>
+            <td  >
                 @Html.ActionLink("Foto", "Image", new { id = item.Perizie_ID }, new { @class = "photoImg" })
             </td>
         }
         else if (myScelta == "FATTECHIUSE")
         {
-            <td>
+            <td  >
                 @Html.ActionLink("Visualizza scheda", "Edit", new {
                id = item.Perizie_ID,
                dataperizia = item.Perizie_DataPerizia,
@@ -106,7 +106,7 @@
                blocked = "SI"
            })
             </td>
-            <td>
+            <td  >
                 @Html.ActionLink("Foto", "Image", new { id = item.Perizie_ID }, new { @class = "photoImg" })
             </td>
         }
