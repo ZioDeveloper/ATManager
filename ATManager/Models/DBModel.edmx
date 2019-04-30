@@ -209,7 +209,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
           <Property Name="DataImmatricolazione" Type="datetime" />
           <Property Name="Km" Type="int" />
           <Property Name="IsCompleted" Type="bit" />
-          <Property Name="Expr1" Type="varchar" MaxLength="50" />
+          <Property Name="UltimoStatus" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -806,7 +806,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
     [AT_ListaPratiche_vw].[DataImmatricolazione] AS [DataImmatricolazione], 
     [AT_ListaPratiche_vw].[Km] AS [Km], 
     [AT_ListaPratiche_vw].[IsCompleted] AS [IsCompleted], 
-    [AT_ListaPratiche_vw].[Expr1] AS [Expr1]
+    [AT_ListaPratiche_vw].[UltimoStatus] AS [UltimoStatus]
     FROM [dbo].[AT_ListaPratiche_vw] AS [AT_ListaPratiche_vw]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Luoghi_vw" EntityType="Self.Luoghi_vw" store:Type="Views" store:Schema="dbo">
@@ -1471,7 +1471,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <Property Name="DataImmatricolazione" Type="DateTime" Precision="3" />
           <Property Name="Km" Type="Int32" />
           <Property Name="IsCompleted" Type="Boolean" />
-          <Property Name="Expr1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UltimoStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="CE110">
           <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
@@ -2199,7 +2199,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <EntitySetMapping Name="AT_ListaPratiche_vw">
             <EntityTypeMapping TypeName="AUTOSDUModel.AT_ListaPratiche_vw">
               <MappingFragment StoreEntitySet="AT_ListaPratiche_vw">
-                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="UltimoStatus" ColumnName="UltimoStatus" />
                 <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
                 <ScalarProperty Name="Km" ColumnName="Km" />
                 <ScalarProperty Name="DataImmatricolazione" ColumnName="DataImmatricolazione" />

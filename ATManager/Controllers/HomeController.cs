@@ -114,6 +114,8 @@ namespace ATManager.Controllers
 
         public ActionResult DoRefresh(string Opt1, string CercaTarga, string SearchLocation)
         {
+            
+
             if (Opt1 != null)
                 Session["Status"] = Opt1;
             else
@@ -131,6 +133,34 @@ namespace ATManager.Controllers
 
             if (CercaTarga != null && CercaTarga != "")
             {
+                Session["TipoRicerca"] = "MONO";
+                var IsInserted = (from s in db.AT_ListaPratiche_vw
+                        where s.Targa.ToString() == CercaTarga
+                        select s.Perizie_ID).Count();
+                if (IsInserted > 0)
+                {
+                    try
+                    {
+                        var IsClosed = (from s in db.AT_ListaPratiche_vw
+                                        where s.Targa.ToString() == CercaTarga
+                                        select s.IsCompleted).FirstOrDefault();
+                        if (IsClosed.Value == false)
+                            Session["Status"] = "FATTE";
+                        else
+                            Session["Status"] = "FATTECHIUSE";
+                    }
+                    catch
+                    {
+                        Session["Status"] = "DA FARE";
+                    }
+                    
+                   
+                }
+                else
+                {
+                    Session["Status"] = "DA FARE";
+                }
+
                 var model = new Models.HomeModel();
                 var telai = from s in db.AT_ListaPratiche_vw
                             where s.Targa.ToString() == CercaTarga
@@ -138,8 +168,10 @@ namespace ATManager.Controllers
                 model.AT_ListaPratiche_vw = telai.ToList();
                 return View("ElencoTelai", model);
             }
+
             else if (Opt1 == "TUTTE")
             {
+
                 var model = new Models.HomeModel();
                 var telai = from s in db.AT_ListaPratiche_vw
                             //where s.ID_LuogoIntervento == SearchLocation

@@ -48,6 +48,6 @@ namespace ATManager.Models
         public Nullable<System.DateTime> DataImmatricolazione { get; set; }
         public Nullable<int> Km { get; set; }
         public Nullable<bool> IsCompleted { get; set; }
-        public string Expr1 { get; set; }
+        public string UltimoStatus { get; set; }
     }
 }

@@ -139,6 +139,9 @@
     </table>
 
     <p></p>
+    <p>
+        @Html.ActionLink("Modifica dati scheda", "Index")
+    </p>
 
     <div class="form-group" style="background-color: burlywood">
         <div class="col-md-10">
@@ -214,11 +217,11 @@
             @Html.RadioButtonFor(model => model.CE112, "3")
             @if (!string.IsNullOrEmpty(Model.NoteCE112))
             {
-            <font size="1" color="red">RISCHIO INCENDIO</font>
+                <font size="1" color="red">RISCHIO INCENDIO</font>
             }
             else
             {
-            <font size="1">RISCHIO INCENDIO</font>
+                <font size="1">RISCHIO INCENDIO</font>
             }
 
             <details style="display:inline;">
@@ -302,13 +305,13 @@
             @Html.RadioButtonFor(model => model.CE842, "3")
             @if (!string.IsNullOrEmpty(Model.NoteCE842))
             {
-            <font size="1" color="red">VERIFICA DEI SISTEMI DI SICUREZZA DELLE PORTE</font>
+                <font size="1" color="red">VERIFICA DEI SISTEMI DI SICUREZZA DELLE PORTE</font>
             }
             else
             {
-            <font size="1">VERIFICA DEI SISTEMI DI SICUREZZA DELLE PORTE</font>
+                <font size="1">VERIFICA DEI SISTEMI DI SICUREZZA DELLE PORTE</font>
             }
-            
+
             <details style="display:inline;">
                 <summary content: "+"></summary>
                 Note: @Html.TextAreaFor(model => model.NoteCE842, new { style = "width: 170px; height:100px;" })
@@ -324,13 +327,13 @@
             @Html.RadioButtonFor(model => model.CE843, "3")
             @if (!string.IsNullOrEmpty(Model.NoteCE843))
             {
-            <font size="1" color="red">CONTROLLO FUNZ.APERTURA DI EMERGENZA PORTE</font>
+                <font size="1" color="red">CONTROLLO FUNZ.APERTURA DI EMERGENZA PORTE</font>
             }
             else
             {
-            <font size="1">CONTROLLO FUNZ.APERTURA DI EMERGENZA PORTE</font>
+                <font size="1">CONTROLLO FUNZ.APERTURA DI EMERGENZA PORTE</font>
             }
-            
+
             <details style="display:inline;">
                 <summary content: "+"></summary>
                 Note: @Html.TextAreaFor(model => model.NoteCE843, new { style = "width: 170px; height:100px;" })
@@ -346,11 +349,11 @@
             @Html.RadioButtonFor(model => model.CE816, "3")
             @if (!string.IsNullOrEmpty(Model.NoteCE816))
             {
-            <font size="1" color="red">DANNI ALLA CARROZZERIA</font>
+                <font size="1" color="red">DANNI ALLA CARROZZERIA</font>
             }
             else
             {
-            <font size="1">DANNI ALLA CARROZZERIA</font>
+                <font size="1">DANNI ALLA CARROZZERIA</font>
             }
 
             <details style="display:inline;">
@@ -368,13 +371,13 @@
             @Html.RadioButtonFor(model => model.CE265, "3")
             @if (!string.IsNullOrEmpty(Model.NoteCE265))
             {
-            <font size="1" color="red">PNEUMATICI</font>
+                <font size="1" color="red">PNEUMATICI</font>
             }
             else
             {
-            <font size="1">PNEUMATICI</font>
+                <font size="1">PNEUMATICI</font>
             }
-           
+
             <details style="display:inline;">
                 <summary content: "+"></summary>
                 Note: @Html.TextAreaFor(model => model.NoteCE265, new { style = "width: 170px; height:100px;" })
@@ -390,13 +393,13 @@
             @Html.RadioButtonFor(model => model.CE135, "3")
             @if (!string.IsNullOrEmpty(Model.NoteCE265))
             {
-            <font size="1" color="red">VERIFICA AVVIAMENTO CORRETTO</font>
+                <font size="1" color="red">VERIFICA AVVIAMENTO CORRETTO</font>
             }
             else
             {
-            <font size="1">VERIFICA AVVIAMENTO CORRETTO</font>
+                <font size="1">VERIFICA AVVIAMENTO CORRETTO</font>
             }
-           
+
             <details style="display:inline;">
                 <summary content: "+"></summary>
                 Note: @Html.TextAreaFor(model => model.NoteCE135, new { style = "width: 170px; height:100px;" })
@@ -412,11 +415,11 @@
             @Html.RadioButtonFor(model => model.CE160, "3")
             @if (!string.IsNullOrEmpty(Model.NoteCE160))
             {
-            <font size="1" color="red">ESAME VISIVO SFIATO MOTORE (FREDDO E CALDO)</font>
+                <font size="1" color="red">ESAME VISIVO SFIATO MOTORE (FREDDO E CALDO)</font>
             }
             else
             {
-            <font size="1">ESAME VISIVO SFIATO MOTORE (FREDDO E CALDO)</font>
+                <font size="1">ESAME VISIVO SFIATO MOTORE (FREDDO E CALDO)</font>
             }
 
             <details style="display:inline;">
@@ -434,11 +437,11 @@
             @Html.RadioButtonFor(model => model.CE145, "3")
             @if (!string.IsNullOrEmpty(Model.NoteCE145))
             {
-            <font size="1" color="red">GIOCO DELLE PULEGGE / STATO CINGHIE</font>
+                <font size="1" color="red">GIOCO DELLE PULEGGE / STATO CINGHIE</font>
             }
             else
             {
-            <font size="1">GIOCO DELLE PULEGGE / STATO CINGHIE</font>
+                <font size="1">GIOCO DELLE PULEGGE / STATO CINGHIE</font>
             }
 
             <details style="display:inline;">
@@ -456,11 +459,11 @@
             @Html.RadioButtonFor(model => model.CE150, "3")
             @if (!string.IsNullOrEmpty(Model.NoteCE150))
             {
-            <font size="1" color="red">RUMORI ANOMALI</font>
+                <font size="1" color="red">RUMORI ANOMALI</font>
             }
             else
             {
-            <font size="1">RUMORI ANOMALI</font>
+                <font size="1">RUMORI ANOMALI</font>
             }
 
             <details style="display:inline;">
@@ -478,13 +481,13 @@
             @Html.RadioButtonFor(model => model.CI820, "3")
             @if (!string.IsNullOrEmpty(Model.NoteCI820))
             {
-            <font size="1" color="red">STATO DEL PAVIMENTO CON ATTENZIONE AL POSTO GUIDA</font>
+                <font size="1" color="red">STATO DEL PAVIMENTO CON ATTENZIONE AL POSTO GUIDA</font>
             }
             else
             {
-            <font size="1">STATO DEL PAVIMENTO CON ATTENZIONE AL POSTO GUIDA</font>
+                <font size="1">STATO DEL PAVIMENTO CON ATTENZIONE AL POSTO GUIDA</font>
             }
-            
+
             <details style="display:inline;">
                 <summary content: "+"></summary>
                 Note: @Html.TextAreaFor(model => model.NoteCI820, new { style = "width: 170px; height:100px;" })
@@ -500,13 +503,13 @@
             @Html.RadioButtonFor(model => model.CI825, "3")
             @if (!string.IsNullOrEmpty(Model.NoteCI825))
             {
-            <font size="1" color="red">>STATO DEI VETRI (CONTROLLO INFILTRAZIONI IN VETRI DOPPI)</font>
+                <font size="1" color="red">>STATO DEI VETRI (CONTROLLO INFILTRAZIONI IN VETRI DOPPI)</font>
             }
             else
             {
-            <font size="1">>STATO DEI VETRI (CONTROLLO INFILTRAZIONI IN VETRI DOPPI)</font>
+                <font size="1">>STATO DEI VETRI (CONTROLLO INFILTRAZIONI IN VETRI DOPPI)</font>
             }
-            
+
             <details style="display:inline;">
                 <summary content: "+"></summary>
                 Note: @Html.TextAreaFor(model => model.NoteCI825, new { style = "width: 170px; height:100px;" })
@@ -522,11 +525,11 @@
             @Html.RadioButtonFor(model => model.CI835, "3")
             @if (!string.IsNullOrEmpty(Model.NoteCI835))
             {
-            <font size="1" color="red">STATO DELLA SELLERIA</font>
+                <font size="1" color="red">STATO DELLA SELLERIA</font>
             }
             else
             {
-            <font size="1">STATO DELLA SELLERIA</font>
+                <font size="1">STATO DELLA SELLERIA</font>
             }
 
             <details style="display:inline;">
@@ -544,11 +547,11 @@
             @Html.RadioButtonFor(model => model.CI837, "3")
             @if (!string.IsNullOrEmpty(Model.NoteCI837))
             {
-            <font size="1" color="red">STATO CINTURE DI SICUREZZA</font>
+                <font size="1" color="red">STATO CINTURE DI SICUREZZA</font>
             }
             else
             {
-            <font size="1">STATO CINTURE DI SICUREZZA</font>
+                <font size="1">STATO CINTURE DI SICUREZZA</font>
             }
 
             <details style="display:inline;">
@@ -566,11 +569,11 @@
             @Html.RadioButtonFor(model => model.CI1135, "3")
             @if (!string.IsNullOrEmpty(Model.NoteCI1135))
             {
-            <font size="1" color="red">ADESIVI VARI (Legge reg. + info e divieto)</font>
+                <font size="1" color="red">ADESIVI VARI (Legge reg. + info e divieto)</font>
             }
             else
             {
-            <font size="1">ADESIVI VARI (Legge reg. + info e divieto)</font>
+                <font size="1">ADESIVI VARI (Legge reg. + info e divieto)</font>
             }
 
 
