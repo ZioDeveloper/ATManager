@@ -18,103 +18,124 @@ namespace ATManager.Controllers
 
 
         private AUTOSDUEntities db = new AUTOSDUEntities();
-        //public ActionResult Index(string usr, string Opt1, string CercaTarga, string SearchLocation)
-        //{
-        //    bool isAuth = false;
-
-        //    if (usr != String.Empty)
-        //    {
-        //        string UserName = "";
-
-        //        string cookieName = FormsAuthentication.FormsCookieName; //Find cookie name
-        //        HttpCookie cookie = HttpContext.Request.Cookies[cookieName]; //Get the cookie by it's name
-        //        FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value); //Decrypt it
-        //        UserName = ticket.Name; //You have the UserName!
-
-
-        //        if (usr == UserName)
-        //        {
-        //            ViewBag.Messaggio = "BENE il cookie corrisponde!";
-        //            //ViewBag.Messaggio = personaggio;
-        //            isAuth = true;
-        //            using (AUTOSDUEntities val = new AUTOSDUEntities())
-        //            {
-        //                Session["Status"] = "";
-
-        //                var fromDatabaseEF = new SelectList(val.Luoghi_vw.ToList(), "ID", "DescrITA");
-        //                ViewData["Luoghi"] = fromDatabaseEF;
-
-
-        //            }
-
-        //            if (String.IsNullOrEmpty(CercaTarga))
-        //            {
-        //                return View();
-        //            }
-        //            else if (!String.IsNullOrEmpty(CercaTarga))
-        //            {
-        //                var model = new Models.HomeModel();
-        //                var telai = from s in db.AT_ListaPratiche_vw
-        //                            where s.Targa.ToString() == CercaTarga
-        //                            select s;
-        //                model.AT_ListaPratiche_vw = telai.ToList();
-        //                return View("ElencoTelai", model);
-        //            }
-        //            else
-        //            {
-        //                return View();
-        //            }
-        //        }
-        //        else
-        //        {
-        //            ViewBag.Messaggio = "il cookie contenente lo 'username' non corrisponde allo User della queryString!";
-        //            isAuth = false;
-        //            return View("IncorrectLogin");
-        //        }
-
-        //    }
-        //    return View();
-
-
-        //}
-
-        public ActionResult Index(string Opt1, string CercaTarga, string SearchLocation)
+        public ActionResult Index(string usr, string Opt1, string CercaTarga, string SearchLocation)
         {
 
-            using (AUTOSDUEntities val = new AUTOSDUEntities())
+            if (usr != null)
+                Session["User"] = usr;
+            if (usr == null)
+                usr = Session["User"].ToString();
+
+            bool isAuth = false;
+
+            if (usr != String.Empty)
             {
-                Session["Status"] = "";
+                string UserName = "";
 
-                var fromDatabaseEF = new SelectList(val.Luoghi_vw.ToList(), "ID", "DescrITA");
-                ViewData["Luoghi"] = fromDatabaseEF;
+                string cookieName = FormsAuthentication.FormsCookieName; //Find cookie name
+                HttpCookie cookie = HttpContext.Request.Cookies[cookieName]; //Get the cookie by it's name
+                FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value); //Decrypt it
+                UserName = ticket.Name; //You have the UserName!
 
 
-            }
+                if (usr == UserName)
+                {
+                    ViewBag.Messaggio = "BENE il cookie corrisponde!";
+                    //ViewBag.Messaggio = personaggio;
+                    isAuth = true;
+                    using (AUTOSDUEntities val = new AUTOSDUEntities())
+                    {
+                        Session["Status"] = "";
 
-            if (String.IsNullOrEmpty(CercaTarga))
-            {
-                return View();
-            }
-            else if (!String.IsNullOrEmpty(CercaTarga))
-            {
-                var model = new Models.HomeModel();
-                var telai = from s in db.AT_ListaPratiche_vw
-                            where s.Targa.ToString() == CercaTarga
-                            select s;
-                model.AT_ListaPratiche_vw = telai.ToList();
-                return View("ElencoTelai", model);
+                        var fromDatabaseEF = new SelectList(val.Luoghi_vw.ToList(), "ID", "DescrITA");
+                        ViewData["Luoghi"] = fromDatabaseEF;
+
+
+                    }
+
+                    if (String.IsNullOrEmpty(CercaTarga))
+                    {
+                        return View();
+                    }
+                    else if (!String.IsNullOrEmpty(CercaTarga))
+                    {
+                        var model = new Models.HomeModel();
+                        var telai = from s in db.AT_ListaPratiche_vw
+                                    where s.Targa.ToString() == CercaTarga
+                                    select s;
+                        model.AT_ListaPratiche_vw = telai.ToList();
+                        return View("ElencoTelai", model);
+                    }
+                    else
+                    {
+                        return View();
+                    }
+                }
+                else
+                {
+                    ViewBag.Messaggio = "il cookie contenente lo 'username' non corrisponde allo User della queryString!";
+                    isAuth = false;
+                    return View("IncorrectLogin");
+                }
+
             }
             else
             {
-                return View();
-            }
+                string UserName = "";
 
-            //return RedirectToAction("DoRefresh", "Home");
+                string cookieName = FormsAuthentication.FormsCookieName; //Find cookie name
+                HttpCookie cookie = HttpContext.Request.Cookies[cookieName]; //Get the cookie by it's name
+                FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value); //Decrypt it
+                UserName = ticket.Name; //You have the UserName!
+            }
+            return View();
+
+
         }
+
+        //public ActionResult Index(string Opt1, string CercaTarga, string SearchLocation)
+        //{
+
+        //    using (AUTOSDUEntities val = new AUTOSDUEntities())
+        //    {
+        //        Session["Status"] = "";
+
+        //        var fromDatabaseEF = new SelectList(val.Luoghi_vw.ToList(), "ID", "DescrITA");
+        //        ViewData["Luoghi"] = fromDatabaseEF;
+
+
+        //    }
+
+        //    if (String.IsNullOrEmpty(CercaTarga))
+        //    {
+        //        return View();
+        //    }
+        //    else if (!String.IsNullOrEmpty(CercaTarga))
+        //    {
+        //        var model = new Models.HomeModel();
+        //        var telai = from s in db.AT_ListaPratiche_vw
+        //                    where s.Targa.ToString() == CercaTarga
+        //                    select s;
+        //        model.AT_ListaPratiche_vw = telai.ToList();
+        //        return View("ElencoTelai", model);
+        //    }
+        //    else
+        //    {
+        //        return View();
+        //    }
+
+        //    //return RedirectToAction("DoRefresh", "Home");
+        //}
 
         public ActionResult DoRefresh(string Opt1, string CercaTarga, string SearchLocation)
         {
-            
+
+            //string UserName = "";
+
+            //string cookieName = FormsAuthentication.FormsCookieName; //Find cookie name
+            //HttpCookie cookie = HttpContext.Request.Cookies[cookieName]; //Get the cookie by it's name
+            //FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value); //Decrypt it
+            //UserName = ticket.Name; //You have the UserName!
 
             if (Opt1 != null)
                 Session["Status"] = Opt1;
@@ -237,7 +258,7 @@ namespace ATManager.Controllers
         {
             string myParams = "Username=" + User.Identity.Name + "&param=0&from=1";
 
-            return Redirect("http://192.168.20.1/Utente/UtentePanel?" + myParams);
+            return Redirect("https://webservices.interconsult.it/applogin/Utente/UtentePanel?" + myParams);
         }
 
 
@@ -245,7 +266,7 @@ namespace ATManager.Controllers
         {
             FormsAuthentication.SignOut();
 
-            return Redirect("http://192.168.20.1/Utente/Login");
+            return Redirect("https://webservices.interconsult.it/applogin/");
 
         }
 
@@ -260,6 +281,13 @@ namespace ATManager.Controllers
                                     string targa,string dataimmatricolazione,string km,
                                     string luogoperizia,string modello)
         {
+            string UserName = "";
+
+            string cookieName = FormsAuthentication.FormsCookieName; //Find cookie name
+            HttpCookie cookie = HttpContext.Request.Cookies[cookieName]; //Get the cookie by it's name
+            FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value); //Decrypt it
+            UserName = ticket.Name; //You have the UserName!
+
             ViewBag.IDPerizia = ID;
             ViewBag.dataperizia = dataperizia;
             ViewBag.marca = marca;
