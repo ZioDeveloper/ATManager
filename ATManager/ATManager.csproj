@@ -285,6 +285,7 @@
     <Content Include="Views\Home\FotoPerizia.cshtml" />
     <Content Include="Views\Home\FotoPratica.cshtml" />
     <Content Include="Views\Home\IncorrectLogin.cshtml" />
+    <Content Include="Views\Home\CreateNew.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
