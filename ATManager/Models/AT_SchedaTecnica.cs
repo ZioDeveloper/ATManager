@@ -16,15 +16,13 @@ namespace ATManager.Models
     public partial class AT_SchedaTecnica
     {
         public int ID { get; set; }
-        public int IDTipoScheda { get; set; }
-        public int IDStatoMezzo { get; set; }
         [Required]
+        public int IDTipoScheda { get; set; }
+        [Required]
+        public int IDStatoMezzo { get; set; }
         public Nullable<int> CE110 { get; set; }
-
         public Nullable<int> CE112 { get; set; }
-
         public Nullable<int> CE115 { get; set; }
-
         public Nullable<int> CE125 { get; set; }
         public Nullable<int> CE135 { get; set; }
         public Nullable<int> CE145 { get; set; }
@@ -111,6 +109,10 @@ namespace ATManager.Models
         public string NotePS410 { get; set; }
         public string NotePS512 { get; set; }
         public string NotePS610 { get; set; }
+        public string Note_generali { get; set; }
+        public string Note_danno { get; set; }
+        public string insertUser { get; set; }
+        public System.DateTime insertTime { get; set; }
     
         public virtual AT_StatiMezzo AT_StatiMezzo { get; set; }
         public virtual AT_TipiScheda AT_TipiScheda { get; set; }

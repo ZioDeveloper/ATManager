@@ -115,6 +115,10 @@
           <Property Name="NotePS410" Type="nvarchar(max)" />
           <Property Name="NotePS512" Type="nvarchar(max)" />
           <Property Name="NotePS610" Type="nvarchar(max)" />
+          <Property Name="Note_generali" Type="varchar(max)" />
+          <Property Name="Note_danno" Type="varchar" MaxLength="500" />
+          <Property Name="insertUser" Type="varchar" MaxLength="20" StoreGeneratedPattern="Computed" />
+          <Property Name="insertTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="AT_StatiMezzo">
           <Key>
@@ -171,8 +175,10 @@
         <!--Errors Found During Generation:
 warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AT_ListaPratiche_vw">
-          
           <Key>
+            
+            
+            <PropertyRef Name="CartaCircolazione" />
             <PropertyRef Name="Perizie_ID" />
           </Key>
           <Property Name="TipoPerizia_ID" Type="int" />
@@ -210,6 +216,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.AT_ListaPratiche_vw' does not have a p
           <Property Name="Km" Type="int" />
           <Property Name="IsCompleted" Type="bit" />
           <Property Name="UltimoStatus" Type="varchar" MaxLength="50" />
+          <Property Name="CartaCircolazione" Type="varchar" MaxLength="2" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -806,7 +813,8 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
     [AT_ListaPratiche_vw].[DataImmatricolazione] AS [DataImmatricolazione], 
     [AT_ListaPratiche_vw].[Km] AS [Km], 
     [AT_ListaPratiche_vw].[IsCompleted] AS [IsCompleted], 
-    [AT_ListaPratiche_vw].[UltimoStatus] AS [UltimoStatus]
+    [AT_ListaPratiche_vw].[UltimoStatus] AS [UltimoStatus], 
+    [AT_ListaPratiche_vw].[CartaCircolazione] AS [CartaCircolazione]
     FROM [dbo].[AT_ListaPratiche_vw] AS [AT_ListaPratiche_vw]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Luoghi_vw" EntityType="Self.Luoghi_vw" store:Type="Views" store:Schema="dbo">
@@ -1192,6 +1200,10 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <Property Name="NotePS410" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NotePS512" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NotePS610" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Note_generali" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Note_danno" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="insertUser" Type="String" MaxLength="20" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="insertTime" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="AT_StatiMezzo">
           <Key>
@@ -1436,6 +1448,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
         <EntityType Name="AT_ListaPratiche_vw">
           <Key>
             <PropertyRef Name="Perizie_ID" />
+            <PropertyRef Name="CartaCircolazione" />
           </Key>
           <Property Name="TipoPerizia_ID" Type="Int32" />
           <Property Name="TipoPerizia_Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1472,6 +1485,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <Property Name="Km" Type="Int32" />
           <Property Name="IsCompleted" Type="Boolean" />
           <Property Name="UltimoStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CartaCircolazione" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="CE110">
           <End Type="AUTOSDUModel.AT_IndiciValutazione" Role="AT_IndiciValutazione" Multiplicity="0..1" />
@@ -2085,6 +2099,10 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <EntitySetMapping Name="AT_SchedaTecnica">
             <EntityTypeMapping TypeName="AUTOSDUModel.AT_SchedaTecnica">
               <MappingFragment StoreEntitySet="AT_SchedaTecnica">
+                <ScalarProperty Name="insertTime" ColumnName="insertTime" />
+                <ScalarProperty Name="insertUser" ColumnName="insertUser" />
+                <ScalarProperty Name="Note_danno" ColumnName="Note_danno" />
+                <ScalarProperty Name="Note_generali" ColumnName="Note_generali" />
                 <ScalarProperty Name="NotePS610" ColumnName="NotePS610" />
                 <ScalarProperty Name="NotePS512" ColumnName="NotePS512" />
                 <ScalarProperty Name="NotePS410" ColumnName="NotePS410" />
@@ -2199,6 +2217,7 @@ warning 6002: The table/view 'AUTOSDU.dbo.Luoghi_vw' does not have a primary key
           <EntitySetMapping Name="AT_ListaPratiche_vw">
             <EntityTypeMapping TypeName="AUTOSDUModel.AT_ListaPratiche_vw">
               <MappingFragment StoreEntitySet="AT_ListaPratiche_vw">
+                <ScalarProperty Name="CartaCircolazione" ColumnName="CartaCircolazione" />
                 <ScalarProperty Name="UltimoStatus" ColumnName="UltimoStatus" />
                 <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
                 <ScalarProperty Name="Km" ColumnName="Km" />

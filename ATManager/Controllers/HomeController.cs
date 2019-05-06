@@ -304,10 +304,25 @@ namespace ATManager.Controllers
         public ActionResult Create([Bind(Include = "ID,IDPerizia,IDTipoScheda,IDStatoMezzo,IDPreventivoDanno,IsCompleted,CE110,CE112,CE115,CE840,CE841,CE842,CE843,CE816," +
                                                    "CE265,CE135,CE160,CE145,CE150,CI820,CI825,CI835,CI837,CI1135, " +
                                                    "NoteCE110,NoteCE112,NoteCE115,NoteCE840,NoteCE841,NoteCE842,NoteCE843,NoteCE816," +
-                                                   "NoteCE265,NoteCE135,NoteCE160,NoteCE145,NoteCE150,NoteCI820,NoteCI825,NoteCI835,NoteCI837,NoteCI1135")] AT_SchedaTecnica aT_SchedaTecnica)
+                                                   "NoteCE265,NoteCE135,NoteCE160,NoteCE145,NoteCE150,NoteCI820,NoteCI825,NoteCI835,NoteCI837,NoteCI1135," +
+                                                   "Note_danno, Note_generali")] AT_SchedaTecnica aT_SchedaTecnica,string txtTitle)
         {
+
+
+
             if (ModelState.IsValid)
             {
+                var sql = @" UPDATE SDU_PRATICHE SET Targa = @targa WHERE ID = @ID_pratica AND 0=1 ";
+                var myScheda = from s in db.AT_ListaPratiche_vw
+                               where s.Perizie_ID == aT_SchedaTecnica.ID
+                select s.PRAT_ID;
+                int IDPratica = myScheda.FirstOrDefault();
+
+                int noOfRowInserted = db.Database.ExecuteSqlCommand(sql,
+                    new SqlParameter("@ID_pratica", IDPratica),
+                    new SqlParameter("@targa", txtTitle));
+
+
                 db.AT_SchedaTecnica.Add(aT_SchedaTecnica);
                 db.SaveChanges();
                 return RedirectToAction("DoRefresh", "Home");

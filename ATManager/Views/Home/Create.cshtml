@@ -3,6 +3,16 @@
 @{
     ViewBag.Title = "Create";
 }
+
+<script type="text/javascript">
+    function show1() {
+        document.getElementById('divA').style.display = 'none';
+    }
+    function show2() {
+        document.getElementById('divA').style.display = 'block';
+    }
+</script>
+
 <style>
 
     .fontDimensione {
@@ -20,7 +30,8 @@
     }
 
     .azzurrino {
-        background-color: #C5EEFE;
+        background-color: #E8F9FF;
+        ;
     }
 
     .giallo {
@@ -62,9 +73,11 @@
     }
 </style>
 
+
 <h2>Create</h2>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="~/Scripts/JQuery/JavaScript.js"></script>
 @using (Html.BeginForm())
 {
@@ -92,13 +105,13 @@
 
     <table border="0">
         <tr>
-            <td>Foto perizia : </td>
+            <td>Foto veicolo : </td>
             <td>
-                @Html.ActionLink("Foto perizia", "FotoPerizia", new { id = ViewBag.IDPerizia }, new { @class = "photoImg" })
+                @Html.ActionLink("Foto veicolo ", "FotoPerizia", new { id = ViewBag.IDPerizia }, new { @class = "photoImg" })
             </td>
-            <td>Foto pratica : </td>
+            <td>Foto documenti : </td>
             <td>
-                @Html.ActionLink("Foto pratica", "FotoPratica", new { id = ViewBag.IDPerizia }, new { @class = "photoImg" })
+                @Html.ActionLink("Foto documenti ", "FotoPratica", new { id = ViewBag.IDPerizia }, new { @class = "photoImg" })
             </td>
             <td>Visualizza documenti :</td>
             <td>
@@ -119,7 +132,7 @@
                     </tr>
                     <tr>
                         <td class="azzurrino">Data Perizia</td>
-                        <td>&nbsp;</td>
+                        <td>@ViewBag.dataperizia</td>
                         <td class="azzurrino">Luogo perizia</td>
                         <td>&nbsp;</td>
                     </tr>
@@ -131,19 +144,20 @@
                     </tr>
                     <tr>
                         <td class="azzurrino">Targa</td>
-                        <td>&nbsp;</td>
+                        @*<td>@ViewBag.targa</td>*@
+                        <td>@Html.TextBox("txtTitle", (string)ViewBag.targa)</td>
                         <td class="azzurrino">Matricola</td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td class="azzurrino">Data imm.</td>
-                        <td>&nbsp;</td>
+                        <td>@ViewBag.dataimmatricolazione</td>
                         <td class="azzurrino">Telaio</td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td class="azzurrino">Km</td>
-                        <td>&nbsp;</td>
+                        <td>@ViewBag.km</td>
                         <td class="azzurrino">Azienda utilizzatrice</td>
                         <td>&nbsp;</td>
                     </tr>
@@ -175,7 +189,7 @@
                         </tr>
                     </table>
                 </details>
-               
+
                 <br />
                 <table border="1" style="vertical-align:top;border-collapse:collapse;" cellpadding="1" width="100%" align="center">
                     <tr>
@@ -608,63 +622,105 @@
 
                 </table>
                 <br />
-                <table border="1" style="vertical-align:top;border-collapse:collapse;" cellpadding="1" width="100%" align="center">
+                @*<table border="1" style="vertical-align:top;border-collapse:collapse;" cellpadding="1" width="100%" align="center">
 
-                    <tr>
-                        <td class="azzurro">&nbsp;</td>
-                        <td class="azzurro" style="text-align:center">STATUS MEZZO</td>
-                        <td class="azzurro">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="verde">1 - VEICOLO OK</td>
-                        <td class="giallo">2 - DA RICONTROLLARE IN &ldquo;FASE 2&rdquo; </td>
-                        <td class="rosso">3 - DA ROTTAMARE</td>
-                    </tr>
-                </table>
-                <br />
-                <table border="1" style="vertical-align:top;border-collapse:collapse;" cellpadding="1" width="100%" align="center">
-                    <tr>
-                        <td colspan="2">2 - DANNO PREVENTIVABILE CIRCA DI </td>
-                    </tr>
-                    <tr>
-                        <td class="giallo">&gt; 10K&euro;</td>
-                        <td class="giallo">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="giallo">5 a 10K&euro;</td>
-                        <td class="giallo">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="giallo">2 a 5K&euro;</td>
-                        <td class="giallo">&nbsp;</td>
-                    </tr>
-                </table>
-                <br />
-                <table border="1" style="vertical-align:top;border-collapse:collapse;" cellpadding="1" width="100%" align="center">
-                    <tr>
-                        <td style="width:50px" class="azzurro"><div class="testoVerticale">NOTE</div></td>
-                        <td>&nbsp;</td>
-                    </tr>
-                </table>
+                        <tr>
+                            <td class="azzurro">&nbsp;</td>
+                            <td class="azzurro" style="text-align:center">STATUS MEZZO</td>
+                            <td class="azzurro">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="verde">1 - VEICOLO OK</td>
+                            <td class="giallo">2 - DA RICONTROLLARE IN &ldquo;FASE 2&rdquo; </td>
+                            <td class="rosso">3 - DA ROTTAMARE</td>
+                        </tr>
+                    </table>*@
+                @*<br />
+                    <table border="1" style="vertical-align:top;border-collapse:collapse;" cellpadding="1" width="100%" align="center">
+                        <tr>
+                            <td colspan="2">2 - DANNO PREVENTIVABILE CIRCA DI </td>
+                        </tr>
+                        <tr>
+                            <td class="giallo">&gt; 10K&euro;</td>
+                            <td class="giallo">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="giallo">5 a 10K&euro;</td>
+                            <td class="giallo">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="giallo">2 a 5K&euro;</td>
+                            <td class="giallo">&nbsp;</td>
+                        </tr>
+                    </table>*@
+                @*<br />
+                    <table border="1" style="vertical-align:top;border-collapse:collapse;" cellpadding="1" width="100%" align="center">
+                        <tr>
+                            <td style="width:50px" class="azzurro"><div class="testoVerticale">NOTE</div></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>*@
 
 
             </td>
         </tr>
     </table>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.IDStatoMezzo, "Stato del mezzo", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("IDStatoMezzo", null, htmlAttributes: new { @class = "form-control" })
-        </div>
-    </div>
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.IDStatoMezzo, "Stato del mezzo", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IDStatoMezzo", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>*@
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.IDPreventivoDanno, "Preventivo Danno", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("IDPreventivoDanno", null, htmlAttributes: new { @class = "form-control" })
-        </div>
-    </div>
+
+    <table border="1" style="vertical-align:top;border-collapse:collapse;font-size:10px;" cellpadding="1" width="100%" align="center">
+
+        <tr>
+            <td colspan="3" style="text-align:center" class="azzurro"><b>STATUS MEZZO</b></td>
+        </tr>
+        <tr>
+            <td class="verde">@Html.RadioButtonFor(model => model.IDStatoMezzo, "1", new { onclick = "show1();" , @checked = "checked" }) 1 - VEICOLO OK</td>
+            <td class="giallo">@Html.RadioButtonFor(model => model.IDStatoMezzo, "2", new { onclick = "show2();" }) 2 - DA RICONTROLLARE IN &ldquo;FASE 2&rdquo;</td>
+            <td class="rosso">@Html.RadioButtonFor(model => model.IDStatoMezzo, "3", new { onclick = "show1();" }) 3 - DA ROTTAMARE </td>
+        </tr>
+
+
+
+        <tr>
+            <td colspan="3" width="100%">
+
+                <div id="divA" class="arancio" style="text-align:center;display:none;">
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IDPreventivoDanno, "2 - DANNO PREVENTIVABILE CIRCA DI", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("IDPreventivoDanno", null, htmlAttributes: new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <table border="1" style="vertical-align:top;border-collapse:collapse;" cellpadding="1" width="100%" align="center">
+                        <tr>
+                            <td style="width:50px" class="azzurro"><div class="testoVerticale">NOTE</div></td>
+                            <td>@Html.TextAreaFor(model => model.Note_danno, new { style = "width:370px; height:75px;" })</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </td>
+        </tr>
+
+
+
+    </table>
+
+    <table border="1" style="vertical-align:top;border-collapse:collapse;" cellpadding="1" width="100%" align="center">
+        <tr>
+            <td style="width:50px" class="azzurro"><div class="testoVerticale">NOTE GENERALI</div></td>
+            <td>@Html.TextAreaFor(model => model.Note_generali, new { style = "width:370px; height:75px;" })</td>
+        </tr>
+    </table>
+
+
 
 
 
@@ -676,4 +732,24 @@
             @Html.ValidationMessageFor(model => model.IsCompleted, "", new { @class = "text-danger" })
         </div>
     </div>
+
+
 }
+
+<table border="0">
+    <tr>
+        <td>Foto veicolo : </td>
+        <td>
+            @Html.ActionLink("Foto veicolo ", "FotoPerizia", new { id = ViewBag.IDPerizia }, new { @class = "photoImg" })
+        </td>
+        <td>Foto documenti : </td>
+        <td>
+            @Html.ActionLink("Foto documenti ", "FotoPratica", new { id = ViewBag.IDPerizia }, new { @class = "photoImg" })
+        </td>
+        <td>Visualizza documenti :</td>
+        <td>
+            @Html.ActionLink("Foto", "Images", new { ViewBag.IDPerizia }, new { @class = "uplImg" })
+        </td>
+    </tr>
+
+</table>

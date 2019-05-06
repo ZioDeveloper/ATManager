@@ -49,5 +49,6 @@ namespace ATManager.Models
         public Nullable<int> Km { get; set; }
         public Nullable<bool> IsCompleted { get; set; }
         public string UltimoStatus { get; set; }
+        public string CartaCircolazione { get; set; }
     }
 }
